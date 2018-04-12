@@ -1,0 +1,27 @@
+@charset "UTF-8";
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,blockquote{padding:0;margin:0;font:normal 14px NanumGothic;color:#777}
+ul,ol,dl{list-style:none}
+a:link, a:hover, a:visited, a:active{text-decoration:none; color:#777}
+button{border:0;background:#fff}
+*{margin:0px; padding:0px;}
+#head {width:500px; height:100px; margin:0 auto; border:1px solid black;}
+.container{width:90%; margin:0 auto;}
+a{text-decoration: none; transition: .3s;}
+ul.mainLnb {
+	width:2000px; margin:0 auto; border:1px solid black;
+}
+ul.mainLnb > li{float:left;}
+ul.mainLnb > li:hover > a {background:#489df2; color:#fff;}
+ul.mainLnb a {
+	background:#d9d9d9;
+	width:120px; height:30px; 
+	display:block; 
+	font-size:13px;
+	font-weight:bold;
+	line-height:30px;
+}
+ul.mainLnb > li > a {text-align:center;margin: 2px;}
+ul.mainLnb > li > ul{display:none;}
+ul.mainLnb > li:hover > ul {display:block;}
+ul.mainLnb > li > ul > li > a {margin-left:2px; padding-left:5px; box-sizing:border-box;}
+ul.mainLnb > li > ul > li > a:hover{background: #444; color:white;}

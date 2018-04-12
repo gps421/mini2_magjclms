@@ -1,0 +1,121 @@
+* {margin:0;padding:0;}
+body {
+    background:url('http://p1.pichost.me/i/64/1884200.jpg')no-repeat 0 0 #fff;
+    font-family: 'Lato', sans-serif;
+    font-size:1em;
+    line-height:1.2em;
+    min-width:500px;
+    overflow:visible;
+}
+h1,h2 {
+    text-align:center;
+    color:#E5E5E5;
+    text-shadow:1px 1px 1px #404040;
+}
+h1 {
+    font-size:2.2em;
+    line-height:2.4em;
+}
+h2 {
+    font-size:1.8em;
+    line-height:2em;
+}
+nav {
+    width:100%;
+    margin-top:5%;
+    border-bottom:2px solid #A61936;
+}
+ul {
+    list-style:none;
+    background:#E5E5E5;
+    margin:0 auto;
+    text-align:center;
+    z-index : 999;
+}
+li {
+    display:inline-block;
+    position:relative;
+    min-width:120px;
+    transition:all 400ms linear;
+    z-index : 999;
+}
+nav>ul>li:hover:after,nav>ul>li.visited:after {
+    display:block;
+    content:"";
+    width:0;
+    height:0;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #A61936;
+    margin-left: -10px;
+}
+li>a {
+    text-decoration:none;
+    display:block;
+    color:#404040;
+    text-transform:uppercase;
+    font-weight:700;
+    padding:20px 25px;
+}
+ul li:hover ul {
+    display:block;
+}
+ul ul {
+    display:none;
+    position:absolute;
+    top:59px;
+    left:0;
+}
+ul ul li:hover {
+   background:#A61936;
+}
+ul ul li:hover>a {color:#E5E5E5;}
+ul ul li:nth-child(1) {border-top:2px solid #A61936;}
+ul ul a {
+    text-transform:lowercase;
+    padding:15px;
+}
+ul ul ul {
+    position:absolute;
+    left:120px;
+    top:0;
+    display:none !important;
+}
+ul ul>li:hover ul {
+    display:block !important;
+}
+ul ul ul li {border-top:0 !important;}
+/*responsive*/
+@media screen and (max-width:500x) {li {min-width:100px;}}
+ .dim{position:fixed; top:0; left:0; width:100%; min-height:100%;background:#000; opacity:0.5;display:none}
+ #left_menu{position:fixed; top:0; left:-300px; width:280px; min-height:100%;background:#fff; box-shadow:3px 0 15px #333;}
+#left_menu ul.login{display:-webkit-box; border-bottom:1px solid #1a9f02;padding:7px}
+#left_menu ul.login li{width:42px;}
+#left_menu ul.login li:first-child{-webkit-box-flex:1; padding-left:10px;}
+#left_menu ul.login li a{display:-webkit-box; -webkit-box-align:center; -webkit-box-pack:start; color:#fff; font-size:18px}
+#left_menu ul.login li a.login{color:#fff; font-size:13px; text-align:center;}
+#left_menu ul.login li a span.login{display:inline-block;background:url(../images/maver/left_menu.png) no-repeat; width:40px; height:40px; font-size:0; vertical-align:middle; margin-right:5px; } 
+#wapper button.slide_left{background:url(../images/maver/icon_all.png) no-repeat -3px -72px; font-size:0;position:fixed; left:10px; bottom:20px; width:54px; height:54px; border:0;}
+#left_menu .menu{background:#efefef; overflow:hidden;}/* 첫번째 부모한테 overflow:hidden먹임 */
+
+#left_menu .menu li{float:left; width:25%}
+#left_menu .menu li a{border:1px solid #d7d7d7; border-width:0 0 1px 1px; text-align:center; font:bold 12px NaNumGothic; height:47px; padding-top:8px}
+#left_menu .menu li:first-child a{border-width: 0 0 1px 0}
+#left_menu .menu li a span{; display:block; width:24px; height:22px; margin:0 auto 2px}
+#left_menu .menu li:nth-child(5){width:55%}
+#left_menu .menu li:nth-child(6){width:45%}
+
+#left_menu .menu li:nth-child(5) a span,#left_menu .menu li:nth-child(6) a span{display:inline-block; vertical-align:middle; margin-right:5px}
+#left_menu .menu li:nth-child(5) a,#left_menu .menu li:nth-child(6) a{height:32px; border:1px solid #c6c6c6; border-width:0 0 1px 0 }
+
+
+#left_menu .menu_list{overflow:hidden;}
+#left_menu .menu_list li{float:left; width:25%}
+#left_menu .menu_list li a{font-size:12px;margin-bottom:20px; text-align:center}
+#left_menu .menu_list li a span{margin:0 12px;display:block; width:40px; height:40px; }
+
+#left_menu a.all_menu{text-align:center; margin:13px;border:1px solid #ddd; padding:10px;font:bold 17px NaNumGothic;}
+h2{text-align:right;margin:20px 18px 10px 0;font-size:13px}
