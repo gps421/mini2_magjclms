@@ -10,6 +10,14 @@ public class Assignment {
 	private Date deadline;
 	private Date regDate;
 	private int viewCnt;
+	private int professorNo;
+	
+	public int getProfessorNo() {
+		return professorNo;
+	}
+	public void setProfessorNo(int professorNo) {
+		this.professorNo = professorNo;
+	}
 	public int getAsgmtNo() {
 		return asgmtNo;
 	}
@@ -52,10 +60,6 @@ public class Assignment {
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
-	@Override
-	public String toString() {
-		return "Assignment [asgmtNo=" + asgmtNo + ", courseNo=" + courseNo + ", studentNo=" + studentNo + ", title="
-				+ title + ", deadline=" + deadline + ", regDate=" + regDate + ", viewCnt=" + viewCnt + "]";
-	}
+
 	
 }

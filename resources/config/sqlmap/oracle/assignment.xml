@@ -25,6 +25,12 @@
 		<result column="asgmt_grade" property="asgmtGrade" />
 	</resultMap>
 	
+	<select id="selectAssignmentList" resultMap="assignmentMap">
+		select asgmt_no, title, reg_date, deadline, view_cnt
+		from tb_assignment
+		order by asgmt_no
+	</select>
+	
 	
 	
 	

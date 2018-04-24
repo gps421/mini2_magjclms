@@ -11,6 +11,14 @@ public class AssignmentSubmit {
 	private String origName;
 	private Date submitDate;
 	private int asgmtGrade;
+	private Date deadline;
+	
+	public Date getDeadline() {
+		return deadline;
+	}
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
+	}
 	public int getAsgmtSubmitNo() {
 		return asgmtSubmitNo;
 	}
@@ -59,13 +67,5 @@ public class AssignmentSubmit {
 	public void setAsgmtGrade(int asgmtGrade) {
 		this.asgmtGrade = asgmtGrade;
 	}
-	@Override
-	public String toString() {
-		return "AssignmentSubmit [asgmtSubmitNo=" + asgmtSubmitNo + ", studentNo=" + studentNo + ", courseNo="
-				+ courseNo + ", filePath=" + filePath + ", sysName=" + sysName + ", origName=" + origName
-				+ ", submitDate=" + submitDate + ", asgmtGrade=" + asgmtGrade + "]";
-	}
-
-	
 	
 }
