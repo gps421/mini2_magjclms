@@ -2,8 +2,9 @@ package kr.co.magiclms.mapper;
 
 import java.util.List;
 
-import domain.Assignment;
-import domain.AssignmentSubmit;
+import kr.co.magiclms.domain.Assignment;
+import kr.co.magiclms.domain.AssignmentSubmit;
+
 
 public interface AssignmentMapper {
 	List<Assignment> selectAssignmentList(); // 과제 게시글 목록
