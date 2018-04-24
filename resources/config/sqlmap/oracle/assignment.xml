@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr\co\magiclms\mapper\AssignmentMapper">
+
+	<resultMap type="assignmentMap" id="assignment">
+		<result column="asgmt_no" property="asgmtNo" />
+		<result column="course_no" property="courseNo" />
+		<result column="student_no" property="studentNo" />
+		<result column="title" property="title" />
+		<result column="deadline" property="deadline" />
+		<result column="reg_date" property="regDate" />
+		<result column="view_cnt" property="viewCnt" />
+	</resultMap>
+
+
+	<resultMap type="assignmentSubmitMap" id="assignmentSubmit">
+		<result column="asgmt_submit_no" property="asgmtSubmitNo" />
+		<result column="course_no" property="courseNo" />
+		<result column="student_no" property="studentNo" />
+		<result column="file_pate" property="filePath" />
+		<result column="sys_name" property="sysName" />
+		<result column="orig_name" property="origName" />
+		<result column="submit_date" property="submitDate" />
+		<result column="asgmt_grade" property="asgmtGrade" />
+	</resultMap>
+	
+	
+	
+	
+</mapper>
