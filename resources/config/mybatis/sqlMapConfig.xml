@@ -7,8 +7,8 @@
 	<properties resource="config/mybatis/db.properties" />
 	
 	<typeAliases>
-		<typeAlias alias="assignment" type="kr\co\magiclms\domain\Assignment" />
-		<typeAlias alias="assignmentSubmit" type="kr\co\magiclms\domain\AssignmentSubmit" />
+		<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" />
+		<typeAlias alias="assignmentSubmit" type="kr.co.magiclms.domain.AssignmentSubmit" />
 	</typeAliases>
 	
 	<environments default="development">
