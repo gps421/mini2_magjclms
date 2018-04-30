@@ -7,38 +7,29 @@ body {
     min-width:500px;
     overflow:visible;
 }
-h1,h2 {
-    text-align:center;
-    color:#E5E5E5;
-    text-shadow:1px 1px 1px #404040;
+#banner {
+	width:100%;
+	height:80px;
 }
-h1 {
-    font-size:2.2em;
-    line-height:2.4em;
-}
-h2 {
-    font-size:1.8em;
-    line-height:2em;
-}
-nav {
+#psnav {
     width:100%;
     border-bottom:2px solid #A61936;
 }
-ul {
+#psmenu {
     list-style:none;
     background:#E5E5E5;
     margin:0 auto;
     text-align:center;
     z-index : 999;
 }
-li {
+#psmenu li {
     display:inline-block;
     position:relative;
     min-width:120px;
     transition:all 400ms linear;
     z-index : 999;
 }
-nav>ul>li:hover:after,nav>ul>li.visited:after {
+#psnav>ul>li:hover:after,nav>ul>li.visited:after {
     display:block;
     content:"";
     width:0;
@@ -51,7 +42,7 @@ nav>ul>li:hover:after,nav>ul>li.visited:after {
     border-bottom: 10px solid #A61936;
     margin-left: -10px;
 }
-li>a {
+#psmenu li>a {
     text-decoration:none;
     display:block;
     color:#404040;
@@ -59,34 +50,34 @@ li>a {
     font-weight:700;
     padding:20px 25px;
 }
-ul li:hover ul {
+ul #psmenu li:hover ul {
     display:block;
 }
-ul ul {
+#psmenu ul {
     display:none;
     position:absolute;
     top:59px;
     left:0;
 }
-ul ul li:hover {
+ul #psmenu ul li:hover {
    background:#A61936;
 }
-ul ul li:hover>a {color:#E5E5E5;}
-ul ul li:nth-child(1) {border-top:2px solid #A61936;}
-ul ul a {
+ul #psmenu ul li:hover>a {color:#E5E5E5;}
+ul #psmenu ul li:nth-child(1) {border-top:2px solid #A61936;}
+ul #psmenu ul a {
     text-transform:lowercase;
     padding:15px;
 }
-ul ul ul {
+ul #psmenu ul ul {
     position:absolute;
     left:120px;
     top:0;
     display:none !important;
 }
-ul ul>li:hover ul {
+ul #psmenu ul>li:hover ul {
     display:block !important;
 }
-ul ul ul li {border-top:0 !important;}
+ul #psmenu ul ul li {border-top:0 !important;}
 /*responsive*/
 @media screen and (max-width:500x) {li {min-width:100px;}}
  .dim{position:fixed; top:0; left:0; width:100%; min-height:100%;background:#000; opacity:0.5;display:none}

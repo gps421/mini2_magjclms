@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Drop down menu light</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-   <link rel="stylesheet" href="../css/downmenu.css">
    <link rel="stylesheet" href="../css/jssor.css">
    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
    <script src="../js/jssor.slider-27.1.0.min.js" type="text/javascript"></script>
