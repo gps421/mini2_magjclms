@@ -11,7 +11,7 @@
 <body>
  <div class="container" id="new">
 	<div class="header">
-	  <c:import url="/jsp/decorator/topMenu.jsp" />
+	  <c:import url="/jsp/decorator/topMenu.jsp" />hi
 	</div>	
 	<div class="content">
 	  <sitemesh:write property="body" />
