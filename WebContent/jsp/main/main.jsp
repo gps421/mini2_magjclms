@@ -5,15 +5,11 @@
   <meta charset="UTF-8">
   <title>Drop down menu light</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-   <link rel="stylesheet" href="../css/jssor.css">
-   <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
-   <script src="../js/jssor.slider-27.1.0.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-</script>
+   <link rel="stylesheet" href="../../css/jssor.css">
+   <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<script src="../js/index.js"></script>
+<script src="../../js/index.js"></script>
 <button type="button" class="slide_left">로그인하세요</button>
 <form name="mForm" action="login" method="post">
 		아이디 : <input type="text" name="userId" id="userId" />
