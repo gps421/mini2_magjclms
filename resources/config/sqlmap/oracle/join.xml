@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.magiclms.mapper.JoinMapper">
+	<resultMap id="joinMap" type="join">
+		<result column="member_id" property="memberId" />
+		<result column="user_name" property="userName" />
+		<result column="bitrh_date" property="birthDate" />
+		<result column="pw" property="pw" />
+		<result column="pw_hint" property="pwHint" />
+		<result column="email" property="email" />
+		<result column="phone_no" property="phoneNo" />
+		<result column="addr" property="addr" />
+		<result column="post_code" property="postCode" />
+		<result column="domitory" property="domitory" />
+		<result column="grade" property="grade" />
+		<result column="member_type" property="memberType" />
+	</resultMap>
+	<insert id="memberJoin" parameterType="join">
+		insert into tb_membertest(
+			member_id, 
+			user_name,
+			birth_date,
+			pw,
+			pw_hint,
+			email,
+			phone_no,
+			addr,
+			post_code,
+			domitory,
+			grade,
+			member_type			
+		) values (
+			#{memberId},
+			#{userName},
+			#{birthDate},
+			#{pw},
+			#{pwHint},
+			#{email},
+			#{phoneNo},
+			#{addr},
+			#{postCode},
+			#{domitory},
+			#{grade},
+			#{memberType}
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

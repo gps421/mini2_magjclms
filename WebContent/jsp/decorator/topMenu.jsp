@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<link rel="stylesheet" href="../../css/downmenu.css">
+
 <div class="row">
 <div id="banner">안녕</div>
   <nav id="psnav">

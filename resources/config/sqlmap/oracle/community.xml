@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.repository.mapper.BoardMapper">
+<mapper namespace="kr.co.magiclms.mapper.CommunityMapper">
+	<resultMap type="cmnt" id="cmntMap">
+		<result column="community_no" property="commentNo"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="view_cnt" property="viewCnt"/>
+		<result column="reg_date" property="regDate"/>
+		<result column="password"	property="password" />
+	</resultMap>
+	<select id="selectCmnt" resultMap="cmntMap">
+		select *
+		from tb_community_board 
+	</select>
+	
+	<select id="selectCmntByNo" parameterType="int" resultMap="cmntMap">
+		select *
+		from tb_community_board
+		where no = #{no}
+	</select>
+	
+	<insert id="insertCmnt" parameterType="cmnt">
+		insert into tb_community_board(
+			community_no, title, content, password
+		) values (
+			#{communityNo}, #{title}, #{content}, #{password}
+		)
+	</insert>
+	
+	<update id="updateCmnt" parameterType="cmnt">
+		update tb_community_board
+		set title = #{title},
+			content = ${content}
+		where no = #{no}
+	</update>
+	
+	<delete id="deleteCmnt" parameterType="int">
+		delete *
+		from tb_community_board
+		where no = #{no}
+	</delete>
+	
+	<update id="updateCmntViewCnt" parameterType="int">
+		update tb_community_board
+		set view_cnt = view_cnt + 1
+		where no = #{no}
+	</update>
 
 
 </mapper>
