@@ -55,7 +55,7 @@
 
 	$("#title").click(function () {
 		// mypage index.jsp로 이동
-		location.href="/mini2_magiclms/mypage/mypageIndex"
+		location.href="/mini2_magiclms/mypage/myPageIndex"
 	});
 	</script>
 </body>

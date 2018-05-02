@@ -10,9 +10,18 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/downmenu.css">
 
-<!-- mypage Index -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypageIndex.css">
-<script  src="${pageContext.request.contextPath}/js/mypageIndex.js"></script>
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPageIndex.css">
+ <script  src="${pageContext.request.contextPath}/js/myPageIndex.js"></script>
+
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/annList.css">
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,100,300,600,700'
+	rel='stylesheet' type='text/css'>
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <!-- 공지 등록 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/annForm.css">
