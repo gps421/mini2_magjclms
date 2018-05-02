@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Content</title>
-<link rel="stylesheet" href="<c:url value='/css/content.css'/>" >
-<script src="../../js/content.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Englebert' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css" >
+<script src="${pageContext.request.contextPath}/js/content.js"></script>
+<!-- <link href='https://fonts.googleapis.com/css?family=Englebert' rel='stylesheet' type='text/css'> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
 </head>
 <body>
 	<div class="header">

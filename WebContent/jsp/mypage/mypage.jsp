@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <title>My Page</title>
 </head>
 <body>
@@ -46,7 +46,7 @@
 
 	$(".myProfile").click(function() {
 		// myprofile.jsp로 이동?
-		location.href="myProfile.jsp"
+		location.href="/mini2_magiclms/mypage/myProfile"
 	});
 	
 // 	mycourse();
@@ -55,7 +55,7 @@
 
 	$("#title").click(function () {
 		// mypage index.jsp로 이동
-		location.href="index.jsp"
+		location.href="/mini2_magiclms/mypage/mypageIndex"
 	});
 	</script>
 </body>

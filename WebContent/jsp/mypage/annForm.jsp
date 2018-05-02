@@ -4,9 +4,8 @@
 
 <head>
   <meta charset="UTF-8">
+
   <title> 공지 등록 form </title>
-<%--   <link rel="stylesheet" href="<c:url value='/css/annForm.css'/>"> --%>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/annForm.css">
 </head>
 
 <body>
