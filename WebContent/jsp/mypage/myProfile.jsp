@@ -4,17 +4,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="../css/myProfile.css"> -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/myProfile.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <!-- profile card -->	
 <div class="card">
-  <img src="../../img/harryprofile.jpg" style="width:290px;">
-  <h1>${student.name}이름</h1> <!-- student table에서 이름 불러오기 -->
+  <img src="${pageContext.request.contextPath}/img/harryprofile.jpg" style="width:290px;">
+  <h1 id="profname">${student.name}이름</h1> <!-- student table에서 이름 불러오기 -->
   <p class="year">${student.year}학년</p>
   <p class="dormitory">${student.dormitory}그리핀도르</p>
   <p class="crest">
-  	<img src="../../img/gryffcrest.png" alt="crest"
+  	<img src="${pageContext.request.contextPath}/img/gryffcrest.png" alt="crest"
 		style="width: 90px; height: 90px;">
   </p>
    <p></p>
@@ -22,14 +34,15 @@
 
 <!-- profile -->
 	<div class="profile">
-		<div class="container">
-			<div class="row">
+		<div class="container" id="con">
+			<div class="row" id="rw">
 				<div class="col-md-10 ">
 					<form class="form-horizontal">
-						<fieldset id="">
+						<fieldset id="fs">
 
 							<!-- Form Name -->
-							<legend>My Profile</legend>
+							<legend id="lg1">My Profile</legend>
+							<button type="button" onclick="location.href='${pageContext.request.contextPath}/jsp/mypage/myProfileForm.jsp'">프로필 수정</button>
 
 							<!-- Text input-->
 
@@ -93,11 +106,11 @@
 							<div class="form-group"> </div>
 							
 							<!-- Form Name -->
-							<legend>Grade</legend>
+							<legend id="lg2">Grade</legend>
 							<div class="score">
 							<!-- 교수 입력 성적(db) -->
-							<button class="btn1">성적 확인</button>
-							<button class="btn2">성적 닫기</button>
+							<button type="button" class="btn1">성적 확인</button>
+							<button type="button" class="btn2">성적 닫기</button>
 							<p id="score">score for each class(from db_professor?)</p>
 							</div>
 						</fieldset>

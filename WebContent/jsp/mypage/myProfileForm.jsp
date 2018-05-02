@@ -3,17 +3,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/myProfileForm.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/myProfileForm.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <!-- profile card -->
 <div class="card">
-  <img src="../../img/harryprofile.jpg" style="width:290px;">
+  <img src="${pageContext.request.contextPath}/img/harryprofile.jpg" style="width:290px;">
   <h1>${student.name}이름</h1> <!-- student table에서 이름 불러오기 -->
   <p class="year">${student.year}학년</p>
   <p class="dormitory">${student.dormitory}그리핀도르</p>
   <p class="crest">
-  	<img src="../../img/gryffcrest.png" alt="crest"
+  	<img src="${pageContext.request.contextPath}/img/gryffcrest.png" alt="crest"
 		style="width: 90px; height: 90px;">
   </p>
    <p></p>
@@ -21,10 +35,10 @@
 
 <!-- profile -->
 	<div class="profile">
-		<div class="container1">
-			<div class="row">
+		<div class="container" id="con">
+			<div class="row" id="rw">
 				<div class="col-md-10 ">
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/mypage/myProfileUpdate">
 						<fieldset>
 
 							<!-- Form Name -->
@@ -117,11 +131,10 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label"></label>
 								<div class="col-md-4">
-									<a href="#" class="btn btn-success"><span
-										class="glyphicon glyphicon-thumbs-up"></span> Submit</a> <a
-										href="#" class="btn btn-danger" value=""><span
-										class="glyphicon glyphicon-remove-sign"></span> Clear</a>
-
+									<button class="btn btn-success"><span
+										class="glyphicon glyphicon-thumbs-up"></span> Submit</button> 
+<!-- 										<a href="#" class="btn btn-danger" value=""><span -->
+<!-- 										class="glyphicon glyphicon-remove-sign"></span> Clear</a> -->
 								</div>
 							</div>
 						</fieldset>

@@ -16,7 +16,7 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Assignment;
 import kr.co.magiclms.mapper.AssignmentMapper;
 
-@WebServlet("/mypage/assignment/asgmtList")
+@WebServlet("/mypage/asgmtList")
 public class ListAssignmentController extends HttpServlet {
 
 	@Override

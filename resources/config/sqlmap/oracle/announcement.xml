@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.repository.mapper.BoardMapper">
+<mapper namespace="kr.co.magiclms.mapper.AnnouncementMapper">
 
-
+	<resultMap type="announcement" id="announcementMap">
+		<result column="course_no" property="courseNo" />
+		<result column="ann_no" property="annNo" />
+		<result column="professor_no" property="professorNo" />
+		<result column="reg_date" property="regDate" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="view_cnt" property="viewCnt" />
+	</resultMap>
+	
+	<select id="selectAnnouncement" resultMap="announcementMap" parameterType="int">
+		select *
+		from tb_announcement a
+		inner join tb_professor p
+		on a.professor_no = p.professor_no
+		inner join tb_courselist c
+		on p.course_no = c.course_no
+		where a.professor_no = #{professorNo}
+		order by ann_no
+	</select>
+	
+	<select id="selectAnnouncementByAnnNo" parameterType="int" resultMap="announcementMap">
+<!-- 	select : join!!! -->
+		select *
+		from tb_announcement a
+		inner join tb_professor p
+		on a.professor_no = p.professor_no
+		inner join tb_courselist c
+		on p.course_no = c.course_no
+		where ann_no = #{annNo}
+	</select>
+	
+	<insert id="insertAnnouncement" parameterType="announcement">
+		insert into tb_announcement (
+		course_no, ann_no, professor_no, title, content
+		) values (
+		#{courseNo}, s_announcement_ann_no.nextval, #{professorNo}, #{title}, #{content}
+		)
+	</insert>
+	
+	<update id="updateAnnouncement" parameterType="announcement">
+		update tb_announcement
+		set title = #{title},
+			content = #{content}
+		where ann_no = #{annNo}
+	</update>
+	
+	<update id="updateAnnouncementViewCnt" parameterType="int">
+		update tb_announcement
+			set view_cnt = view_cnt + 1
+		where ann_no = #{annNo}
+	</update>
+	
+	<delete id="deleteAnnouncement" parameterType="int">
+		delete from tb_announcement
+		where ann_no = #{annNo}
+	</delete>
 </mapper>
 
 

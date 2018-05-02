@@ -6,10 +6,8 @@
 <meta charset="UTF-8">
 <title>My Page</title>
 
-<link rel='stylesheet prefetch'
-	href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-<link rel='stylesheet prefetch'
-	href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700'>
 <link rel="stylesheet" href="../../css/mypageindex.css">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -58,7 +56,7 @@
 	<!-- end of "<div class="tab-wrap">" -->
 
 	<script>
-$("#tab1-content").click(function () {
+$("#tab3-content").click(function () {
 	$.ajax({
 //			type:"GET",
 		url: "../asgmtList.jsp", // controller 경로 
@@ -68,8 +66,8 @@ $("#tab1-content").click(function () {
 		}
 	});
 });
-$("#tab3-content").click(function () {
-	alert("tab3")
+$("#tab1-content").click(function () {
+	alert("tab1")
 	tab3();
 });
 
@@ -78,8 +76,8 @@ function tab3() {
 	//click 하지 않더라도 마이페이지 접속한 순간 보이는 첫 화면 
 	$.ajax({
 	//	type:"GET",
-	url: "http://localhost:8000/mini2_magiclms/mypage/assignment/asgmtList", // controller 경로 
-		dataType: "json",
+	url: "/mini2_magiclms/mypage/asgmtList", // controller 경로 
+	dataType: "json",
 	success: function (data) { 
 		var html = "";
 		html += "<h2>과제 목록</h2>"
@@ -89,12 +87,12 @@ function tab3() {
 		html += "<table class='table'>"
 		html += "	<tr>"
 		html += "		<th>과제번호</th>"
-		html += "			<th>과제이름</th>"
+		html += "		<th>과제이름</th>"
 		html += "		<th>과제작성자(교수)</th>"
 		html += "		<th>과제등록일</th>"
 		html += "		<th>  </th>"
 		html += "		<th>과제마감기한</th>"
-		html += "			<th>  </th>"
+		html += "		<th>  </th>"
 		html += "		<th>과제조회수</th>"
 		html += "	</tr>";
 		for(var i=0; i<data.length; i++) {
@@ -109,7 +107,6 @@ function tab3() {
 			html+= "		<td>  </td>";
 			html+= "		<td>"+asgmt.viewCnt+"</td>";
 			html+= "	</tr>";
-			
 		}
 		if(data.length==0) {
 			html+= "	<tr>";

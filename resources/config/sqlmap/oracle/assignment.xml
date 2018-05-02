@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.magiclms.mapper.AssignmentMapper">
 
-	<resultMap type="assignmentMap" id="assignment">
+	<resultMap id="assignmentMap" type="assignment">
 		<result column="asgmt_no" property="asgmtNo" />
 		<result column="course_no" property="courseNo" />
 		<result column="student_no" property="studentNo" />
@@ -11,10 +11,11 @@
 		<result column="deadline" property="deadline" />
 		<result column="reg_date" property="regDate" />
 		<result column="view_cnt" property="viewCnt" />
+		<result column="professor_no" property="professorNo" />
 	</resultMap>
 
 
-	<resultMap type="assignmentSubmitMap" id="assignmentSubmit">
+	<resultMap id="assignmentSubmitMap" type="assignmentSubmit">
 		<result column="asgmt_submit_no" property="asgmtSubmitNo" />
 		<result column="course_no" property="courseNo" />
 		<result column="student_no" property="studentNo" />
@@ -23,6 +24,7 @@
 		<result column="orig_name" property="origName" />
 		<result column="submit_date" property="submitDate" />
 		<result column="asgmt_grade" property="asgmtGrade" />
+		<result column="deadline" property="deadline" />
 	</resultMap>
 	
 	<select id="selectAssignmentList" resultMap="assignmentMap">

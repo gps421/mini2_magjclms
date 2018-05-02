@@ -1,9 +1,27 @@
 @charset "UTF-8";
-
-#fieldset {
-	width: 70%;
+#fs, #con, #rw, #lg1, #lg2 {
+	width: 1000px;
+	height: 50px;
 }
 
+/* font size : start */
+.input-group, .col-md-4, .col-md-2 {
+    font-size: 20px;
+	
+}
+.btn1, .btn2, #score,#lg1, #lg2 {
+    font-size: 20px;
+	
+}
+#profname {
+    font-size: 35px;
+}
+
+.year, .dormitory {
+    color: grey;
+    font-size: 18px;
+}
+/* font size : end */
 .card {
 	border: 5px solid grey;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -13,15 +31,12 @@
     background-color: white;
 }
 
-.year, .dormitory {
-    color: grey;
-    font-size: 18px;
-}
 
 .profile {
 	position:relative;
 	top: 50px;
-	width: 400px;
+	width: 1200px;
+	height: 650px;
 	float: left;
 	overflow: hidden;
 }
