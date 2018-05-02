@@ -1,0 +1,170 @@
+<!-- 
+    float : 
+    - 특정 요소를 떠 있게 하는 것, absolute 와 같이 사용 안됨
+       떠 있기 위해서 다른 요소를 왼쪽 또는 오른쪽으로 이동시킨다.
+ -->
+ 		<!--padding-top: 1px;
+		padding-right: 2px;
+		padding-bottom: 2px; -->
+ 
+<html>
+<head>
+<title> float 변경 </title>
+<meta charset="utf-8" />
+<style type="text/css">
+	.container {
+		width: 740px; 
+		margin: 0 auto;
+		background: rgb(237, 228, 177);
+	}
+	.titleheader {
+		width: 740px;
+		height: 55px;
+		border: 1px  tomato;
+		margin: 0 auto;
+		font-size: 1em;
+		background: rgb(232, 134, 48); 
+
+	}
+	
+	.divheader {
+		width: 720px;
+		min-height: 500px;
+		margin: 1px;
+		float: right;
+	}
+	.header2 {
+		width: 355px;
+		height: 300px;
+		border: 5px solid blue;
+		margin: 5px;
+		float: right;
+	}
+	
+	.content {
+		width: 600px;
+		min-height: 500px;
+		border: 5px solid tomato;
+		
+		margin-left: 15px;
+		float: left;
+	}
+	
+	.side {
+		width: 100px;
+		min-height: 200px;
+		border: 5px solid tomato;
+		margin: 5px;
+		float: left;
+	}
+	.footer {
+		width: 730px;
+		border: 1px solid tomato;
+		margin: 5px;
+	}
+	.footer { clear: both; }
+	
+	table.header {
+		width: 80%; 
+		margin: 0 auto;
+	}
+	table.header  th {
+		height: 40px;
+		background: #B3D4F5;
+		color: #444B52;
+		letter-spacing: 2px;
+		border: 1px solid blue;
+	}
+	
+	table.header  td {
+		padding-left: 2px;
+		height: 60px;
+		text-align: center;
+	}
+	
+</style>
+<body>
+
+    
+    <div  class="titleheader"><p class="title"><h1>장바구니</h1></p></div> 
+    <div class="container">
+		<div class="divheader">
+			<h3>1-1 주문상품정보</h3>
+			<table class="header">
+				<tr><td height=20></td></tr>
+				<tr>
+					<th>상품</th>
+					<th>수량</th>
+					<th>가격</th>
+					<th>배송정보</th>
+				</tr>
+				<tr>
+					<td>  연필</td>
+					<td>  1개</td>
+					<td>1,000원</td>
+					<td>무료배송</td>
+				</tr>
+				<tr>
+					<td>샤프</td>
+					<td>1개</td>
+					<td>1,000원</td>
+					<td>무료배송</td>
+				</tr>
+				<tr>
+					<td>볼펜</td>
+					<td>5개</td>
+					<td>5,000원</td>
+					<td>무료배송</td>
+				</tr>
+			</table>
+		</div>
+		<div class="header2">
+			<h3>1-2 결제예정 정보</h3>
+			<table>
+				<tr><td height=20></td></tr>
+				<tr>
+					<td>상품가격 :</td>
+					<td>20,000원</td>
+				</tr>
+				<tr>
+					<td>할인가격 :</td>
+					<td>10,000원</td>
+				</tr>
+				<tr>
+					<td>배송비  :</td>
+					<td>2,000원</td>
+				</tr>
+				<tr><td height=20></td></tr>
+
+				<tr>
+					<td style="font-size:1.5em;">결제 예정액</td>
+					<td style="font-size:1.5em;">12,000원</td>
+				</tr>
+				<tr><td height=20></td></tr>
+				<tr><td style="width=50%; height=10px;"></td></tr>
+				<tr>
+					<td colspan="2" >
+						<form name="buy1" method="post" action=" ">
+							<!-- <input type="text" name="id" /><br /> --> 
+							<input type="button" value="주문결제" style="background:rgb(35, 227, 237); font-size:2.5em; color:rgb(11, 1, 71); margin: 0 auto; width=100%;"/>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="footer"></div>
+		
+		
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

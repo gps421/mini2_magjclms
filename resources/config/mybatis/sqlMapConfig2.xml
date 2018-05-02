@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<properties resource="config/mybatis/db.properties" />
+	
+	<typeAliases>
+		<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" />
+		<typeAlias alias="assignmentSubmit" type="kr.co.magiclms.domain.AssignmentSubmit" />
+		<typeAlias alias="goods" type="kr.co.magiclms.domain.Goods" />
+		<typeAlias alias="cart" type="kr.co.magiclms.domain.Cart" />
+		<typeAlias alias="cartItem" type="kr.co.magiclms.domain.CartItem" />
+		<typeAlias alias="order" type="kr.co.magiclms.domain.Order" />
+		<typeAlias alias="orderItem" type="kr.co.magiclms.domain.OrderItem" />
+		<typeAlias alias="review" type="kr.co.magiclms.domain.Review" />
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 
+		개별적으로 작성한 mapper.xml(SQL)의 위치를 알려준다.
+	 -->
+	<mappers>
+		<mapper resource="config/sqlmap/oracle/assignment.xml"/>
+		<mapper resource="config/sqlmap/oracle/goods.xml"/>
+		<mapper resource="config/sqlmap/oracle/cart.xml"/>
+		<mapper resource="config/sqlmap/oracle/cartitem.xml"/>
+		<mapper resource="config/sqlmap/oracle/order.xml"/>
+		<mapper resource="config/sqlmap/oracle/orderitem.xml"/>
+		<mapper resource="config/sqlmap/oracle/shopreview.xml"/>
+	</mappers>
+</configuration>
+
+
+
+
+
+
+
+
+

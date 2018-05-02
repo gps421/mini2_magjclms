@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.magiclms.mapper.GoodsMapper">
+
+	<resultMap id="GoodsMap" type="goods">
+		<result column="goods_no" property="goodsNo" />
+		<result column="name" property="name" />
+		<result column="price" property="price" />
+		<result column="code" property="code" />
+		<result column="description" property="description" />
+		<result column="category" property="category" />
+		<result column="sale_price" property="salePrice" />
+		<result column="save" property="save" />
+		<result column="goods_pic_path" property="goodsPicPath" />
+		<result column="shipping_cost" property="shippingCost" />
+	</resultMap>
+		
+	<select id="selectGoods" resultMap="GoodsMap">
+		select * 
+		from tb_goods
+		order by goods_no desc
+	</select>
+
+	<select id="selectGoodsByCategoryS" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_category = 'snack'
+		order by goods_no 
+	</select>
+
+	<select id="selectGoodsByCategoryT" resultMap="GoodsMap">
+		select * 
+		from tb_goods
+		where goods_category = 'toy'
+		order by goods_no 
+	</select>
+
+	<select id="selectGoodsDetail" parameterType="string" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_name = #{name}
+	</select>
+
+	<select id="selectHealthSup" resultMap="GoodsMap">
+		select goods_no, goods_name, goods_price
+		from tb_goods
+		where goods_category = '건강보조식품'
+		order by goods_no 
+	</select>
+
+	<select id="selectSuperFood" resultMap="GoodsMap">
+		select goods_no, goods_name, goods_price
+		from tb_goods
+		where goods_category = '슈퍼푸드'
+		order by goods_no 
+	</select>
+
+	<select id="selectPetSup" resultMap="GoodsMap">
+		select goods_no, goods_name, goods_price
+		from tb_goods
+		where goods_category = '반려동물영양제'
+		order by goods_no 
+	</select>
+
+	<select id="searchDetailGoods" parameterType="string" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_name = #{goodsName}
+	</select>
+
+	<!-- <select id = "toDetailGoods" parameterType="int"> -->
+	<!-- select * -->
+	<!-- from tb_goods -->
+	<!-- where goods_category = '건강보조식품' -->
+	<!-- and goods_no = #{goodsNo} -->
+	<!-- </select> -->
+
+	<select id="toDetailGoods" parameterType="int">
+		select *
+		from tb_goods
+		where goods_category = '건강보조식품'
+		and goods_no = #{goodsNo}
+	</select>
+	<!-- <select id = "getDetailGoods" parameterType="int" resultType="Goods"> -->
+	<!-- select * -->
+	<!-- from tb_goods -->
+	<!-- where goods_no = #{goodsNo} -->
+	<!-- and goods_category = '건강보조식품' -->
+	<!-- </select> -->
+
+
+	<select id="getDetailGoods1" parameterType="int" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_no = #{goodsNo}
+		and goods_category = '건강보조식품'
+	</select>
+
+	<select id="getDetailGoods2" parameterType="int" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_no = #{goodsNo}
+		and goods_category = '슈퍼푸드'
+	</select>
+
+	<select id="getDetailGoods3" parameterType="int" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_no = #{goodsNo}
+		and goods_category = '반려동물영양제'
+	</select>
+
+	<select id="searchGoods" parameterType="string" resultMap="GoodsMap">
+		select *
+		from tb_goods
+		where goods_name like '%'||#{goodsName}||'%'
+	</select>
+
+</mapper>

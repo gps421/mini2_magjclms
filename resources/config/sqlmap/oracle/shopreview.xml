@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.repository.mapper.BoardMapper">
+<mapper namespace="kr.co.magiclms.mapper.ShopReviewMapper">
 
+	<resultMap id="ReviewMap" type="review">
+		<result column="review_no" property="reviewNo" />
+		<result column="user_id" property="userId" />
+		<result column="goods_code" property="goodsCode" />
+		<result column="review_point" property="reviewPoint" />
+		<result column="review_content" property="reviewContent" />
+	</resultMap>
 
+	<select id="detailGoodsReview" parameterType="int" resultMap="ReviewMap">
+		select *
+		from tb_review
+		where goods_code = #{goodsCode}
+	</select>
+
+	<insert id="insertReview" parameterType="user">
+		insert into tb_review(review_no, goods_code, user_id, review_point,
+		review_content)
+		values(s_review_no.nextval, #{goodsCode}, #{userId}, #{reviewPoint}, #{reviewContent})
+	</insert>
 </mapper>
-
 
 
 

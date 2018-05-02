@@ -7,8 +7,8 @@
 	<properties resource="config/mybatis/db.properties" />
 	
 	<typeAliases>
-		<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" />
-		<typeAlias alias="assignmentSubmit" type="kr.co.magiclms.domain.AssignmentSubmit" />
+<!-- 		<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" /> -->
+		<typeAlias alias="goods" type="kr.co.magiclms.domain.Goods" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -27,7 +27,8 @@
 		개별적으로 작성한 mapper.xml(SQL)의 위치를 알려준다.
 	 -->
 	<mappers>
-		<mapper resource="config/sqlmap/oracle/assignment.xml"/>
+<!-- 		<mapper resource="config/sqlmap/oracle/assignment.xml"/> -->
+		<mapper resource="config/sqlmap/oracle/goods.xml"/>
 	</mappers>
 </configuration>
 

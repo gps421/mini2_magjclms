@@ -1,29 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.repository.mapper.BoardMapper">
+<mapper namespace="kr.co.magiclms.mapper.GoodsMapper">
+
+	<resultMap id="goodsMap" type="goods">
+		<result column="goods_no" property="goodsNo" />
+		<result column="name" property="name" />
+		<result column="price" property="price" />
+		<result column="code" property="code" />
+		<result column="description" property="description" />
+		<result column="category" property="category" />
+		<result column="sale_price" property="salePrice" />
+		<result column="save" property="save" />
+		<result column="goods_pic_path" property="goodsPicPath" />
+		<result column="shipping_cost" property="shippingCost" />
+	</resultMap>
+		
+	<select id="selectGoods" resultMap="goodsMap">
+		select * 
+		from tb_goods
+		order by goods_no desc
+	</select>
+
+	<select id="selectGoodsByCategory" parameterType="string" resultMap="goodsMap">
+		select *
+		from tb_goods
+		where category = #{name}
+		order by goods_no 
+	</select>
+
+	<select id="selectGoodsByCategoryS" resultMap="goodsMap">
+		select *
+		from tb_goods
+		where category = 'snack'
+		order by goods_no 
+	</select>
+
+	<select id="selectGoodsByCategoryT" resultMap="goodsMap">
+		select * 
+		from tb_goods
+		where category = 'toy'
+		order by goods_no 
+	</select>
+
+	<select id="selectGoodsDetailByName" parameterType="string" resultMap="goodsMap">
+		select *
+		from tb_goods
+		where name = #{name}
+	</select>
+
+	<select id="selectGoodsDetailByNo" parameterType="int" resultMap="goodsMap">
+		select *
+		from tb_goods
+		where goods_no = #{goodsNo}
+	</select>
 
 
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

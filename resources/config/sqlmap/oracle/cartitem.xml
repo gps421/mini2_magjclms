@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.magiclms.mapper.CartItemMapper">
+
+	<resultMap type="cart" id="cartMap">
+		<result column="cart_no" property="cartNo" />
+		<result column="member_id" property="memberId" />
+		<result column="cart_date" property="cartDate" />
+		<result column="goods_name" property="goodsName" />
+		<result column="goods_count" property="goodsCount" />
+		<result column="goods_sum" property="goodsSum" />
+	</resultMap>
+	
+	
+	<select id="getSnoCart" parameterType="int" resultMap="cartMap">
+	select *
+	  from tb_cart
+	 where cart_no = #{cartNo}
+	</select>
+	
+	
+	
+	
+
+	<select id="selectCart" parameterType="cart" resultMap="cartMap">
+		select *
+		from tb_cart
+		where member_id = #{memberId}
+		order by cart_no
+	</select>
+
+	<select id="selectCartByNo" parameterType="int" resultMap="cartMap">
+		select *
+		from tb_cart
+		where cart_no = #{cartNo}
+	</select>
+
+	<insert id="insertCart" parameterType="cart">
+		insert into tb_cart (
+		cart_no,
+		member_id,
+		goods_code,
+		goods_name,
+		goods_count,
+		goods_sum
+		) values (
+		s_cart_no.nextval ,
+		#{userId},
+		#{goodsCode},
+		#{goodsName},
+		#{goodsCount},
+		#{goodsSum}
+		)
+	</insert>
+
+	<update id="updateCart" parameterType="cart">
+		update tb_cart
+		set goods_count = #{goodsCount},
+		    goods_sum = #{goodsSum}
+		where cart_no = #{cartNo}
+	</update>
+
+	<delete id="deleteCartByNo" parameterType="int">
+		delete
+		from tb_cart
+		where cart_no = #{cartNo}
+	</delete>
+
+	<delete id="deleteCartByCode" parameterType="int">
+		delete
+		from tb_cart
+		where goods_code = #{goodsCode}
+	</delete>
+
+	<delete id="deleteCart">
+		delete
+		from tb_cart
+	</delete>
+	
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
