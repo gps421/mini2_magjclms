@@ -22,10 +22,6 @@
 			#{courseNo}, s_content_no.nextval, #{professorNo}, #{title}, #{ref}, #{filePath}, #{sysName}, #{origName}
 		)
 	</insert>
-	
-	<select id="selectContent">
-		select 
-	</select>
 </mapper>
 
 
