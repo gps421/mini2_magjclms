@@ -15,13 +15,18 @@
 		<result column="orig_name" property="origName" />
 	</resultMap>
 	
-	<insert id="insertContentFile" parameterType="content">
-		insert into tb_content (
-			course_no, content_no, professor_no, title, ref, file_path, sys_name, orig_name		
-		) values (
-			#{courseNo}, s_content_no.nextval, #{professorNo}, #{title}, #{ref}, #{filePath}, #{sysName}, #{origName}
-		)
-	</insert>
+<!-- 	<insert id="insertContentFile" parameterType="content"> -->
+<!-- 		insert into tb_content ( -->
+<!-- 			course_no, content_no, professor_no, title, ref, file_path, sys_name, orig_name		 -->
+<!-- 		) values ( -->
+<!-- 			#{courseNo}, s_content_no.nextval, #{professorNo}, #{title}, #{ref}, #{filePath}, #{sysName}, #{origName} -->
+<!-- 		) -->
+<!-- 	</insert> -->
+
+	<select id="selectContent" resultMap="contentMap">
+		select * from tb_content
+		where course_no = #{courseNo};
+	</select>
 </mapper>
 
 

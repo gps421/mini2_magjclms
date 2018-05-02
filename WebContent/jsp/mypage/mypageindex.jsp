@@ -11,14 +11,10 @@
 
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/annList.css">
-<link 
-	href='https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,100,300,600,700' -->
-<!-- 	rel='stylesheet' type='text/css'> -->
-<!-- <link -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" -->
-<!-- 	rel="stylesheet"> -->
-<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> --> --%>
-  <title>mypage index</title>
+<link href='https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,100,300,600,700' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<title>mypage index</title>
 </head>
 <body>
 
@@ -58,15 +54,12 @@
 		</div>
 		
 		<script>
-		// 댓글 목록 만드는 공통 함수
 		function makeAnnList(result) {
-			//console.dir(result);
 			var html = "";
 			html += '<div class="announcement message">';
 			
 			for(var i = 0; i<result.length; i++) {
 				html += '<div class="message"><a href="annDetail?annNo=' + result[i].annNo + '">' + result[i].title + '</a></div>';
-				
 			}
 				
 			if (result.length == 0) {
@@ -86,10 +79,22 @@
 				success: makeAnnList
 			});
 		}
-		
-		// 상세 페이지 로딩시 
 		annList();	
 		
+			
+		$("#tab2").click(function contentList() {
+// 			alert("content")
+			$.ajax({
+				url: "<c:url value='/mypage/contentListAjax'/>",
+				success: makeContentList
+			});
+		});
+		
+		function makeContentList(result) {
+			var html="";
+			html+="<h2>content</h2>"
+			
+		}
 		
 		</script>
 		
