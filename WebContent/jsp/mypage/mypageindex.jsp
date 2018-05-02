@@ -25,9 +25,7 @@
 
 			<section id="content1" class="tab-content">
 				<h3>강의공지</h3>
-				<div>
-		      	<jsp:include page="annList.jsp"></jsp:include>
-				</div>
+				<p>111</p>
 			</section>
 
 			<section id="content2" class="tab-content">
@@ -45,6 +43,11 @@
 		      	<p>444</p>
 			</section>
 		</div>
-
+		
+		<script>
+		$("#tab1").load(function () {
+			location.href="annList"
+		});
+		</script>
 </body>
 </html>

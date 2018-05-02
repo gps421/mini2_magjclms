@@ -11,11 +11,22 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/downmenu.css">
 
 <!-- mypage Index -->
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypageIndex.css"> --%>
-<%-- <script  src="${pageContext.request.contextPath}/js/mypageIndex.js"></script> --%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypageIndex.css">
+<script  src="${pageContext.request.contextPath}/js/mypageIndex.js"></script>
 
 <!-- 공지 등록 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/annForm.css">
+  
+<!-- qna 목록 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/qna.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<%-- <script  src="${pageContext.request.contextPath}/js/qna.js"></script> --%>
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<!-- <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script> -->
+<link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
+<!-- content 목록 -->
 
 </head>
 <body>

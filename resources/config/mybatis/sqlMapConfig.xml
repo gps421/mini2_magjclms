@@ -11,11 +11,12 @@
 		<typeAlias alias="login" type="kr.co.magiclms.domain.Login" />
 		<typeAlias alias="cmnt" type="kr.co.magiclms.domain.Community" />
 		<typeAlias alias="goods" type="kr.co.magiclms.domain.Goods" />
-				<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" />
+		<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" />
 		<typeAlias alias="assignmentSubmit" type="kr.co.magiclms.domain.AssignmentSubmit" />
 		<typeAlias alias="announcement" type="kr.co.magiclms.domain.Announcement" />
 		<typeAlias alias="professor" type="kr.co.magiclms.domain.Professor" />
 		<typeAlias alias="courseList" type="kr.co.magiclms.domain.CourseList" />
+		<typeAlias alias="content" type="kr.co.magiclms.domain.Content" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -42,6 +43,7 @@
 		<mapper resource="config/sqlmap/oracle/announcement.xml"/>
 		<mapper resource="config/sqlmap/oracle/professor.xml"/>
 		<mapper resource="config/sqlmap/oracle/courselist.xml"/>
+		<mapper resource="config/sqlmap/oracle/content.xml"/>
 	</mappers>
 </configuration>
 

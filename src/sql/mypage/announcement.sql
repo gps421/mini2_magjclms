@@ -8,7 +8,10 @@ content varchar2(4000),
 view_cnt number(3) default 0
 );
 
---drop table tb_announcement;
+drop table tb_announcement;
+
+delete from tb_announcement
+where ann_no = 2;
 
 select * from tb_announcement;
 select * from tb_professor;
@@ -32,27 +35,18 @@ inner join tb_courselist c
 on p.course_no = c.course_no
 order by ann_no;
 
---create table tb_courselist (
---course_no number(3) primary key,
---name varchar2(30),
---professor_no number(10),
---time varchar2(30),
---room varchar2(30),
---course_desc varchar2(4000)
---);
-
---create table tb_professor (
---member_id varchar2(30),
---professor_no number(10) primary key,
---course_no number(3)
---);
-
 select *
-	from tb_annoucement a
+	from tb_announcement a
 	inner join tb_professor p
 	on a.professor_no = p.professor_no
 	inner join tb_courselist c
 	on p.course_no = c.course_no
-	where a.professor_no = 11111111
+	where a.professor_no = 20185555
 	order by ann_no;
+	
+insert into tb_announcement (
+course_no, ann_no, professor_no, title, content
+) values (
+1, s_announcement_ann_no.nextval, 20185555, 'test1', 'test1111'
+);
 

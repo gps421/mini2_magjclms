@@ -29,8 +29,6 @@ create sequence s_asgmt_submit_no;
 
 select * from user_sequences;
 
-commit;
-
 alter table tb_assignment 
 modify view_cnt number(3) default 0;
 

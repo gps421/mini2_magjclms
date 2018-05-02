@@ -1,7 +1,6 @@
 package kr.co.magiclms.mypage.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,16 +13,16 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Announcement;
 import kr.co.magiclms.mapper.AnnouncementMapper;
 
-@WebServlet("/mypage/annList")
-public class ListAnnouncementController extends HttpServlet{
+@WebServlet("/mypage/contentUpdateForm")
+public class UpdateFormContentController extends HttpServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		List<Announcement> annList = mapper.selectAnnouncement(20185555); // (session에서 교수번호 가져오기)
-		System.out.println(annList.size());
-		request.setAttribute("annList", annList);
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypage/annList.jsp");
+//		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
+//		Announcement announcement = mapper.selectAnnouncementByAnnNo(Integer.parseInt(request.getParameter("annNo")));
+//		request.setAttribute("announcement", announcement);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypage/contentUpdateForm.jsp");
 		rd.forward(request, response);
 	}
 }

@@ -18,7 +18,8 @@
 <!-- </head> -->
 <!-- <body> -->
 	전체 ${fn:length(annList)}개 <br>
-	<button type="button" onclick="location.href='/mini2_magiclms/mypage/annForm'">공지등록</button> 
+<!-- 	<button type="button" onclick="location.href='http://localhost:8000/mini2_magiclms/jsp/mypage/annForm.jsp'">공지등록</button>  -->
+	<button type="button" onclick="location.href='annForm'">공지등록</button> 
 	
 	<div class="announcement message">
 		<c:forEach var="announcement" items="${annList}">
