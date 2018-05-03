@@ -13,22 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
-import kr.co.magiclms.domain.Content;
-import kr.co.magiclms.mapper.ContentMapper;
+import kr.co.magiclms.domain.QnA;
+import kr.co.magiclms.mapper.QnAMapper;
 
-@WebServlet("/mypage/contentListAjax")
-public class ContentListAjaxController extends HttpServlet{
-	
+@WebServlet("/mypage/qnaListAjax")
+public class QnAListAjaxController extends HttpServlet{
+
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ContentMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(ContentMapper.class);
-		List<Content> contentList = mapper.selectContent(1); 
-		request.setAttribute("contentList", contentList);
+		QnAMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(QnAMapper.class);
+		List<QnA> qnaList = mapper.selectQnAList(11111111, 1);
+		request.setAttribute("qnaList", qnaList);
 		
-		response.setContentType("application/json; charset=utf-8"); 
+		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		out.println(new Gson().toJson(contentList));
-		System.out.println(new Gson().toJson(contentList));
+		out.println(new Gson().toJson(qnaList));
+		System.out.println(new Gson().toJson(qnaList));
 	}
 }

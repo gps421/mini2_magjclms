@@ -36,7 +36,7 @@ public class ListAssignmentController extends HttpServlet {
 		
 		// 요청한 user에게 게시물 목록 보내기(json 형태 문자열로 만들어서 : javascript에서 쓸 수 있도록)
 		AssignmentMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AssignmentMapper.class);
-		List<Assignment> asgmtList = mapper.selectAssignmentList();
+		List<Assignment> asgmtList = mapper.selectAssignmentList(11111111,1);
 		Gson gson = new Gson();
 		
 		PrintWriter out = response.getWriter();

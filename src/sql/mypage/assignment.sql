@@ -29,12 +29,9 @@ create sequence s_asgmt_submit_no;
 
 select * from user_sequences;
 
-alter table tb_assignment 
-modify view_cnt number(3) default 0;
-
 
 insert into tb_assignment(
 asgmt_no, course_no, student_no, title, deadline
 ) values( 
-s_asgmt_no, 1, 1111111111, 'ENGLISH', DATE '2018-05-17'
+s_asgmt_no.nextval, 1, 11111111, 'ENGLISH', DATE '2018-05-17'
 );

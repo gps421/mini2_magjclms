@@ -5,16 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypageIndex.css"> 
- <script  src="${pageContext.request.contextPath}/js/myPageIndex.js"></script>
-
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/annList.css">
-<link href='https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,100,300,600,700' rel='stylesheet' type='text/css'>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<meta charset="UTF-8">
 <title>mypage index</title>
+
 </head>
 <body>
 
@@ -39,27 +32,51 @@
 
 			<section id="content2" class="tab-content">
 				<h3>강의 자료</h3>
-		      	<p>222</p>
+		      	<p id="contentListAjax">222</p>
 			</section>
 
 			<section id="content3" class="tab-content">
 				<h3>강의 과제</h3>
-		      	<p>333</p>
+		      	<p id="assignmentListAjax">333</p>
 			</section>
 
 			<section id="content4" class="tab-content">
 				<h3>Q&A</h3>
-		      	<p>444</p>
+		      	<p id="qnaListAjax">444</p>
 			</section>
 		</div>
 		
 		<script>
+		function annDetail(annNo) {
+			$.ajax({
+				url: "annDetailAjax",
+				data: "annNo=" + annNo,
+				dataType: "json",
+				success: function (result) {
+					alert("success");
+					console.dir(result)
+					
+					
+					  공지 번호 : ${announcement.annNo}
+					<br> 공지 제목 : <c:out value="${announcement.title}" />
+				<%-- 	<br> 공지 작성자 : <c:out value="${announcement.professor}" /> --%>
+					<br> 공지 내용 : <c:out value="${announcement.content}" />
+					<br> 공지 등록일 : <fmt:formatDate value="${announcement.regDate}" pattern="yyyy-MM-dd" />
+					<br>
+					<hr>
+					<a href='annUpdateForm?annNo=${announcement.annNo}'>수정</a>
+					<a href='annDelete?annNo=${announcement.annNo}'>삭제</a>
+					<a href='annList'>목록</a>
+					
+				}
+			});	
+		}
 		function makeAnnList(result) {
 			var html = "";
 			html += '<div class="announcement message">';
 			
 			for(var i = 0; i<result.length; i++) {
-				html += '<div class="message"><a href="annDetail?annNo=' + result[i].annNo + '">' + result[i].title + '</a></div>';
+				html += '<div class="message"><a onclick="annDetail(' + result[i].annNo + ')">' + result[i].title + '</a></div>';
 			}
 				
 			if (result.length == 0) {
@@ -83,7 +100,6 @@
 		
 			
 		$("#tab2").click(function contentList() {
-// 			alert("content")
 			$.ajax({
 				url: "<c:url value='/mypage/contentListAjax'/>",
 				success: makeContentList
@@ -92,11 +108,52 @@
 		
 		function makeContentList(result) {
 			var html="";
-			html+="<h2>content</h2>"
 			
+			html += "<h2>content</h2>";
+			for(var i = 0; i<result.length; i++) {
+				html += result[i].title;
+			}
+			
+			$("#contentListAjax").html(html);
+		}
+		 
+		$("#tab3").click(function assignmentList() {
+			$.ajax({
+				url: "<c:url value='/mypage/assignmentListAjax'/>",
+				success: makeAssignmentList
+			});
+		});
+		
+		function makeAssignmentList(result) {
+			var html="";
+			html+="<h2>assignment</h2>";
+			for(var i = 0; i<result.length; i++) {
+				html += result[i].title + "<br>";
+				html += result[i].studentNo + "<br>";
+				html += result[i].courseNo + "<br>";
+			}
+			$("#assignmentListAjax").html(html);
+		}
+		
+		$("#tab4").click(function qnaList() {
+			$.ajax({
+				url: "<c:url value='/mypage/qnaListAjax'/>",
+				success: makeQnaList
+			});
+		});
+		
+		function makeQnaList(result) {
+			var html="";
+			html+="<h2>qna</h2>";
+			for(var i = 0; i<result.length; i++) {
+				html += result[i].title + "<br>";
+				html += result[i].content + "<br>";
+				html += result[i].studentNo + "<br>";
+				html += result[i].courseNo + "<br>";
+			}
+			$("#qnaListAjax").html(html);
 		}
 		
 		</script>
-		
 </body>
 </html>

@@ -13,24 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
-import kr.co.magiclms.domain.Announcement;
-import kr.co.magiclms.mapper.AnnouncementMapper;
+import kr.co.magiclms.domain.Assignment;
+import kr.co.magiclms.mapper.AssignmentMapper;
 
-@WebServlet("/mypage/annListAjax")
-public class AnnListAjaxController extends HttpServlet {
-
+@WebServlet("/mypage/assignmentListAjax")
+public class AssignmentListAjaxController extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		List<Announcement> annList = mapper.selectAnnouncement(20185555); // (session에서 교수번호 가져오기)
-		request.setAttribute("annList", annList);
+		AssignmentMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AssignmentMapper.class);
+		List<Assignment> assignmentList = mapper.selectAssignmentList(11111111, 1);
+		request.setAttribute("assignmentList", assignmentList);
 		
 		response.setContentType("application/json; charset=utf-8"); 
 		PrintWriter out = response.getWriter();
 		
-		out.println(new Gson().toJson(annList));
-//		System.out.println(new Gson().toJson(annList));
-		
+		out.println(new Gson().toJson(assignmentList));
+		System.out.println(new Gson().toJson(assignmentList));
 	}
+
 }

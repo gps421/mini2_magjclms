@@ -2,8 +2,8 @@ package kr.co.magiclms.mypage.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,21 +16,22 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Announcement;
 import kr.co.magiclms.mapper.AnnouncementMapper;
 
-@WebServlet("/mypage/annListAjax")
-public class AnnListAjaxController extends HttpServlet {
+@WebServlet("/mypage/annDetailAjax")
+public class DetailAnnouncementAjaxController extends HttpServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
 		
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		List<Announcement> annList = mapper.selectAnnouncement(20185555); // (session에서 교수번호 가져오기)
-		request.setAttribute("annList", annList);
+		int annNo = Integer.parseInt(request.getParameter("annNo"));
+		mapper.updateAnnouncementViewCnt(annNo);
 		
-		response.setContentType("application/json; charset=utf-8"); 
+		Announcement announcement = mapper.selectAnnouncementByAnnNo(annNo);
+		
 		PrintWriter out = response.getWriter();
+		out.println(new Gson().toJson(announcement));
 		
-		out.println(new Gson().toJson(annList));
-//		System.out.println(new Gson().toJson(annList));
-		
+		out.close();
 	}
 }
