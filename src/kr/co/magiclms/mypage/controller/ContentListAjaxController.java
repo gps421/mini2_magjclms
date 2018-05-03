@@ -22,13 +22,13 @@ public class ContentListAjaxController extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ContentMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(ContentMapper.class);
-		List<Content> contentList = mapper.selectContent(1); 
-		request.setAttribute("contentList", contentList);
-		
-		response.setContentType("application/json; charset=utf-8"); 
-		PrintWriter out = response.getWriter();
-		
-		out.println(new Gson().toJson(contentList));
-		System.out.println(new Gson().toJson(contentList));
+//		List<Content> contentList = mapper.selectCsontent(1); 
+//		request.setAttribute("contentList", contentList);
+//		
+//		response.setContentType("application/json; charset=utf-8"); 
+//		PrintWriter out = response.getWriter();
+//		
+//		out.println(new Gson().toJson(contentList));
+//		System.out.println(new Gson().toJson(contentList));
 	}
 }
