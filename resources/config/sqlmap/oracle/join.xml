@@ -17,7 +17,7 @@
 		<result column="member_type" property="memberType" />
 	</resultMap>
 	<insert id="memberJoin" parameterType="join">
-		insert into tb_membertest(
+		insert into tb_member(
 			member_id, 
 			user_name,
 			birth_date,
@@ -45,6 +45,18 @@
 			#{memberType}
 		)
 	</insert>
+	
+    <select id="selectMemberById" parameterType="string" resultMap="joinMap">
+    	select *
+    	  from tb_member
+    	 where member_id = #{memberID}
+    </select>
+    
+    <select id="selectIdChk" parameterType="String">
+    	select count(*)
+    	from tb_board
+    	where member_id = ${memberId}
+    </select>
 </mapper>
 
 

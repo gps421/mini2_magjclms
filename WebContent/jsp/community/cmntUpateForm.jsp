@@ -18,8 +18,8 @@
 <body>
 	<form action="communityrgst" method="post" >
 	<div id="board">
-		타이틀 : <input type="text" name="title" size="50" />비밀번호 : <input type="password" name="pass" />
-		<textarea class="form-control" name="content" id="content"></textarea>
+		타이틀 : <input type="text" name="title" size="50" value="${board.title }"/>비밀번호 : <input type="password" name="pass"/>
+		<textarea class="form-control" name="content" id="content">${board.content}</textarea>
 		<script src="../dist/lang/summernote-ko-KR.js"></script>
 		<button>작성</button>
 		<script type="text/javascript">

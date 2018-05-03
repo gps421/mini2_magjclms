@@ -11,8 +11,8 @@
           <li><a href="#">자료실</a></li>
           <li><a href="#">쇼핑몰</a></li>
           <li><a href="#">커뮤니티</a>
-          	 <ul>
-                  <li><a href="/Test/html/listBoard">대학내일</a></li>
+          	 <ul id="drop">
+                  <li><a href="/jsp/communityForm">대학내일</a></li>
                   <li><a href="transaction.html">중고거래장터</a></li>
               </ul>
           </li>
