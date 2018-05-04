@@ -33,7 +33,7 @@
 		비밀번호 : <input type="password" name="pw" id="pw" />
 		<button onclick="check()">로그인</button>
 	</form>
-	<form action="join">
+	<form action="joinForm" method="post">
 	<button>회원가입</button>
 	</form>
 	<form action="find">

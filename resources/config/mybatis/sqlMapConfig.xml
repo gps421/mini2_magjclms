@@ -9,6 +9,7 @@
 	<typeAliases>
 		<typeAlias alias="join" type="kr.co.magiclms.domain.Join" />
 		<typeAlias alias="login" type="kr.co.magiclms.domain.Login" />
+		<typeAlias alias="comment" type="kr.co.magiclms.domain.Comment" />
 		<typeAlias alias="cmnt" type="kr.co.magiclms.domain.Community" />
 		<typeAlias alias="goods" type="kr.co.magiclms.domain.Goods" />
 		<typeAlias alias="cart" type="kr.co.magiclms.domain.Cart" />
