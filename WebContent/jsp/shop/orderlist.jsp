@@ -38,9 +38,8 @@
 	}	
 	.header2OrderDetail {
 		width: 355px;
-		height: 300px;
-		border: 5px solid blue;
-		margin: 5px;
+		border: 2px solid orange;
+		margin: 20px;
 		float: right;
 	}
 	
@@ -96,28 +95,32 @@
 
 <!-- 		<table  class="headerOrderDetail" style="margin-right:120px; border:2px">  -->
 		<table  class="headerOrderDetail" style="margin: 0 auto; border:10px"> 
-		  <tr><td  colspan='6' height='10px'>  구매예정 목록  ${fn:length(cartItemList)}개</td></tr>
+		  <tr><td  colspan='6' height='10px'>  구매목록  ${fn:length(orderItemList)}개</td></tr>
 		  <tr>
 		    <th>상품명</th>
 		    <th>수량</th>
 		    <th>가격</th>
 		    <th>배송비정보</th>
 		    <th>상품상세정보</th>
+		    <th>배송상태</th>
+		    <th>주문일자</th>
 		  </tr>
 		
-		  <c:forEach var="cartItem" items="${cartItemList}"> 
+		  <c:forEach var="cartItem" items="${orderItemList}"> 
 		  <tr>
 		      <td>${cartItem.goodsName}</td>
 		      <td>${cartItem.goodsCount}</td>
 		      <td>${cartItem.goodsSum}</td>
 		      <td>${cartItem.shippingCost}</td>
 			  <td><a href='detail?no=${cartItem.goodsNo}'>${cartItem.goodsName}</a></td>		      
+		      <td>${cartItem.orderState}</td>
+		      <td>${cartItem.orderDate}</td>
 		  </tr>
 		  </c:forEach>
 		 
 		  <c:if test="${empty cartItemList}">
 		      <tr>
-			    <td colspan='6'>장바구니 내 넣은 상품이 없습니다.</td>
+			    <td colspan='7' style="font-style: italic; font-size: 1em; font-weight:2px; ">구매내역 조회완료하였습니다. 감사합니다.</td>
 			  </tr>
 		  </c:if>
 		</table>	
@@ -125,91 +128,21 @@
 
 		</div>
 		
-		<div class="header2OrderDetail">
-			<h3>1-2 최종결제 정보</h3>
-			<table>
-				<tr><td height=20></td></tr>
-				<tr>
-					<td>상품가격 :</td>
-					<td>${totalPrice}원</td>
-				</tr>
-				<tr>
-					<td>할인가격 :</td>
-					<td>${dicountPrice}원</td>
-				</tr>
-				<tr>
-					<td>배송비  :</td>
-					<td>${totalShippingCost}원</td>
-				</tr>
-				<tr><td height=20></td></tr>
+		<div class="header2OrderList">
 
-				<tr>
-					<td style="font-size:2em;">결제 예정액</td>
-					<td style="font-size:2em;">${lastPrice}원</td>
-				</tr>
-				<tr><td height=20></td></tr>
-				<tr><td style="width=50%; height=10px;"></td></tr>
+			<table>
 				<tr>
 					<td colspan="2" >
 						<form name="buy1" method="post" action=" ">
 							<!-- <input type="text" name="id" /><br /> --> 
-							<input type="button" value="구매하기" onclick="location.href='orderwrite?cartNo=${cartNo}'"   
-							style="background:rgb(35, 227, 237); font-size:2.5em; color:rgb(11, 1, 71); margin: 0 auto; width=100%;"/>
-							
-							<input type="button" value="이건아님" style="background:rgb(35, 227, 237); font-size:2.5em; color:rgb(11, 1, 71); margin: 0 auto; width=100%;"/>
+							<input type="button" value="메인화면으로?" onclick="location.href='list?name=snack'"   
+							style="background:rgb(35, 227, 237); font-size:1.5em; color:rgb(11, 1, 71); margin: 0 auto; width=100%;"/>							
 						</form>
 					</td>
 				</tr>
 			</table>
 		</div>
 		
-		<div class="contentOrderDetail">
-			<h3>2-1 배송지 주소</h3>
-
-			<table>
-				<tr>
-					<td height=20><h4>배송지 입력</h4></td>
-				</tr>
-					
-				<tr>
-					<td height=20>
-					<form method='post' action='write'>
-						이름 : <input type='text' name='writer' size='30' /><br><br> 
-						주소 :
-						<input type='text' name='title' size='70' /><br><br> 
-						요청사항 :
-						<textarea name='content' rows='7' cols='60'></textarea><br>
-						<br>
-						<button type='submit'
-							style="background: rgb(35, 227, 237); font-size: 1em; color: rgb(11, 1, 71); margin: 0 auto;">주소등록</button>
-					</form>
-					</td>
-				</tr>
-				<tr>
-					<td height=20></td>
-				</tr>
-
-			</table>
-		</div>
-		
-		<div class="sideOrderDetail">
-			<h3> 결제수단 선택</h3>
-			<table>
-				<tr>
-					<td height=20></td>
-				</tr>
-				<tr>
-					<td>
-						<ul>
-							<li><a href="#">신용/체크카드</a></li>
-							<li><a href="#">현금결제</a></li>
-							<li><a href="#">간편결제</a></li>
-							<li><a href="#">휴대폰결제</a></li>
-						</ul>
-					</td>
-				</tr>
-			</table>
-		</div>
 		
 		<div class="footerOrderDetail"></div>
     </div>

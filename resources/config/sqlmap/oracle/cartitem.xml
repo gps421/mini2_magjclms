@@ -54,6 +54,12 @@
 		where cart_no = #{cartNo}
 	</update>
 
+	<delete id="deleteCartItemByCartNo" parameterType="int">
+		delete
+		from tb_cart_item
+		where cart_no = #{cartNo}
+	</delete>
+
 	<delete id="deleteCartItemByNo" parameterType="int">
 		delete
 		from tb_cart_item

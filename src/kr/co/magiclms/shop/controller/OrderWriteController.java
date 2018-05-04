@@ -63,10 +63,15 @@ public class OrderWriteController extends HttpServlet {
 			omapper.insertOrder(order);
 		}
 		
+		// to get orderId 
+		order = omapper.selectOrderByName(memberId); 
+		int orderId = order.getOrderId();
+		request.setAttribute("orderId", order.getOrderId());
+		
 		System.out.println("**order** 222222 memberId= "+ memberId);		
 
 		// To make cart data 
-		System.out.println("*order write*** cartNo = "+cartNo+ ", *** cartNo info = " + cartNo);
+		System.out.println("*order write*** cartNo = "+cartNo+ ", *** cartNo = " + cartNo);
 
 		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
 		int totalShippingCost = 0; 
@@ -91,7 +96,7 @@ public class OrderWriteController extends HttpServlet {
 			
 			totalPrice += el.getGoodsSum();
 			totalShippingCost += el.getShippingCost();
-			System.out.println("*loop** el.getCartItemNo = " + el.getCartItemNo());
+			System.out.println("*loop*orderItem write*** el.getCartItemNo = " + el.getCartItemNo());
 		}
 		
 		dicountPrice = (int) (totalPrice * 0.05);
@@ -105,17 +110,15 @@ public class OrderWriteController extends HttpServlet {
 
 		// to set content of Order Table, OrderItemTable
 		
+		// delete cart Items of cartNo
+		cmapper.deleteCartItemByCartNo(cartNo);  
+		System.out.println("**BBBBB End of Cart Item delete ****** ");
+		
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/order.jsp");
 		//rd.forward(request, response);
-		response.sendRedirect("list");
+		String dest = "orderlist?orderId="+orderId;
+		response.sendRedirect(dest);
 
-		System.out.println("** End of OrderItem Insert, After order ");
-
-//		List<Goods> list = mapper.selectGoods(); 
-//		request.setAttribute("list", list);
-//		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/list.jsp");
-//		rd.forward(request, response);
-//		response.sendRedirect("list");
 
 	}
 }

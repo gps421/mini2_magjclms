@@ -19,13 +19,13 @@
 
 	<select id="selectOrderItem" resultMap="orderItemMap">
 		select *
-		from tb_order
+		from tb_order_item
 		order by order_id
 	</select>
 
 	<select id="selectOrderItemByNo" parameterType="int" resultMap="orderItemMap">
 		select *
-		from tb_order
+		from tb_order_item
 		where order_id = #{orderId}
 	</select>
 
