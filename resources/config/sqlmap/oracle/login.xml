@@ -3,10 +3,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.magiclms.mapper.LoginMapper">
 	<resultMap id="loginMap" type="login">
-		<result column="member_id" property="id" />
+		<result column="member_id" property="memberID" />
 		<result column="user_name" property="name" />
 		<result column="bitrh_date" property="birthDate" />
-		<result column="pw" property="pass" />
+		<result column="pass" property="pass" />
 		<result column="pw_hint" property="pwHint" />
 		<result column="email" property="email" />
 		<result column="phone_no" property="phoneNo" />
@@ -15,10 +15,12 @@
 		<result column="domitory" property="domitory" />
 		<result column="grade" property="grade" />
 		<result column="member_type" property="auth" />
+		<result column="student_no" property="studentNo" />
+		<result column="professor_no" property="professorNo" />
 	</resultMap>
 	
     <select id="selectMemberById" parameterType="string" resultMap="loginMap">
-    	select *
+    	select member_id, pass, student_no, professor_no
     	  from tb_member
     	 where member_id = #{memberID}
     </select>

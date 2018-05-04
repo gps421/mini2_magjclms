@@ -11,8 +11,8 @@ a{text-decoration:none}
 </head>
 <body>
 	<form action="istjoin" method="post">
-		<input type="hidden" name="memberType" value="p"/><br>
-		아이디 : <input type="text" name="memberId" id="id" /><span id="result"></span><br>
+		<input type="hidden" name="memberType" value="s"/><br>
+		아이디 : <input type="text" name="memberId" id="memberId" /><span id="result"></span><br>
 		이름 : <input type="text" name="userName" /><br>
 		학년 : <input type="text" name="grade"  /> <br>
 		생일 : <input type="text" name="birthDate"  /><br>
@@ -25,8 +25,9 @@ a{text-decoration:none}
 		기숙사 : <input type="text" name="domitory" id="domitory" /><br>
 		<button>가입</button> <button>취소</button>
 	</form>
+	
 	<script>
-		$("#id").keyup(function () {
+		$("#memberId").keyup(function () {
 			$.ajax({
 				method : "POST",
 				url : "/mini2_magiclms/jsp/istjoin",

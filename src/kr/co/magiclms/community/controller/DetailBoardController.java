@@ -22,10 +22,10 @@ public class DetailBoardController extends HttpServlet {
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 		
 		int no = Integer.parseInt(request.getParameter("communityNo"));
-		System.out.println(no);
 		mapper.updateCmntViewCnt(no);
+		
 		Community board = mapper.selectCmntByNo(no);
-		System.out.println(board.getCommunityNo());
+//		System.out.println("뷰카운트" + board.getViewCnt());
 		
 		request.setAttribute("detail", board);
 		

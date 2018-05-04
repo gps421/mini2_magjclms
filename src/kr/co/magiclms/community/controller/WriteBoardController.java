@@ -24,7 +24,7 @@ public class WriteBoardController extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
-		
+		response.setContentType("application/json;charset=utrf-8");
 		String uploadPath = "c:/java-lec/upload";
 		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/HH");
 		String datePath = sdf.format(new Date());

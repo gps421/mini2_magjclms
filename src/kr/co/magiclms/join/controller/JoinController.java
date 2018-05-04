@@ -15,17 +15,17 @@ import kr.co.magiclms.mapper.JoinMapper;
 
 @WebServlet("/jsp/istjoin")
 public class JoinController extends HttpServlet{
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json; charset=utf-8");
 		String id = request.getParameter("memberId");
-		
 		JoinMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(JoinMapper.class);
 		
 		int cnt = mapper.selectIdChk(id);
 		PrintWriter out = response.getWriter();
 		out.write("{\"result\": " + cnt + "}");
 		out.close();
+		
 		
 		
 		Join join = new Join();

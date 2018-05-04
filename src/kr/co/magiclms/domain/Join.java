@@ -1,7 +1,7 @@
 package kr.co.magiclms.domain;
 
 public class Join {
-	private String memberId;
+	private String memberID;
 	private String userName;
 	private int	birthDate;
 	private String pw;
@@ -13,17 +13,31 @@ public class Join {
 	private String domitory;
 	private int grade;
 	private String memberType;
+	private int studentId;
+	private int professorId;
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	public int getProfessorId() {
+		return professorId;
+	}
+	public void setProfessorId(int professorId) {
+		this.professorId = professorId;
+	}
 	public String getMemberType() {
 		return memberType;
 	}
 	public void setMemberType(String memberType) {
 		this.memberType = memberType;
 	}
-	public String getMemberId() {
-		return memberId;
+	public String getMemberID() {
+		return memberID;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMemberID(String memberID) {
+		this.memberID = memberID;
 	}
 	public String getUserName() {
 		return userName;

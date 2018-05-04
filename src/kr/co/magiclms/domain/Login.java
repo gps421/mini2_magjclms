@@ -1,18 +1,16 @@
 package kr.co.magiclms.domain;
 
-import java.util.Date;
-
 public class Login {
-	private String name;
+	private String memberID;
 	private String pass;
-	private String auth;
-	private Date accessTime;
-	private String id;
-	public String getName() {
-		return name;
+	private int studentNo;
+	private int professorNo;
+	
+	public String getMemberID() {
+		return memberID;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMemberID(String memberID) {
+		this.memberID = memberID;
 	}
 	public String getPass() {
 		return pass;
@@ -20,23 +18,17 @@ public class Login {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public String getAuth() {
-		return auth;
+	public int getStudentNo() {
+		return studentNo;
 	}
-	public void setAuth(String auth) {
-		this.auth = auth;
+	public void setStudentNo(int studentNo) {
+		this.studentNo = studentNo;
 	}
-	public Date getAccessTime() {
-		return accessTime;
+	public int getProfessorNo() {
+		return professorNo;
 	}
-	public void setAccessTime(Date accessTime) {
-		this.accessTime = accessTime;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
+	public void setProfessorNo(int professorNo) {
+		this.professorNo = professorNo;
 	}
 	
 	

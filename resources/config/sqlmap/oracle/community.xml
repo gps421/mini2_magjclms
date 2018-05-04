@@ -33,8 +33,8 @@
 	<update id="updateCmnt" parameterType="cmnt">
 		update tb_community_board
 		set title = #{title},
-			content = ${content}
-		where no = #{no}
+			content = #{content}
+		where community_no = #{communityNo}
 	</update>
 	
 	<delete id="deleteCmnt" parameterType="int">
@@ -44,11 +44,48 @@
 	
 	<update id="updateCmntViewCnt" parameterType="int">
 		update tb_community_board
-		set view_cnt = view_cnt + 1
-		where community_no = #{communityNo}
+		   set view_cnt = view_cnt + 1
+		 where community_no = #{communityNo}
 	</update>
 
 
+
+		<!-- 댓글파트 -->
+
+	<resultMap id="commentMap" type="comment">
+		<result column="comment_no" property="commentNo" />
+		<result column="no" property="no" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
+	
+<!-- 	<select id="selectCommentByNo" parameterType="int"  -->
+<!-- 	        resultMap="commentMap"> -->
+<!-- 	    select * -->
+<!-- 	      from tb_comment -->
+<!-- 	     where no = #{no}       -->
+<!-- 	</select> -->
+    
+	<insert id="insertComment" parameterType="comment">
+		insert into tb_comment(
+			comment_no, no, writer, content
+		) values (
+			s_comment_no.nextVal, #{no}, #{writer}, #{content}
+		)
+	</insert>
+	
+<!-- 	<delete id="deleteComment" parameterType="int"> -->
+<!-- 	    delete  -->
+<!-- 	      from tb_comment -->
+<!-- 	     where comment_no = #{commentNo} -->
+<!-- 	</delete> -->
+	
+<!-- 	<update id="updateComment" parameterType="comment"> -->
+<!-- 	    update tb_comment -->
+<!-- 	       set content = #{content} -->
+<!-- 	     where comment_no = #{commentNo} -->
+<!-- 	</update>  -->
 </mapper>
 
 

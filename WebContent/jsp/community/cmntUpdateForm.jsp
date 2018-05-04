@@ -16,8 +16,9 @@
 </style>
 </head>
 <body>
-	<form action="communityrgst" method="post" >
+	<form action="cmntUpdate" method="post" >
 	<div id="board">
+	<input type="hidden" name="communityNo" value="${board.communityNo }">
 		타이틀 : <input type="text" name="title" size="50" value="${board.title }"/>비밀번호 : <input type="password" name="pass"/>
 		<textarea class="form-control" name="content" id="content">${board.content}</textarea>
 		<script src="../dist/lang/summernote-ko-KR.js"></script>

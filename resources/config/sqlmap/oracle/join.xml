@@ -15,6 +15,8 @@
 		<result column="domitory" property="domitory" />
 		<result column="grade" property="grade" />
 		<result column="member_type" property="memberType" />
+		<result column="student_no" property="studentNo" />
+		<result column="professor_no" property="professorNo" />
 	</resultMap>
 	<insert id="memberJoin" parameterType="join">
 		insert into tb_member(
@@ -29,7 +31,9 @@
 			post_code,
 			domitory,
 			grade,
-			member_type			
+			member_type,	
+			student_no,
+			professor_no		
 		) values (
 			#{memberId},
 			#{userName},
@@ -42,7 +46,9 @@
 			#{postCode},
 			#{domitory},
 			#{grade},
-			#{memberType}
+			#{memberType},
+			#{studentNo},
+			#{professorNo}
 		)
 	</insert>
 	

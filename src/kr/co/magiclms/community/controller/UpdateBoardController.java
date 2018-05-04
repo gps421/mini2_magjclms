@@ -12,7 +12,7 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Community;
 import kr.co.magiclms.mapper.CommunityMapper;
 
-@WebServlet("/jsp/comtUpdateS")
+@WebServlet("/jsp/cmntUpdate")
 public class UpdateBoardController extends HttpServlet {
 
 	@Override
@@ -20,10 +20,12 @@ public class UpdateBoardController extends HttpServlet {
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 
 		Community board = new Community();
-		board.setCommunityNo(Integer.parseInt(request.getParameter("commentNo")));
+		board.setCommunityNo(Integer.parseInt(request.getParameter("communityNo")));
+		System.out.println("hi" + request.getParameter("communityNo"));
 		board.setTitle(request.getParameter("title"));
 		board.setContent(request.getParameter("content"));
-		mapper.updateCnmnt(board);
+		board.setPassword(request.getParameter("pass"));
+		mapper.updateCmnt(board);
 		
 		response.sendRedirect("community");
 	}

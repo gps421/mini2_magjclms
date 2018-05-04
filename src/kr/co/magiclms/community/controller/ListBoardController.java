@@ -20,7 +20,7 @@ public class ListBoardController extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("text/plain;charset=UTF-8");
+//		response.setCharacterEncoding("text/plain;charset=UTF-8");
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 		List<Community> list = mapper.selectCmnt();
 		request.setAttribute("list", list);
