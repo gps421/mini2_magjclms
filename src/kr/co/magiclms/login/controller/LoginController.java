@@ -14,7 +14,7 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Login;
 import kr.co.magiclms.mapper.LoginMapper;
 
-@WebServlet("/jsp/login")
+@WebServlet("/login")
 public class LoginController extends HttpServlet {
 
 	@Override
@@ -30,8 +30,8 @@ public class LoginController extends HttpServlet {
 		// 아이디와 패스워드 얻기
 		String id = request.getParameter("userId");
 		String pass = request.getParameter("pw");
-		System.out.println(id);
-		System.out.println(pass);
+//		System.out.println(id);
+//		System.out.println(pass);
 		
 		/*
 		 *   - login.xml 생성 
@@ -40,10 +40,10 @@ public class LoginController extends HttpServlet {
 		 *   - SqlMapConfig.xml - Alias 설정 
 		 */
 		Login join = mapper.selectMemberById(id);
-		System.out.println("id : " + join.getMemberID());
-		System.out.println("pass : " + join.getPass());
-		System.out.println("student : " + join.getStudentNo());
-		System.out.println("professor : " + join.getProfessorNo());
+//		System.out.println("id : " + join.getMemberID());
+//		System.out.println("pass : " + join.getPass());
+//		System.out.println("student : " + join.getStudentNo());
+//		System.out.println("professor : " + join.getProfessorNo());
 		
 		if (join == null) {
 			request.setAttribute("errMsg", "아이디를 확인하세요");
