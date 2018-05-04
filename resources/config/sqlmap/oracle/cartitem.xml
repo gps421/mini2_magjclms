@@ -57,7 +57,7 @@
 	<delete id="deleteCartItemByNo" parameterType="int">
 		delete
 		from tb_cart_item
-		where cart_no = #{cartNo}
+		where cart_item_no = #{cartItemNo}
 	</delete>
 
 	<delete id="deleteCartItemByCode" parameterType="int">

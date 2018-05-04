@@ -18,8 +18,9 @@ import kr.co.magiclms.mapper.CartItemMapper;
 import kr.co.magiclms.mapper.CartMapper;
 import kr.co.magiclms.mapper.GoodsMapper;
 
-@WebServlet("/shop/cartlist")
-public class CartListController extends HttpServlet {
+@WebServlet("/shop/orderdetail")
+public class OrderDetailController extends HttpServlet {
+
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -28,49 +29,36 @@ public class CartListController extends HttpServlet {
 		CartItemMapper cmapper = MyAppSqlConfig.getSqlSession().getMapper(CartItemMapper.class);
 		GoodsMapper gmapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
 		
-		String memberId = "moonmio"; // edit here after login 
+		//String memberId = "Goopsung"; 
 		Cart cart = null;
-		cart = mapper.selectCartByName(memberId);	
-		// to get cartNo by selectCartByName		   
-		// To make cart data 
-		int cartNo = 0; 	
-		if (cart == null){	
-			System.out.println("*cart writer** Null Null ");	
-			cart = new Cart();
-			//cart.setCartNo(1); // del
-			//cart.setCartNo(request.getParameter("writer"));
-			cart.setMemberId(memberId);
-			
-			mapper.insertCart(cart);
-			cart = mapper.selectCartByName(memberId);				
-			cartNo = cart.getCartNo();
-		}
-		else {
-			
-		}
-		
-		// to get cartNo from request
-		cartNo = Integer.parseInt(request.getParameter("cartNo")); 
-		cart = mapper.selectCartByNo(cartNo);				
-		memberId = cart.getMemberId();
-		 
-		request.setAttribute("cartNo", cartNo);
-		request.setAttribute("memberId", memberId);
+		//cart = mapper.selectCartByName(memberId);	
 
-		System.out.println("*cart writer** cart info, cartNo = "+cart.getCartNo());	
-		System.out.println("*cart writer** cart info, memberId = "+cart.getMemberId());	
-		System.out.println("*cart writer** cart toString = "+cart.toString());	
-		System.out.println("******* 222222 memberId= "+ memberId);
+		// To make cart data 
+		int cartNo = 1; //dell
+
+		if(""== request.getParameter("cartNo")){
+			System.out.println("**no cartNo ****** "); // add treat ******					
+		}
+		// to get cartNo, You can use also MemberId
+		cartNo = Integer.parseInt(request.getParameter("cartNo"));
+		System.out.println("*orderDetail*** cartNo = "+cartNo+ ", *** cartNo info = " + cartNo);
 		
-		// To get cart data 
+		//request.setAttribute("cartNo", cart.getCartNo());
+		request.setAttribute("cartNo", cartNo);
+		System.out.println("*order detail** cart info, cartNo = "+cartNo);	
+		
 		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
 		int totalShippingCost = 0; 
 		List<CartItem> cartItemList = cmapper.selectCartItemByNo(cartNo);
+		
 		request.setAttribute("cartItemList", cartItemList);
+		
+		System.out.println("*orderDetail*** cartItemList= "+cartItemList+ ", *** cartItemList size= " + cartItemList.size());
+		
 		for(CartItem el: cartItemList){
 			totalPrice += el.getGoodsSum();
 			totalShippingCost += el.getShippingCost();
-//			System.out.println("*loop** el.getCartItemNo = " + el.getCartItemNo());
+			System.out.println("*loop** el.getCartItemNo = " + el.getCartItemNo());
 		}
 		dicountPrice = (int) (totalPrice * 0.05);
 		lastPrice = totalPrice - dicountPrice + totalShippingCost;
@@ -78,13 +66,14 @@ public class CartListController extends HttpServlet {
 		+ totalPrice + ", "+ totalShippingCost+ ", dicountPrice = "+ dicountPrice);
 		request.setAttribute("totalPrice", totalPrice);
 		request.setAttribute("dicountPrice", dicountPrice);
+		
 		request.setAttribute("lastPrice", lastPrice);
 		request.setAttribute("totalShippingCost", totalShippingCost);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/cart.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/order.jsp");
 		rd.forward(request, response);
 
-		System.out.println("** End of CartItem Insert ");
+		System.out.println("** End of drderDetail servlet *********** ");
 
 //		List<Goods> list = mapper.selectGoods(); 
 //		request.setAttribute("list", list);

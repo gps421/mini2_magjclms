@@ -23,7 +23,9 @@ public class GoodsDetailController extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Member login = (Member)session.getAttribute("user");   
+		Member login = (Member)session.getAttribute("user");  
+		String memberId = "moonmi"; // dell del 
+		request.setAttribute("memberId", memberId);
 //		if(login == null){
 //			response.sendRedirect(request.getContextPath()+"/login/login");
 //			return;

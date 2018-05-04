@@ -29,16 +29,8 @@
 		margin: 5px;
 	}
 
-	.containerSub1 {
-		width: 720px; 
-		min-height: 350px;
-		margin: 0 auto;
-		background: rgb(237, 228, 177);
-		
-	}
-	
 	.pic2 {
-		width: 40%; 
+		width: 350px;
 		height: 300px;
 		border: 0.5px  blue;
 		line-height: 300px;
@@ -46,9 +38,9 @@
 		float: left;
 	}
 	.picheader2 {
-		width: 40%; 
+		width: 350px;
 		height: 300px;
-		border: 2px  blue;
+		border: 1px  blue;
 		margin: 5px;
 		float: left;
 	}
@@ -96,38 +88,6 @@
 </head>
 <body>
 
-  <div class="containerCartMenu"> 
-    <ul class="mainLnb">
-        <li><a href='list?name=snack'>스낵</a>
-            <ul>
-            </ul>
-        </li>
-        <li><a href='list?name=snack'>문구</a>
-            <ul>
-            </ul>
-        </li>
-        <li><a href='list?name=snack'>서적</a>
-            <ul>
-            </ul>
-        </li>
-        <li><a href='list?name=toy'>여행</a>
-            <ul>
-            </ul>
-        </li>
-        <li><a href="cart?memberId=$('memberId')">장바구니</a>
-            <ul>
-            </ul>
-        </li>
-        <li><a href="orderlist?memberId=$('memberId')">구매조회</a>
-        </li>
-    </ul>
-  </div>
-	
-  <div  style="height:15px; margin:0 auto;"><a></a></div>
-  <hr>
-  
-  <!-- body -->
-  
     <div class="titleheader"><p class="title"><h1>상품정보</h1></p></div> 
     <div class="container">
 		<div class="header">
@@ -138,7 +98,6 @@
 			</table>
 		</div>
 		
-	<div class="containerSub1">
 		<div class="pic2">
 			<img  width='300' height='300' src='${goods.goodsPicPath}' align="center" onclick="openPop()"></img>
 			
@@ -179,8 +138,6 @@
 				</tr>
 			</table>
 		</div>
-	</div>
-
 		<div id='productDetailPic' class="productDetailPic">
 			<h5 onclick="openPop()">[상세화면]</h5>
 		</div>
@@ -197,7 +154,7 @@
 <!-- 				<span id="loSpan1"> <input type="button" value="장바구니" onclick="location.href='detail?no=106'" 
 					style="background: rgb(35, 227, 237); font-size: 2.5em; color: rgb(11, 1, 71); margin: 0 auto;" />
  -->
- 				<span id="loSpan1"> <input type="button" value="장바구니" onclick="location.href='cartwrite?no=${goods.goodsNo}&count=2'"
+ 				<span id="loSpan1"> <input type="button" value="장바구니" onclick="location.href='write?no=${goods.goodsNo}&count=2'"
 					style="background: rgb(35, 227, 237); font-size: 2.5em; color: rgb(11, 1, 71); margin: 0 auto;" />
  				</span> <span id="loSpan2"> <input type="button" value="주문결제" onclick="location.href='/mini2_magiclms/shop/list'" 
 					style="background: rgb(35, 227, 237); font-size: 2.5em; color: rgb(11, 1, 71); margin: 0 auto;" />

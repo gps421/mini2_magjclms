@@ -11,6 +11,10 @@
 		<typeAlias alias="login" type="kr.co.magiclms.domain.Login" />
 		<typeAlias alias="cmnt" type="kr.co.magiclms.domain.Community" />
 		<typeAlias alias="goods" type="kr.co.magiclms.domain.Goods" />
+		<typeAlias alias="cart" type="kr.co.magiclms.domain.Cart" />
+		<typeAlias alias="cartitem" type="kr.co.magiclms.domain.CartItem" />
+		<typeAlias alias="order" type="kr.co.magiclms.domain.Order" />
+		<typeAlias alias="orderitem" type="kr.co.magiclms.domain.OrderItem" />
 		<typeAlias alias="assignment" type="kr.co.magiclms.domain.Assignment" />
 		<typeAlias alias="assignmentSubmit" type="kr.co.magiclms.domain.AssignmentSubmit" />
 		<typeAlias alias="announcement" type="kr.co.magiclms.domain.Announcement" />
@@ -40,12 +44,18 @@
 		<mapper resource="config/sqlmap/oracle/login.xml"/>
 		<mapper resource="config/sqlmap/oracle/community.xml"/>
 		<mapper resource="config/sqlmap/oracle/goods.xml"/>
+		<mapper resource="config/sqlmap/oracle/cart.xml"/>
+		<mapper resource="config/sqlmap/oracle/cartitem.xml"/>
+		<mapper resource="config/sqlmap/oracle/order.xml"/>
+		<mapper resource="config/sqlmap/oracle/orderitem.xml"/>
 		<mapper resource="config/sqlmap/oracle/assignment.xml"/>
 		<mapper resource="config/sqlmap/oracle/announcement.xml"/>
 		<mapper resource="config/sqlmap/oracle/professor.xml"/>
 		<mapper resource="config/sqlmap/oracle/courselist.xml"/>
+
 		<mapper resource="config/sqlmap/oracle/content.xml"/>
-		<mapper resource="config/sqlmap/oracle/qna.xml"/>
+		<mapper resource="config/sqlmap/oracle/qna.xml"/>		
+
 	</mappers>
 </configuration>
 
