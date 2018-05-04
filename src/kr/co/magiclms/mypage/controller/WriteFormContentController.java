@@ -1,4 +1,4 @@
-package kr.co.magiclms.community.controller;
+package kr.co.magiclms.mypage.controller;
 
 import java.io.IOException;
 
@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/jsp/communityForm")
-public class CommunityCreateFormController extends HttpServlet{
+@WebServlet("/mypage/contentForm")
+public class WriteFormContentController extends HttpServlet {
+
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/community/cmntForm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypage/contentForm.jsp");
 		rd.forward(request, response);
-}
+	}
 }

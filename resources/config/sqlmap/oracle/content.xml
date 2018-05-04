@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.repository.mapper.BoardMapper">
+<mapper namespace="kr.co.magiclms.mapper.ContentMapper">
+	<resultMap type="content" id="contentMap">
+		<result column="course_no" property="courseNo" />
+		<result column="content_no" property="contentNo" />
+		<result column="professor_no" property="professorNo" />
+		<result column="title" property="title" />
+		<result column="ref" property="ref" />
+		<result column="view_cnt" property="viewCnt" />
+		<result column="reg_date" property="regDate" />
+		<result column="file_path" property="filePath" />
+		<result column="sys_name" property="sysName" />
+		<result column="orig_name" property="origName" />
+	</resultMap>
 
+	<select id="selectContent" resultMap="contentMap" parameterType="int">
+		select * 
+		from tb_content c
+		inner join tb_mycourse mc
+		on c.course_no = mc.course_no
+		inner join tb_student s
+		on s.student_no = mc.student_no
+		where mc.student_no = #{studentNo}
+			and mc.course_no = #{courseNo}
+	</select>
+	
+	<insert id="insertContent" parameterType="content">
+		insert into tb_content (
+			content_no, title, ref		
+		) values (
+			s_content_no.nextval, #{title}, #{ref}
+		)
+	</insert>
 
+	<insert id="insertContentFile" parameterType="content">
+		insert into tb_content (
+			file_path, orig_name, sys_name 		
+		) values (
+			#{filePath}, #{origName}, #{sysName}
+		)
+	</insert>
 </mapper>
-
-
-
-
 
 
 

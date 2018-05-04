@@ -4,18 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Q&A</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/qna.css">
-<link rel='stylesheet prefetch'
-	href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/qna.css"> --%>
+<%-- <script  src="${pageContext.request.contextPath}/js/qna.js"></script> --%>
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <!-- <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script> -->
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script  src="${pageContext.request.contextPath}/js/qna.js"></script>
+<!-- <link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'> -->
 </head>
 <body id="qbody">
 	<div class="container">
-
 		<h2 id="qh2">Frequently Asked Questions</h2>
 		<button id="create-question">Create new Question</button>
 		<div class="accordion">

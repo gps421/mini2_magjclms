@@ -19,7 +19,7 @@
 		<result column="asgmt_submit_no" property="asgmtSubmitNo" />
 		<result column="course_no" property="courseNo" />
 		<result column="student_no" property="studentNo" />
-		<result column="file_pate" property="filePath" />
+		<result column="file_path" property="filePath" />
 		<result column="sys_name" property="sysName" />
 		<result column="orig_name" property="origName" />
 		<result column="submit_date" property="submitDate" />
@@ -30,6 +30,8 @@
 	<select id="selectAssignmentList" resultMap="assignmentMap">
 		select asgmt_no, title, reg_date, deadline, view_cnt
 		from tb_assignment
+		where student_no = ${studentNo}
+			  and course_no = ${courseNo} 
 		order by asgmt_no
 	</select>
 	

@@ -10,33 +10,25 @@
    <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
 	<script src="../../js/index.js"></script>
 	<script type="text/javascript">
-	$(function(){
-		$("nav li, issue_list ul li").click(function(){
-			$(this).addClass('on').siblings().removeClass('on');
-		});
-		$("button.down").click(function(){
-			$('.issue_list').addClass('on')
-			$('.issue_title').hide(50);
-		});
-		$("button.up, .issue_list button.btn_close").click(function(){
-			$('.issue_list').removeClass('on');
-			$('.issue_title').show(50);
-		});
-		$('.slide_left').click(function(){
-			$('#left_menu').animate({left:"+=300"},200);
-			$('.dim').css('display','block');
-		});
-		$('.menu_close').click(function(){
-			$('#left_menu').animate({left:"-=300"},200);
-			$('.dim').css('display','none');
-		});
-	});
-
 	</script>
 </head>
 <body>
 <button type="button" class="slide_left">로그인하세요</button>
-<form name="mForm" action="login" method="post">
+<div class="row">
+	<div class="col-md-12">
+		<c:choose>
+		<c:when test="${empty sessionScope.user}">
+			<a href="<c:url value="/login/login" />">로그인</a>
+		</c:when>
+		<c:otherwise>
+<%-- 			${sessionScope.user.name}님 접속(<fmt:formatDate value="${user.accessTime}" pattern="yyyy-MM-dd HH:mm:ss" />) --%>
+			<a href="<c:url value="/login/logout" />">로그아웃</a>
+		</c:otherwise>
+		</c:choose>		
+	</div>
+	${errMsg}	
+</div>
+	<form name="mForm" action="login" method="post">
 		아이디 : <input type="text" name="userId" id="userId" />
 		비밀번호 : <input type="password" name="pw" id="pw" />
 		<button onclick="check()">로그인</button>

@@ -24,8 +24,8 @@ public class WriteAnnouncementController extends HttpServlet{
 		announcement.setTitle(request.getParameter("title"));
 		announcement.setContent(request.getParameter("content"));
 //		announcement.setProfessorNo(Integer.parseInt(request.getParameter("professorNo"))); // session에서 교수번호 가져오기
-		announcement.setProfessorNo(11111111);
-		System.out.println("aadsdsdas" + request.getParameter("professorNo"));
+		announcement.setProfessorNo(20185555);
+//		System.out.println("aadsdsdas" + request.getParameter("professorNo"));
 //		announcement.setCourseNo(Integer.parseInt(request.getParameter("courseNo"))); 
 		announcement.setCourseNo(1); 
 		mapper.insertAnnouncement(announcement);

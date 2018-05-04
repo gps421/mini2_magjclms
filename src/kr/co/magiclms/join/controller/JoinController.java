@@ -1,6 +1,7 @@
 package kr.co.magiclms.join.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +17,16 @@ import kr.co.magiclms.mapper.JoinMapper;
 public class JoinController extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		String id = request.getParameter("memberId");
+		
 		JoinMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(JoinMapper.class);
+		
+		int cnt = mapper.selectIdChk(id);
+		PrintWriter out = response.getWriter();
+		out.write("{\"result\": " + cnt + "}");
+		out.close();
+		
 		
 		Join join = new Join();
 		join.setMemberId(request.getParameter("memberId"));
@@ -32,7 +42,7 @@ public class JoinController extends HttpServlet{
 		join.setGrade(Integer.parseInt(request.getParameter("grade")));
 		join.setMemberType(request.getParameter("memberType"));
 		mapper.memberJoin(join);
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("main");
 		
 	}
 }

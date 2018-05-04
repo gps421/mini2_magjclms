@@ -2,10 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.magiclms.mapper.LoginMapper">
-    <select id="selectMemberById" parameterType="string" resultType="login">
+	<resultMap id="loginMap" type="login">
+		<result column="member_id" property="id" />
+		<result column="user_name" property="name" />
+		<result column="bitrh_date" property="birthDate" />
+		<result column="pw" property="pass" />
+		<result column="pw_hint" property="pwHint" />
+		<result column="email" property="email" />
+		<result column="phone_no" property="phoneNo" />
+		<result column="addr" property="addr" />
+		<result column="post_code" property="postCode" />
+		<result column="domitory" property="domitory" />
+		<result column="grade" property="grade" />
+		<result column="member_type" property="auth" />
+	</resultMap>
+	
+    <select id="selectMemberById" parameterType="string" resultMap="loginMap">
     	select *
     	  from tb_member
-    	 where id = #{id}
+    	 where member_id = #{memberID}
     </select>
 </mapper>
 

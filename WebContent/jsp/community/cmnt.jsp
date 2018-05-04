@@ -1,39 +1,38 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-	table {
-		width:70%;
-		border:1px solid black;
-	}
-	
-</style>
+  <meta charset='utf-8'>
+  <title>자유게시판</title>
 </head>
 <body>
-	<table>
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>등록일</th>
-			<th>조회수</th>
-			<th>작성자</th>
+	  <h2>자유게시판</h2>
+	    전체 ${fn:length(list)}개<br>
+	  <hr>
+	  <table class="table">
+	  <tr>
+	    <th>번호</th>
+	    <th>제목</th>
+	    <th>등록일</th>
+	    <th>조회수</th>
+	  </tr>
+		<c:forEach var="board" items="${list}">
+	    <tr>
+			 <td>${board.communityNo}</td>
+			 <td><a href='cmntDetail?communityNo=${board.communityNo}'>${board.title}</a></td>
+		  <td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd" /></td>
+		  <td>${board.viewCnt}</td>
 		</tr>
-		
-		<c:forEach var="cmnt" items="${notice}">
-			<tr>
-				<td>${notice.no}</td>
-				<td><a href="detail?no="${cmnt.no}></a></td>
-				<td><fmt:formatDate value="${cmnt.regDate}" pattern="MM-dd"/></td>
-				<td>${cmnt.viewCnt}</td>
-			</tr>		
 		</c:forEach>
-	</table>
-	
-	<a href="communityForm">글쓰기</a>
+		<c:if test="${empty list}">
+		  <tr>
+		    <td colspan='5'>입력된 게시물이 없습니다.</td>
+		  </tr>
+		</c:if>
+		</table>
+		<a href='writeForm'>글쓰기</a>
 </body>
 </html>

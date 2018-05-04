@@ -4,10 +4,10 @@ import java.util.List;
 
 import kr.co.magiclms.domain.Assignment;
 import kr.co.magiclms.domain.AssignmentSubmit;
-
+import org.apache.ibatis.annotations.Param;
 
 public interface AssignmentMapper {
-	List<Assignment> selectAssignmentList(); // 과제 게시글 목록
+	List<Assignment> selectAssignmentList(@Param("studentNo") int studentNo, @Param("courseNo") int courseNo); // 과제 게시글 목록
 	Assignment selectAssignmentByNo(int asgmtNo); // 과제 게시물 상세보기
 	void insertAssignment(Assignment assignment); // 과제 등록(교수용)
 	void updateAssignment(Assignment assignment); // 등록된 과제 수정(교수용) 

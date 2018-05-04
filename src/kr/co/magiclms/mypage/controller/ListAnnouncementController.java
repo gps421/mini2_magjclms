@@ -20,8 +20,7 @@ public class ListAnnouncementController extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		List<Announcement> annList = mapper.selectAnnouncement(11111111); // (session에서 교수번호 가져오기)
-		System.out.println(annList.size());
+		List<Announcement> annList = mapper.selectAnnouncement(20185555); // (session에서 교수번호 가져오기)
 		request.setAttribute("annList", annList);
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypage/annList.jsp");
 		rd.forward(request, response);
