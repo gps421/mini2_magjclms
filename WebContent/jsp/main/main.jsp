@@ -18,7 +18,7 @@
 	<div class="col-md-12">
 		<c:choose>
 		<c:when test="${empty sessionScope.user}">
-			<a href="<c:url value="/login/login" />">로그인</a>
+			<a href="<c:url value="/login" />">로그인</a>
 		</c:when>
 		<c:otherwise>
 <%-- 			${sessionScope.user.name}님 접속(<fmt:formatDate value="${user.accessTime}" pattern="yyyy-MM-dd HH:mm:ss" />) --%>

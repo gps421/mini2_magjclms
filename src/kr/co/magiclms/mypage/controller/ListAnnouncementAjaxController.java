@@ -28,6 +28,7 @@ public class ListAnnouncementAjaxController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Login login = (Login)session.getAttribute("user");
 		int profNo = login.getProfessorNo();
+		System.out.println(profNo);
 		
 		List<Announcement> annList = mapper.selectAnnouncement(profNo); // (session에서 교수번호 가져오기)
 		PrintWriter out = response.getWriter();

@@ -58,7 +58,7 @@
 			html += '<div class="announcement message">';
 			
 			for(var i = 0; i<result.length; i++) {
-				html += '<div class="message"><button onclick="annDetail(' + result[i].annNo + ')">' + result[i].title + '</button></div>';
+				html += '<div class="message"><button onclick="annDetail(' + result[i].professorNo + ',' +result[i].annNo ')">' + result[i].title + '</button></div>';
 			}
 				
 			if (result.length == 0) {
@@ -82,7 +82,7 @@
 		var prof;
 		annList();	
 // ------------------------------------------------------------------------------------------------
-		function annDetail(annNo) {
+		function annDetail(professorNo, annNo) {
 			$.ajax({
 				url: "annDetailAjax",
 				data: {"professorNo" : professorNo, "annNo" : annNo},
@@ -124,12 +124,14 @@
 				})
 		};
 		
+		alert('${user.professorNo}');
+		
 		function makeAnnForm(result) {
 			var html='';
 			html += '<div id="form-main">';
 			html += '<div id="form-div">';
 			html += '<form class="form" id="form1" method="post" action="">';
-			html += '<input style="display:block;" type="hidden" name="professorNo" value="${' + result.professorNo + '}';
+			html += '<input style="display:block;" type="hidden" name="profNo" value="${' + ${user.profNo} + '}';
 			html += '<input style="display:block;" type="hidden" name="courseNo" value="${' + result.courseNo + '}';
 			html += '<p class="title">';
 			html += '<input style="display:block;" id="title" name="title" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Title" />';

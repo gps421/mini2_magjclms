@@ -15,12 +15,8 @@
 	
 	<select id="selectAnnouncement" resultMap="announcementMap" parameterType="int">
 		select *
-		from tb_announcement a
-		inner join tb_professor p
-		on a.professor_no = p.professor_no
-		inner join tb_courselist c
-		on p.course_no = c.course_no
-		where a.professor_no = #{professorNo}
+		from tb_announcement 
+		where professor_no = #{professorNo}
 		order by ann_no
 	</select>
 	
@@ -28,10 +24,6 @@
 <!-- 	select : join!!! -->
 		select *
 		from tb_announcement a
-		inner join tb_professor p
-		on a.professor_no = p.professor_no
-		inner join tb_courselist c
-		on p.course_no = c.course_no
 		where professor_no = #{professorNo}
 			and ann_no = #{annNo}
 	</select>

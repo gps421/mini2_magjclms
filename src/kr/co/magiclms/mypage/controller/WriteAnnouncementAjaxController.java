@@ -27,12 +27,17 @@ public class WriteAnnouncementAjaxController extends HttpServlet{
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
 		HttpSession session = request.getSession();
 		Login login = (Login)session.getAttribute("user");
-		int profNo = login.getProfessorNo();
+		int profNo = Integer.parseInt(request.getParameter("profNo"));
+		System.out.println("ddddd" + request.getParameter("profNo"));
 		
 		Announcement announcement = new Announcement();
 		announcement.setTitle(request.getParameter("title"));
 		announcement.setContent(request.getParameter("content"));
+		announcement.setCourseNo(Integer.parseInt(request.getParameter("courseNo")));
 		announcement.setProfessorNo(profNo);
+		
+		System.out.println(announcement);
+		
 		mapper.insertAnnouncement(announcement);
 		
 		List<Announcement> annList = mapper.selectAnnouncement(profNo); // (session에서 교수번호 가져오기)
