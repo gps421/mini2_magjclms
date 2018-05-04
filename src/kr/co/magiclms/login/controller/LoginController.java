@@ -39,25 +39,25 @@ public class LoginController extends HttpServlet {
 		 *   - Login
 		 *   - SqlMapConfig.xml - Alias 설정 
 		 */
-		Login join = mapper.selectMemberById(id);
+		Login login = mapper.selectMemberById(id);
 //		System.out.println("id : " + join.getMemberID());
 //		System.out.println("pass : " + join.getPass());
 //		System.out.println("student : " + join.getStudentNo());
 //		System.out.println("professor : " + join.getProfessorNo());
 		
-		if (join == null) {
+		if (login == null) {
 			request.setAttribute("errMsg", "아이디를 확인하세요");
 			//System.out.println(login);
 		}
 		// 아이디에 해당하는 사용자 존재
-		else if (join.getPass().equals(pass)) {
+		else if (login.getPass().equals(pass)) {
 			System.out.println("로그인 성공");
 			// 세션에 사용자 정보 공유하기
 			HttpSession session = request.getSession();
 			// 접속 시간 추가
 //			join.setAccessTime(new Date());
-			session.setAttribute("user", join);
-			System.out.println(join.getMemberID());
+			session.setAttribute("user", login);
+			System.out.println(login.getMemberID());
 			
 			
 			response.sendRedirect(request.getContextPath() + "/main");

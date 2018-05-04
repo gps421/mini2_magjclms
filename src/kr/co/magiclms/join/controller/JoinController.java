@@ -29,7 +29,7 @@ public class JoinController extends HttpServlet{
 		
 		
 		Join join = new Join();
-		join.setMemberId(request.getParameter("memberId"));
+		join.setMemberID(request.getParameter("memberId"));
 		join.setUserName(request.getParameter("userName"));
 		join.setBirthDate(Integer.parseInt(request.getParameter("birthDate")));
 		join.setPw(request.getParameter("pass"));
