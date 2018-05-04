@@ -13,7 +13,7 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Join;
 import kr.co.magiclms.mapper.JoinMapper;
 
-@WebServlet("/jsp/istjoin")
+@WebServlet("/istjoin")
 public class JoinController extends HttpServlet{
 	
 	@Override
@@ -21,10 +21,10 @@ public class JoinController extends HttpServlet{
 		String id = request.getParameter("memberId");
 		JoinMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(JoinMapper.class);
 		
-		int cnt = mapper.selectIdChk(id);
-		PrintWriter out = response.getWriter();
-		out.write("{\"result\": " + cnt + "}");
-		out.close();
+//		int cnt = mapper.selectIdChk(id);
+//		PrintWriter out = response.getWriter();
+//		out.write("{\"result\": " + cnt + "}");
+//		out.close();
 		
 		
 		

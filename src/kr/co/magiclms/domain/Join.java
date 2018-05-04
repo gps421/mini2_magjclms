@@ -15,24 +15,6 @@ public class Join {
 	private String memberType;
 	private int studentId;
 	private int professorId;
-	public int getStudentId() {
-		return studentId;
-	}
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-	public int getProfessorId() {
-		return professorId;
-	}
-	public void setProfessorId(int professorId) {
-		this.professorId = professorId;
-	}
-	public String getMemberType() {
-		return memberType;
-	}
-	public void setMemberType(String memberType) {
-		this.memberType = memberType;
-	}
 	public String getMemberID() {
 		return memberID;
 	}
@@ -98,6 +80,24 @@ public class Join {
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
+	}
+	public String getMemberType() {
+		return memberType;
+	}
+	public void setMemberType(String memberType) {
+		this.memberType = memberType;
+	}
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	public int getProfessorId() {
+		return professorId;
+	}
+	public void setProfessorId(int professorId) {
+		this.professorId = professorId;
 	}
 	
 

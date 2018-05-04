@@ -13,7 +13,7 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Community;
 import kr.co.magiclms.mapper.CommunityMapper;
 
-@WebServlet("/jsp/cmntDetail")
+@WebServlet("/cmntDetail")
 public class DetailBoardController extends HttpServlet {
 
 	@Override

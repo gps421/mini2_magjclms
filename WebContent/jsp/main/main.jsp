@@ -22,7 +22,7 @@
 		</c:when>
 		<c:otherwise>
 <%-- 			${sessionScope.user.name}님 접속(<fmt:formatDate value="${user.accessTime}" pattern="yyyy-MM-dd HH:mm:ss" />) --%>
-			<a href="<c:url value="/login/logout" />">로그아웃</a>
+			<a href="<c:url value="/logout" />">로그아웃</a>
 		</c:otherwise>
 		</c:choose>		
 	</div>

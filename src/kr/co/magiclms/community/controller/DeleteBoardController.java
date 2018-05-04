@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.mapper.CommunityMapper;
 
-@WebServlet("/jsp/delete")
+@WebServlet("/delete")
 public class DeleteBoardController extends HttpServlet {
 
 	@Override

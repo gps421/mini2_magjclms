@@ -18,7 +18,7 @@ import kr.co.magiclms.common.file.MlecFileRenamePolicy;
 import kr.co.magiclms.domain.Community;
 import kr.co.magiclms.mapper.CommunityMapper;
 
-@WebServlet("/jsp/communityrgst")
+@WebServlet("/communityrgst")
 public class WriteBoardController extends HttpServlet {
 
 	@Override
