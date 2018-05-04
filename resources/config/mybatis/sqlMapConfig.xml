@@ -19,9 +19,11 @@
 		<typeAlias alias="assignmentSubmit" type="kr.co.magiclms.domain.AssignmentSubmit" />
 		<typeAlias alias="announcement" type="kr.co.magiclms.domain.Announcement" />
 		<typeAlias alias="professor" type="kr.co.magiclms.domain.Professor" />
+		<typeAlias alias="student" type="kr.co.magiclms.domain.Student" />
 		<typeAlias alias="courseList" type="kr.co.magiclms.domain.CourseList" />
 		<typeAlias alias="content" type="kr.co.magiclms.domain.Content" />
 		<typeAlias alias="qna" type="kr.co.magiclms.domain.QnA" />
+		<typeAlias alias="mycourse" type="kr.co.magiclms.domain.MyCourse" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -51,10 +53,11 @@
 		<mapper resource="config/sqlmap/oracle/assignment.xml"/>
 		<mapper resource="config/sqlmap/oracle/announcement.xml"/>
 		<mapper resource="config/sqlmap/oracle/professor.xml"/>
+		<mapper resource="config/sqlmap/oracle/student.xml"/>
 		<mapper resource="config/sqlmap/oracle/courselist.xml"/>
-
 		<mapper resource="config/sqlmap/oracle/content.xml"/>
-		<mapper resource="config/sqlmap/oracle/qna.xml"/>		
+		<mapper resource="config/sqlmap/oracle/qna.xml"/>
+		<mapper resource="config/sqlmap/oracle/mycourse.xml"/>		
 
 	</mappers>
 </configuration>
