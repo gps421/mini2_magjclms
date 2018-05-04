@@ -32,7 +32,8 @@
 		on a.professor_no = p.professor_no
 		inner join tb_courselist c
 		on p.course_no = c.course_no
-		where ann_no = #{annNo}
+		where professor_no = #{professorNo}
+			and ann_no = #{annNo}
 	</select>
 	
 	<insert id="insertAnnouncement" parameterType="announcement">
@@ -47,18 +48,21 @@
 		update tb_announcement
 		set title = #{title},
 			content = #{content}
-		where ann_no = #{annNo}
+		where professor_no = #{professorNo}
+			and ann_no = #{annNo}
 	</update>
 	
 	<update id="updateAnnouncementViewCnt" parameterType="int">
 		update tb_announcement
 			set view_cnt = view_cnt + 1
-		where ann_no = #{annNo}
+		where professor_no = #{professorNo}
+			and ann_no = #{annNo}
 	</update>
 	
 	<delete id="deleteAnnouncement" parameterType="int">
 		delete from tb_announcement
-		where ann_no = #{annNo}
+		where professor_no = #{professorNo}
+			and ann_no = #{annNo}
 	</delete>
 </mapper>
 

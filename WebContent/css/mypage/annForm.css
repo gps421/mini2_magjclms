@@ -65,6 +65,8 @@ html{
 }
 
 /* Icons ---------------------------------- */
+
+
 #title{
 	background-size: 30px 30px;
 	background-position: 11px 8px;
@@ -92,7 +94,6 @@ textarea {
     resize:vertical;
 }
 
-input:hover, textarea:hover,
 input:focus, textarea:focus {
 	background-color:white;
 }

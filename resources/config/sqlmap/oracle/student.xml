@@ -2,5 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.magiclms.mapper.StudentMapper">
-
+	<resultMap type="student" id="studentMap">
+		<result column="member_id" property="memberID" />
+		<result column="student_no" property="studentNo" />
+		<result column="pic" property="pic" />
+		<result column="total_grade" property="totalGrade" />
+	</resultMap>
+	
+	<select id="selectStudentByStudentNo" parameterType="int">
+		select * from tb_student
+		where student_no = #{studentNo}
+	</select>
+	
+	<insert id = "insertStudentInfo" parameterType="student">
+		insert into tb_student (
+			member_id, student_no, pic, total_grade		
+		) values (
+			#{memberID}, #{studentNo}, #{pic}, #{totalGrade}
+		)
+	</insert>
+	
+	
 </mapper>

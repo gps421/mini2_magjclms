@@ -17,7 +17,7 @@ import kr.co.magiclms.domain.Content;
 import kr.co.magiclms.mapper.ContentMapper;
 
 @WebServlet("/mypage/contentListAjax")
-public class ContentListAjaxController extends HttpServlet{
+public class ListContentAjaxController extends HttpServlet{
 	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

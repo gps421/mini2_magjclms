@@ -2,5 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.magiclms.mapper.ProfessorMapper">
+	<resultMap type="professor" id="professorMap">
+		<result column="member_id" property="memberID" />
+		<result column="professor_no" property="professorNo" />
+		<result column="course_no" property="courseNo" />
+	</resultMap>
 
+	<select id="selectProfessor" resultMap="professorMap">
+		select * from tb_professor
+		where professor_no = #{professorNo}
+	</select>
+	
+	<insert id="insertProfessor" parameterType="professor">
+		insert into tb_professor ( 
+			member_id, professor_no, course_no
+		) values ( 
+			#{memberID}, #{professorNo}, #{courseNo}
+		) 
+	</insert>
 </mapper>

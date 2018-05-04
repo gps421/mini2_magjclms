@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.magiclms.mapper.MyCourseMapper">
+	<resultMap type="mycourse" id="mycourseMap">
+		<result column="student_no" property="studentNo" />
+		<result column="course_no" property="courseNo" />
+		<result column="grade" property="grade" />
+	</resultMap>
+	
+	<select id="selectMyCourse" parameterType="int" resultMap="mycourseMap">
+		select *
+		from tb_mycourse
+		where student_no = #{studentNo}
+	</select>
+	
+	<insert id="insertMyCourse" parameterType="mycourse">
+		insert into tb_mycourse ( 
+			student_no, course_no, professor_no		
+		) values ( 
+			#{studentNo}, #{courseNo}, #{professorNo}
+		)
+	</insert>
+	
+	<update id="updateMyCourse" parameterType="int">
+		update tb_mycourse 
+		set course_no = #{courseNo}
+		where student_no = #{studentNo}
+	</update>
+	
+	<delete id="deleteMyCourse" parameterType="int">
+		delete from tb_mycourse
+		where course_no = #{courseNo}
+	</delete>
+	
+	<!-- insertGrade는 따로,where 조건? -->
+</mapper>

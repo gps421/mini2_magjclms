@@ -18,8 +18,20 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
+<!-- 강의 등록 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage/annForm.css">
+
+<!-- qna List -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage/qna.css">
+<script src="${pageContext.request.contextPath}/js/mypage/qna.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script> -->
+<link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
 <!-- 강의 자료 등록 -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage/contentForm.css">
+<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage/contentForm.css"> -->
 
 </head>
 

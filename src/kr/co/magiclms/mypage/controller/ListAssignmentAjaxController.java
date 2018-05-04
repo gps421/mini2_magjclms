@@ -17,7 +17,7 @@ import kr.co.magiclms.domain.Assignment;
 import kr.co.magiclms.mapper.AssignmentMapper;
 
 @WebServlet("/mypage/assignmentListAjax")
-public class AssignmentListAjaxController extends HttpServlet {
+public class ListAssignmentAjaxController extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AssignmentMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AssignmentMapper.class);

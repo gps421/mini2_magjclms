@@ -26,7 +26,7 @@
 			<label for="tab4"><i class="fa fa-folder-open-o"></i><span>QnA</span></label>
 
 			<section id="content1" class="tab-content">
-				<h3>강의공지</h3>
+<!-- 				<h3>강의공지</h3> -->
 				<p id="annListAjax"> </p>
 			</section>
 
@@ -47,57 +47,170 @@
 		</div>
 		
 		<script>
-		function annDetail(annNo) {
-			$.ajax({
-				url: "annDetailAjax",
-				data: "annNo=" + annNo,
-				dataType: "json",
-				success: function (result) {
-					alert("success");
-					console.dir(result)
-					
-					
-					  공지 번호 : ${announcement.annNo}
-					<br> 공지 제목 : <c:out value="${announcement.title}" />
-				<%-- 	<br> 공지 작성자 : <c:out value="${announcement.professor}" /> --%>
-					<br> 공지 내용 : <c:out value="${announcement.content}" />
-					<br> 공지 등록일 : <fmt:formatDate value="${announcement.regDate}" pattern="yyyy-MM-dd" />
-					<br>
-					<hr>
-					<a href='annUpdateForm?annNo=${announcement.annNo}'>수정</a>
-					<a href='annDelete?annNo=${announcement.annNo}'>삭제</a>
-					<a href='annList'>목록</a>
-					
-				}
-			});	
-		}
 		function makeAnnList(result) {
+			prof = result;
 			var html = "";
+			html += '총' + result.length + '개 공지가 있습니다.'
+			
+			html += '<button type="button" onclick="annForm()">공지등록</button>';
+			
+			
 			html += '<div class="announcement message">';
 			
 			for(var i = 0; i<result.length; i++) {
-				html += '<div class="message"><a onclick="annDetail(' + result[i].annNo + ')">' + result[i].title + '</a></div>';
+				html += '<div class="message"><button onclick="annDetail(' + result[i].annNo + ')">' + result[i].title + '</button></div>';
 			}
 				
 			if (result.length == 0) {
-				html += '<div class="message">댓글이 존재하지 않습니다.<div>';
+				html += '<div class="message">등록된 공지가 없습니다.<div>';
 			}
 			
 			html += '</div>';
 			
 			$("#annListAjax").html(html);
+			
+			
 		}
 		
 		function annList() {
 			$.ajax({
 				url: "<c:url value='/mypage/annListAjax'/>",
-// 				data: {no: "${board.no}"},
-// 				dataType: "json", 
 				success: makeAnnList
 			});
+			
 		}
+		var prof;
 		annList();	
+// ------------------------------------------------------------------------------------------------
+		function annDetail(annNo) {
+			$.ajax({
+				url: "annDetailAjax",
+				data: {"professorNo" : professorNo, "annNo" : annNo},
+				dataType: "json",
+				success: function (result) {
+// 					prof = result;
+// 					console.log(prof);
+					makeAnnDetail(result);
+				} 
+				});
+			};	
 		
+		function makeAnnDetail(result) {
+			var html="";
+			html += "공지 번호 : " + result.annNo + "<br>";
+			html += "공지 제목 : " + result.title + "<br>";
+			html += "공지 작성자 : " + result.professorNo + "<br>";
+			html += "공지 내용 : " + result.content+ "<br>";
+			html += "공지 등록일 : " + result.regDate + "<br>";
+			
+			html += "<hr>"
+// 			html += "<button onclick='annUpdateForm(" + result.professorNo + "," + result.annNo ")'> 수정 </button>";
+// 			html += "<button onclick='annDeleteAjax(" + result.professorNo + "," + result.annNo ")'> 삭제 </button>";
+			html += "<button onclick='annUpdateForm()'> 수정 </button>";
+			html += "<button onclick='annDeleteAjax()'> 삭제 </button>";
+			html += "<button onclick='annList()'>목록</button>";
+			
+			$("#annListAjax").html(html);
+		};
+// ------------------------------------------------------------------------------------------------
+// 공지 등록 Form
+
+		function annForm() {
+			$.ajax({
+				url: "annFormAjax",
+				success: function(result) {
+					makeAnnForm(result);
+				}
+				})
+		};
+		
+		function makeAnnForm(result) {
+			var html='';
+			html += '<div id="form-main">';
+			html += '<div id="form-div">';
+			html += '<form class="form" id="form1" method="post" action="">';
+			html += '<input style="display:block;" type="hidden" name="professorNo" value="${' + result.professorNo + '}';
+			html += '<input style="display:block;" type="hidden" name="courseNo" value="${' + result.courseNo + '}';
+			html += '<p class="title">';
+			html += '<input style="display:block;" id="title" name="title" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Title" />';
+			html += '</p>';
+			html += '<p class="content">';
+			html += '<textarea name="content" class="validate[required,length[6,300]] feedback-input" id="content" placeholder="Content"></textarea>';
+			html += '</p>';
+			html += '<div class="submit">';
+			html += '<input style="display:block;" type="submit" value="등록" id="button-blue"/>';
+			html += '<div class="ease"></div>';
+			html += '</div>';
+			html += '</form>';
+			html += '</div>';
+			html += '</div>';
+			
+			$("#annListAjax").html(html);
+
+			// 공지 등록(annRegist)
+			
+			$("#form1").submit(function(event) {
+				event.preventDefault();
+				console.log($(this).serialize())	
+				$.ajax({
+					url: "annRegistAjax",
+					type: "post",
+					data: $(this).serialize(),
+					dataType: "json",
+					success: function(result) {
+						console.dir(result);
+						makeAnnList(result)
+						
+					}
+				});
+				
+			});
+		}
+
+// ------------------------------------------------------------------------------------------------
+		// 공지 수정
+// 		function annUpdateForm(professorNo, annNo) {
+		function annUpdateForm() {
+			$.ajax({
+				url: "annUpdateFormAjax",
+				data: {"professorNo" : professorNo, "annNo" : annNo},
+				dataType: "json",
+				success: makeUpdateAnn
+				})
+		}
+		
+		function makeUpdateAnn(result) {
+			var html='';
+			html += '<form action="" method="post">';
+			html += '<input type="hidden" name="annNo" value="${' + result.annNo + '}" />';
+			html += '<input type="hidden" name="professorNo" value="${' + result.professorNo + '}" />';
+			html += '제목 : <input type="text" name="title" value="${' + result.title + '}" /><br>';
+			html += '내용 : <br>';
+			html += '<textarea name="content" rows="5" cols="70">${' + result.content + '}"</textarea><br>';
+			html += '<button type="submit">수정</button>';
+			html += '</form>';
+			html += '<button onclick="annList()">목록</button>';
+			
+			$("#annListAjax").html(html);
+		}
+
+// ------------------------------------------------------------------------------------------------
+		// 공지 삭제 
+// 		function annDelete(professorNo, annNo) {
+		function annDelete() {
+			$.ajax({
+				url: "annDeleteAjax",
+				data: {"professorNo" : professorNo, "annNo" : annNo },
+				dataType: "json",
+				success: function(result) {
+// 					console.dir(result);
+					makeAnnList(result)
+				}
+				});
+		}
+
+
+// ------------------------------------------------------------------------------------------------
 			
 		$("#tab2").click(function contentList() {
 			$.ajax({
