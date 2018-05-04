@@ -2,11 +2,11 @@ package kr.co.magiclms.mapper;
 
 import java.util.List;
 
-import kr.co.magiclms.domain.Order;
+import kr.co.magiclms.domain.OrderItem;
 
 public interface OrderItemMapper {
 
-	List<Order> selectOrder();
-	Order selectOrderByNo(int no);
-	void insertOrder(Order order);
+	List<OrderItem> selectOrder();
+	List<OrderItem> selectOrderItemByNo(int no);
+	void insertOrderItem(OrderItem orderitem);
 }

@@ -6,16 +6,12 @@ import kr.co.magiclms.domain.Cart;
 
 public interface CartMapper {
 	
-	
-	
 	Cart getSnoCart(int sNo);
 	
-	
-	
-	
-	List<Cart> selectCart(String id);
+	Cart selectCartByName(String memberId);
 	Cart selectCartByNo(int no);
 	void insertCart(Cart cart);
+	
 	int updateCart(Cart cart);
 	int deleteCartByNo(int no);
 	int deleteCart();

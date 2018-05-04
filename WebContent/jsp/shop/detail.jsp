@@ -5,10 +5,196 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>자유게시판</title>
+  <title>상세정보</title>
+  
+  <style type="text/css">
+	.container {
+		width: 740px; 
+		min-height: 600px;
+		margin: 0 auto;
+		background: rgb(237, 228, 177);
+		
+	}
+	.titleheader {
+		width: 740px;
+		height: 55px;
+		border: 1px  tomato;
+		margin: 0 auto;
+		font-size: 1em;
+		background: rgb(232, 134, 48); 
+	}
+	
+	.header {
+		width: 720px;
+		margin: 5px;
+	}
+
+	.containerSub1 {
+		width: 720px; 
+		min-height: 350px;
+		margin: 0 auto;
+		background: rgb(237, 228, 177);
+		
+	}
+	
+	.pic2 {
+		width: 40%; 
+		height: 300px;
+		border: 0.5px  blue;
+		line-height: 300px;
+		margin: 5px;
+		float: left;
+	}
+	.picheader2 {
+		width: 40%; 
+		height: 300px;
+		border: 2px  blue;
+		margin: 5px;
+		float: left;
+	}
+	
+	.content {
+		width: 600px;
+		border: 5px tomato;
+		margin: 0 auto;
+		float: left;
+	}
+	
+	.footer {
+	 	clear: both; 
+		width: 720px;
+
+		border: 1px tomato;
+		margin: 5px;
+		margin: 0 auto; 
+	}
+	.footer {}
+	
+	table.header {		
+		width: 80%; 
+		margin: 0 auto;
+	}
+
+	table.header  th {
+		height: 10px;
+		background: #B3D4F5;
+		color: #444B52;
+		letter-spacing: 2px;
+		border: 1px solid blue;
+	}
+	
+	table.header  td {
+		padding-left: 2px;
+	}
+	
+	.productDetailPic {
+		clear: both; 
+		padding-left: 120px;
+	}
+
+</style>
 </head>
 <body>
-	<h2>자유게시판</h2>
+
+    <div class="titleheader"><p class="title"><h1>상품정보</h1></p></div> 
+    <div class="container">
+		<div class="header">
+
+			<table class="header">
+				<tr><td height=20></td></tr>
+
+			</table>
+		</div>
+		
+	<div class="containerSub1">
+		<div class="pic2">
+			<img  width='300' height='300' src='${goods.goodsPicPath}' align="center" onclick="openPop()"></img>
+			
+		</div>
+		
+		<div class="picheader2">
+			<h5>1-2 상품상세 정보</h5>
+			<h3>${goods.name} 500g</h3>
+
+			<table>
+				<tr><td height=20></td></tr>
+				<tr>
+					<td style="font-size:1em;">상품가격 :</td>
+					<td style="font-size:1em;">${goods.price}원</td>
+				</tr>
+				<tr>
+					<td>할인가격 :</td>
+					<td>${goods.salePrice}원</td>
+				</tr>
+				<tr>
+					<td>제품코드 :</td>
+					<td>${goods.code}</td>
+				</tr>
+				<tr>
+					<td>구매수량  :</td>
+					<td> 2 개</td>
+				</tr>
+				<tr>
+					<td>고객선호도  :</td>
+					<td> **</td>
+				</tr>
+				<tr><td height=20></td></tr>
+
+				<tr><td height=20></td></tr>
+				<tr><td style="width=50%; height=10px;"></td></tr>
+				<tr>
+
+				</tr>
+			</table>
+		</div>
+	</div>
+
+		<div id='productDetailPic' class="productDetailPic">
+			<h5 onclick="openPop()">[상세화면]</h5>
+		</div>
+				
+		<div class="content">
+			<table class="contentheader">
+				<tr><td height=50></td></tr>
+
+			</table>
+		</div>
+		
+		<div class="footer" style="height: 38px;">
+			<form name="buy1" method="post" action=" ">
+<!-- 				<span id="loSpan1"> <input type="button" value="장바구니" onclick="location.href='detail?no=106'" 
+					style="background: rgb(35, 227, 237); font-size: 2.5em; color: rgb(11, 1, 71); margin: 0 auto;" />
+ -->
+ 				<span id="loSpan1"> <input type="button" value="장바구니" onclick="location.href='cartwrite?no=${goods.goodsNo}&count=2'"
+					style="background: rgb(35, 227, 237); font-size: 2.5em; color: rgb(11, 1, 71); margin: 0 auto;" />
+ 				</span> <span id="loSpan2"> <input type="button" value="주문결제" onclick="location.href='/mini2_magiclms/shop/list'" 
+					style="background: rgb(35, 227, 237); font-size: 2.5em; color: rgb(11, 1, 71); margin: 0 auto;" />
+				</span>
+			</form>
+		</div>
+
+	</div>
+
+	<script>
+        function openPop() {
+			// window.open("http://www.naver.com", "pop1", "width=400,height=300");
+			// window.open("f0.jpg", "pop1", "width=600,height=400");
+			console.log(screen.width, screen.height)
+            var left = (screen.width - 600) / 2;
+            var top = (screen.height - 600) / 2;
+            window.open(
+                    "${goods.goodsPicPath}", "", 
+                    `width=600, height=600, left=${left},top=${top}`
+            );
+
+        }
+	</script>
+
+
+
+
+	<hr />
+	<hr />
 	<hr />
 	번호 : ${board.no} <br>
 	제목 : ${board.title} <br>
@@ -107,6 +293,7 @@
 		 </table>
 		</div>
 		</form>
+	
 		
 </body>
 </html>

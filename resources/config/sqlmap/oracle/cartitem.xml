@@ -3,79 +3,72 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.magiclms.mapper.CartItemMapper">
 
-	<resultMap type="cart" id="cartMap">
+	<resultMap type="cartitem" id="cartItemMap">
 		<result column="cart_no" property="cartNo" />
-		<result column="member_id" property="memberId" />
-		<result column="cart_date" property="cartDate" />
+		<result column="cart_item_no" property="cartItemNo" />
+		<result column="goods_no" property="goodsNo" />
 		<result column="goods_name" property="goodsName" />
 		<result column="goods_count" property="goodsCount" />
 		<result column="goods_sum" property="goodsSum" />
+		<result column="shipping_cost" property="shippingCost" />
 	</resultMap>
 	
-	
-	<select id="getSnoCart" parameterType="int" resultMap="cartMap">
-	select *
-	  from tb_cart
-	 where cart_no = #{cartNo}
-	</select>
-	
-	
-	
-	
 
-	<select id="selectCart" parameterType="cart" resultMap="cartMap">
+	<select id="selectCartItem" parameterType="cartitem" resultMap="cartItemMap">
 		select *
-		from tb_cart
-		where member_id = #{memberId}
+		from tb_cart_item
+		where cart_no = #{cartNo}
 		order by cart_no
 	</select>
 
-	<select id="selectCartByNo" parameterType="int" resultMap="cartMap">
+	<select id="selectCartItemByNo" parameterType="int" resultMap="cartItemMap">
 		select *
-		from tb_cart
+		from tb_cart_item
 		where cart_no = #{cartNo}
 	</select>
 
-	<insert id="insertCart" parameterType="cart">
-		insert into tb_cart (
+	<insert id="insertCartItem" parameterType="cartitem">
+		insert into tb_cart_item (
+		cart_item_no,
 		cart_no,
-		member_id,
-		goods_code,
+		goods_no,
 		goods_name,
 		goods_count,
-		goods_sum
+		goods_sum,
+		shipping_cost
 		) values (
-		s_cart_no.nextval ,
-		#{userId},
-		#{goodsCode},
+		s_cart_item_no.nextval ,
+		#{cartNo},
+		#{goodsNo},
 		#{goodsName},
 		#{goodsCount},
-		#{goodsSum}
+		#{goodsSum},
+		#{shippingCost}
 		)
 	</insert>
 
-	<update id="updateCart" parameterType="cart">
-		update tb_cart
+	<update id="updateCartItem" parameterType="cartitem">
+		update tb_cart_item
 		set goods_count = #{goodsCount},
 		    goods_sum = #{goodsSum}
 		where cart_no = #{cartNo}
 	</update>
 
-	<delete id="deleteCartByNo" parameterType="int">
+	<delete id="deleteCartItemByNo" parameterType="int">
 		delete
-		from tb_cart
+		from tb_cart_item
 		where cart_no = #{cartNo}
 	</delete>
 
-	<delete id="deleteCartByCode" parameterType="int">
+	<delete id="deleteCartItemByCode" parameterType="int">
 		delete
-		from tb_cart
+		from tb_cart_item
 		where goods_code = #{goodsCode}
 	</delete>
 
-	<delete id="deleteCart">
+	<delete id="deleteCartItem">
 		delete
-		from tb_cart
+		from tb_cart_item
 	</delete>
 	
 	

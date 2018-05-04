@@ -41,6 +41,10 @@
 		border-width: 1px 1px 1px 1px;
 		margin:50px auto;
 	}
+	
+	#x1:hover {transform: scale(1.5);}
+	#x2:hover {transform: scale(1.5);}
+	
   <!--   border: #000011 solid tomato; -->
   </style>
 </head>
@@ -60,7 +64,7 @@
 	<c:forEach var="goods" items="${list}"> 
 	
     <td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='${goods.goodsPicPath}' width=230 height=150/></a></div>
+	<div style="text-align:center;"><a href="detail?no=${goods.goodsNo}"><img src='${goods.goodsPicPath}' width=230 height=150/></a></div>
 <!-- 	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/img/danish_butter_cookies1.jpg' width=230 height=150/></a></div> -->
 
 console.debug("${goods.goodsNo}");

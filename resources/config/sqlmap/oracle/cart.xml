@@ -7,9 +7,6 @@
 		<result column="cart_no" property="cartNo" />
 		<result column="member_id" property="memberId" />
 		<result column="cart_date" property="cartDate" />
-		<result column="goods_name" property="goodsName" />
-		<result column="goods_count" property="goodsCount" />
-		<result column="goods_sum" property="goodsSum" />
 	</resultMap>
 	
 	
@@ -19,15 +16,18 @@
 	 where cart_no = #{cartNo}
 	</select>
 	
-	
-	
-	
 
 	<select id="selectCart" parameterType="cart" resultMap="cartMap">
 		select *
 		from tb_cart
 		where member_id = #{memberId}
 		order by cart_no
+	</select>
+
+	<select id="selectCartByName" parameterType="string" resultMap="cartMap">
+		select *
+		from tb_cart
+		where member_id = #{memberId}
 	</select>
 
 	<select id="selectCartByNo" parameterType="int" resultMap="cartMap">
@@ -39,18 +39,11 @@
 	<insert id="insertCart" parameterType="cart">
 		insert into tb_cart (
 		cart_no,
-		member_id,
-		goods_code,
-		goods_name,
-		goods_count,
-		goods_sum
+		member_id
+
 		) values (
-		s_cart_no.nextval ,
-		#{userId},
-		#{goodsCode},
-		#{goodsName},
-		#{goodsCount},
-		#{goodsSum}
+ 		s_cart_no.nextval ,
+		#{memberId}
 		)
 	</insert>
 

@@ -21,13 +21,15 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
+<link rel="stylesheet" href="<c:url value='/css/shopmenu2.css' />" >
+
 </head>
 <body>
- <div class="container" id="new">
+ <div class="containerMini2" id="new">
 	<div class="header">
 	  <c:import url="/jsp/decorator/topMenu.jsp" />
 	</div>	
-	<div class="content">
+	<div class="contentMini2">
 	  <sitemesh:write property="body" />
 	</div>
  </div>

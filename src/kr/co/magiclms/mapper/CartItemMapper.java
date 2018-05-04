@@ -2,21 +2,16 @@ package kr.co.magiclms.mapper;
 
 import java.util.List;
 
-import kr.co.magiclms.domain.Cart;
+import kr.co.magiclms.domain.CartItem;
 
 public interface CartItemMapper {
 
-	Cart getSnoCart(int sNo);
-	
-	
-	
-	
-	List<Cart> selectCart(String id);
-	Cart selectCartByNo(int no);
-	void insertCart(Cart cart);
-	int updateCart(Cart cart);
-	int deleteCartByNo(int no);
-	int deleteCart();
-	int deleteCartByCode(int code);
-	
+	List<CartItem> selectCartItem(CartItem cartitem);
+	List<CartItem> selectCartItemByNo(int no);
+	void insertCartItem(CartItem cartitem);
+	int updateCartItem(CartItem cartitem);
+	int deleteCartItemByNo(int no);
+	int deleteCartItem();
+	int deleteCartItemByCode(int code);
+
 }

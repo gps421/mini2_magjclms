@@ -1,5 +1,7 @@
 package kr.co.magiclms.domain;
 
+import java.util.Date;
+
 public class OrderItem {
 
     // 주문아이템번호 
@@ -19,6 +21,9 @@ public class OrderItem {
 
     // 소계 
     private int goodsSum;
+    
+    // 주문날짜 
+    private Date orderDate;
 
     // 상태정보 
     private String orderState;
@@ -100,5 +105,13 @@ public class OrderItem {
     public void setShippingCost(int shippingCost) {
         this.shippingCost = shippingCost;
     }
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
 
 }
