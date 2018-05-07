@@ -25,12 +25,13 @@ public class DetailAnnouncementAjaxController extends HttpServlet {
 		response.setContentType("application/json; charset=utf-8");
 		
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		HttpSession session = request.getSession();
-		Login login = (Login)session.getAttribute("user");
-		int profNo = login.getProfessorNo();
+//		HttpSession session = request.getSession();
+//		Login login = (Login)session.getAttribute("user");
+//		int profNo = login.getProfessorNo();
 		
 		Announcement announcement = new Announcement();
-		announcement.setProfessorNo(profNo);
+//		announcement.setProfessorNo(profNo);
+		announcement.setProfessorNo(20185000);
 		announcement.setAnnNo(Integer.parseInt(request.getParameter("annNo")));
 		mapper.updateAnnouncementViewCnt(announcement);
 		

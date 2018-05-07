@@ -7,6 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <title>mypage index</title>
+<style>
+#button1, #button2, #button3 {
+ 	background-color: #008CBA
+    border: none;
+    font-style: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+} 
+
+</style>
 
 </head>
 <body>
@@ -48,7 +60,7 @@
 		
 		<script>
 		function makeAnnList(result) {
-			prof = result;
+			rs = result;
 			var html = "";
 			html += '총' + result.length + '개 공지가 있습니다.'
 			
@@ -69,7 +81,6 @@
 			
 			$("#annListAjax").html(html);
 			
-			
 		}
 		
 		function annList() {
@@ -79,7 +90,7 @@
 			});
 			
 		}
-		var prof;
+		var rs;
 		annList();	
 // ------------------------------------------------------------------------------------------------
 		function annDetail(professorNo, annNo) {
@@ -102,14 +113,15 @@
 			html += "공지 등록일 : " + result.regDate + "<br>";
 			
 			html += "<hr>"
-// 			html += "<button onclick='annUpdateForm(" + result.professorNo + "," + result.annNo ")'> 수정 </button>";
-// 			html += "<button onclick='annDeleteAjax(" + result.professorNo + "," + result.annNo ")'> 삭제 </button>";
-			html += "<button onclick='annUpdateForm(" + result.professorNo +   "," + result.annNo +")'> 수정 </button>";
-			html += "<button onclick='annDeleteAjax(" + result.professorNo +   "," + result.annNo +")'> 삭제 </button>";
-			html += "<button onclick='annList()'>목록</button>";
+			html += "<button id = 'button1' onclick='annUpdateForm(" + result.professorNo +   "," + result.annNo +")'> 수정 </button>";
+			html += "<button id = 'button2' onclick='annDelete(" + result.professorNo +   "," + result.annNo +")'> 삭제 </button>";
+			html += "<button id = 'button3' onclick='annList()'>목록</button>";
 			
 			$("#annListAjax").html(html);
+			
+			
 		};
+
 // ------------------------------------------------------------------------------------------------
 // 공지 등록 Form
 
@@ -151,7 +163,7 @@
 			
 			$("#form1").submit(function(event) {
 				event.preventDefault();
-// 				console.log($(this).serialize())	
+				console.log($(this).serialize())	
 				$.ajax({
 					url: "annRegistAjax",
 					type: "post",
@@ -162,6 +174,7 @@
 					}
 				});
 			});
+			
 		}
 
 // ------------------------------------------------------------------------------------------------
@@ -192,19 +205,17 @@
 
 // ------------------------------------------------------------------------------------------------
 		// 공지 삭제 
-// 		function annDelete(professorNo, annNo) {
-		function annDelete() {
-			$.ajax({
-				url: "annDeleteAjax",
-				data: {"professorNo" : professorNo, "annNo" : annNo },
-				dataType: "json",
-				success: function(result) {
-					makeAnnList(result)
-				}
-				});
-		}
-
-
+			function annDelete(professorNo, annNo) {
+				$.ajax({
+					url: "annDeleteAjax",
+	 				data: {"professorNo" : professorNo, "annNo" : annNo },
+					dataType: "json",
+					success: function(rs) {
+						makeAnnList(rs);
+					}
+					});
+			}
+			
 // ------------------------------------------------------------------------------------------------
 			
 		$("#tab2").click(function contentList() {

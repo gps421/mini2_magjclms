@@ -24,7 +24,7 @@ public class MyPageIndexController extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		List<Announcement> annList = mapper.selectAnnouncement(20185555); // (session에서 교수번호 가져오기)
+		List<Announcement> annList = mapper.selectAnnouncement(20185000); // (session에서 교수번호 가져오기)
 		request.setAttribute("annList", annList);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypage/myPageIndex.jsp");

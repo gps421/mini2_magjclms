@@ -9,9 +9,9 @@
 <!-- profile card -->	
 <div class="card" style="margin: 30px 80px 30px 80px;">
   <img src="${pageContext.request.contextPath}/img/harryprofile.jpg" style="width:290px;">
-  <h1 id="profname">${student.name}이름</h1> <!-- student table에서 이름 불러오기 -->
-  <p class="year">${student.year}학년</p>
-  <p class="dormitory">${student.dormitory}그리핀도르</p>
+  <h1 id="profname">${student.name}Harry Potter</h1> <!-- student table에서 이름 불러오기 -->
+<%--   <p class="year">${student.year}학년</p> --%>
+<%--   <p class="dormitory">${student.dormitory}그리핀도르</p> --%>
   <p class="crest">
   	<img src="${pageContext.request.contextPath}/img/gryffcrest.png" alt="crest"
 		style="width: 90px; height: 90px;">
@@ -47,7 +47,7 @@
 								<label class="col-md-4 control-label" for="Date Of Birth">Date Of Birth</label>
 								<div class="col-md-4">
 									<div class="input-group">
-									${student.birthDate} 생일
+									${student.birthDate} 2000.07.31
 									</div>
 								</div>
 							</div>
@@ -56,7 +56,7 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="Gender">Gender</label>
 								<div class="col-md-4">
-									성별(radio 저장 정보 가져오기)
+									Male
 								</div>
 							</div>
 
@@ -64,7 +64,7 @@
 								<label class="col-md-4 control-label col-xs-12"
 									for="Permanent Address">Permanent Address</label>
 								<div class="col-md-2  col-xs-4">
-									${student.address} 주소
+									${student.address} Number Four, Privet Drive 
 								</div>
 							</div>
 
@@ -73,7 +73,7 @@
 								<label class="col-md-4 control-label" for="Email Address">Phone No</label>
 								<div class="col-md-4">
 									<div class="input-group">
-										${student.phoneNo} 전화번호
+										${student.phoneNo} 012-3456-7890
 									</div>
 								</div>
 							</div>
@@ -84,7 +84,7 @@
 									Address</label>
 								<div class="col-md-4">
 									<div class="input-group">
-										${student.email} 이메일
+										${student.email} potter@hogwarts.com
 									</div>
 
 								</div>

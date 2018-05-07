@@ -25,11 +25,13 @@ public class ListAnnouncementAjaxController extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=utf-8"); 
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-		HttpSession session = request.getSession();
-		Login login = (Login)session.getAttribute("user");
-		int profNo = login.getProfessorNo();
+//		HttpSession session = request.getSession();
+//		Login login = (Login)session.getAttribute("user");
+//		int profNo = login.getProfessorNo();
 		
-		List<Announcement> annList = mapper.selectAnnouncement(profNo); // (session에서 교수번호 가져오기)
+//		List<Announcement> annList = mapper.selectAnnouncement(profNo); // (session에서 교수번호 가져오기)
+
+		List<Announcement> annList = mapper.selectAnnouncement(20185000); // (session에서 교수번호 가져오기)
 		PrintWriter out = response.getWriter();
 		out.println(new Gson().toJson(annList));
 	}
