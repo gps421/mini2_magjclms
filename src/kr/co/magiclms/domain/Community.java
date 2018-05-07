@@ -3,12 +3,19 @@ package kr.co.magiclms.domain;
 import java.util.Date;
 
 public class Community {
-	private int communityNo;
+	private int no;
 	private String title;
 	private String content;
 	private int viewCnt;
 	private Date regDate;
 	private String password;
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	private int communityNo;
 	public String getPassword() {
 		return password;
 	}

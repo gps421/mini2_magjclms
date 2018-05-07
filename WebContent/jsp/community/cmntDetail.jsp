@@ -19,7 +19,7 @@
 	 제목 : <c:out value="${detail.title}" /><br>
 	 내용 : <c:out value="${detail.content}" /><br>
 	 등록일 : <fmt:formatDate value="${detail.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /><br><br>
-	 조회수 : ${board.viewCnt}<br>
+	 조회수 : ${detail.viewCnt}<br>
 	 <br>
 	 <hr />
 	 <a href='cmntUpdateForm?communityNo=${detail.communityNo}'>수정</a>
@@ -27,7 +27,7 @@
 	 <a href='community'>목록</a>
 	 
 	 <form action="commentUpdate" method="post">
-		<input type="hidden" name="no" value="${board.no}" />
+		<input type="hidden" name="no" value="${detail.no}" />
 		<input type="hidden" name="commentNo" value="${commentNo}" />
 		
 		<%-- 댓글 목록 --%>
@@ -38,7 +38,7 @@
 	 <form id="rForm" class="form-inline">
 		<div id="comment">
 		    <div class="form-group">
-			    <input type="text" name="writer" class="form-control" value="${user.id}" placeholder="아이디를 입력하세요">
+			    <input type="text" name="writer" class="form-control"  placeholder="아이디를 입력하세요">
 		    </div>
 		    <div class="form-group">
 			    <input type="text" name="content" class="form-control input-wp1" placeholder="내용을 입력하세요">
@@ -51,9 +51,9 @@
 	
 	function commentDelete(commentNo) {
 		$.ajax({
-			url: "<c:url value='/board/commentDelete'/>",
+			url: "<c:url value='/jsp/commentDelete'/>",
 			data: {
-				no: "${board.no}", 
+				no: "${detail.no}", 
 				commentNo: commentNo
 			},
 			dataType: "json",
@@ -91,7 +91,7 @@
 			url: "<c:url value='/community/commentUpdate'/>",
 			type: "POST",
 			data: {
-				no: "${board.no}", 
+				no: "${detail.no}", 
 				content: $("#modRow" + commentNo + " input[name=content]").val(), 
 				commentNo: commentNo
 			},
@@ -112,17 +112,17 @@
 		e.preventDefault();
 		
 		$.ajax({
-			url: "<c:url value='/jsp/commentRegist'/>",
+			url: "<c:url value='/commentRegist'/>",
 			type: "POST",
 			data: {
-				no: "${board.communityNo}", 
+				no: "${detail.communityNo}", 
 				content: $("#rForm input[name='content']").val(), 
 				writer: $("#rForm input[name='writer']").val()
 			},
 			dataType: "json"
 		})
 		.done(function (result) {
-			if (!'${user.id}') {
+			if (!'${user.memberID}') {
 				$("#rForm input[name='writer']").val("");
 			}
 			$("#rForm input[name='content']").val("");
@@ -172,8 +172,8 @@
 	// 댓글 목록 조회
 	function commentList() {
 		$.ajax({
-			url: "<c:url value='/board/commentList'/>",
-			data: {no: "${board.no}"},
+			url: "<c:url value='/jsp/commentList'/>",
+			data: {communityNo: "${detail.no}"},
 			dataType: "json", 
 			success: makeCommentList
 		});

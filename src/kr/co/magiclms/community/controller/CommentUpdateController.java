@@ -15,25 +15,25 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Comment;
 import kr.co.magiclms.mapper.CommunityMapper;
 
-@WebServlet("/commentRegist")
-public class CommentRegistController extends HttpServlet {
+@WebServlet("/jsp/commentUpdate")
+public class CommentUpdateController extends HttpServlet {
 
 	@Override
 	public void doPost(
 			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 		
-		int no = Integer.parseInt(request.getParameter("communityNo"));
-		System.out.println(no);
-		System.out.println("타니?");
+		int commentNo = Integer.parseInt(request.getParameter("commentNo"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		
 		// 게시판과 파일 테이블에 저장할 글번호를 조회
 		Comment comment = new Comment();
-		comment.setNo(no);
 		comment.setContent(request.getParameter("content"));
+		comment.setCommentNo(commentNo);
 		
 		// 게시물 저장 처리 부탁..
-		mapper.insertComment(comment);
+		mapper.updateComment(comment);
 		
 		response.setContentType("application/json; charset=utf-8"); 
 		PrintWriter out = response.getWriter();

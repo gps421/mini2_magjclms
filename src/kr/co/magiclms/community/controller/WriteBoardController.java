@@ -26,7 +26,7 @@ public class WriteBoardController extends HttpServlet {
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 		response.setContentType("application/json;charset=utrf-8");
 		String uploadPath = "c:/java-lec/upload";
-		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/HH");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 		String datePath = sdf.format(new Date());
 		File file = new File(uploadPath + datePath);
 		if (!file.exists()) file.mkdirs();

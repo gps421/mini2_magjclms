@@ -23,7 +23,7 @@
 	    <tr>
 			 <td>${board.communityNo}</td>
 			 <td><a href='cmntDetail?communityNo=${board.communityNo}'>${board.title}</a></td>
-		  <td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd" /></td>
+		  <td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 		  <td>${board.viewCnt}</td>
 		</tr>
 		</c:forEach>
