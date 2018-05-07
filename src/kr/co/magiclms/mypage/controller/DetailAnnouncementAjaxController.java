@@ -34,10 +34,10 @@ public class DetailAnnouncementAjaxController extends HttpServlet {
 		announcement.setAnnNo(Integer.parseInt(request.getParameter("annNo")));
 		mapper.updateAnnouncementViewCnt(announcement);
 		
-		mapper.selectAnnouncementByAnnNo(announcement);
+		Announcement ant =  mapper.selectAnnouncementByAnnNo(announcement);
 		
 		PrintWriter out = response.getWriter();
-		out.println(new Gson().toJson(announcement));
+		out.println(new Gson().toJson(ant));
 		out.close();
 	}
 }

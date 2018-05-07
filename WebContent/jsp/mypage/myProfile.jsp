@@ -4,23 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/myProfile.css">
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<!-- <link -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" -->
-<!-- 	rel="stylesheet" id="bootstrap-css"> -->
-<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
 </head>
 <body>
 <!-- profile card -->	
-<div class="card">
+<div class="card" style="margin: 30px 80px 30px 80px;">
   <img src="${pageContext.request.contextPath}/img/harryprofile.jpg" style="width:290px;">
   <h1 id="profname">${student.name}이름</h1> <!-- student table에서 이름 불러오기 -->
   <p class="year">${student.year}학년</p>
@@ -33,7 +20,7 @@
 </div>
 
 <!-- profile -->
-	<div class="profile">
+	<div class="profile" style="width: 900px;">
 		<div class="container" id="con">
 			<div class="row" id="rw">
 				<div class="col-md-10 ">
@@ -50,7 +37,7 @@
 								<label class="col-md-4 control-label" for="Name (Full name)">Name (Full name)</label>
 								<div class="col-md-4">
 									<div class="input-group">
-										${student.name}학생 이름
+										${student.name}Harry Potter
 									</div>
 								</div>
 							</div>
@@ -106,13 +93,13 @@
 							<div class="form-group"> </div>
 							
 							<!-- Form Name -->
-							<legend id="lg2">Grade</legend>
-							<div class="score">
-							<!-- 교수 입력 성적(db) -->
-							<button type="button" class="btn1">성적 확인</button>
-							<button type="button" class="btn2">성적 닫기</button>
-							<p id="score">score for each class(from db_professor?)</p>
-							</div>
+<!-- 							<legend id="lg2">Grade</legend> -->
+<!-- 							<div class="score"> -->
+<!-- 							교수 입력 성적(db) -->
+<!-- 							<button type="button" class="btn1">성적 확인</button> -->
+<!-- 							<button type="button" class="btn2">성적 닫기</button> -->
+<!-- 							<p id="score">score for each class(from db_professor?)</p> -->
+<!-- 							</div> -->
 						</fieldset>
 					</form>
 				</div>

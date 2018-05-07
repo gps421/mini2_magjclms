@@ -29,6 +29,8 @@ public class UpdateFormAnnouncementAjaxController extends HttpServlet {
 		int profNo = login.getProfessorNo();
 
 		Announcement announcement = new Announcement();
+		announcement.setTitle(request.getParameter("title"));
+		announcement.setContent(request.getParameter("content"));
 		announcement.setProfessorNo(profNo);
 		announcement.setAnnNo(Integer.parseInt(request.getParameter("annNo")));
 		Announcement ann = mapper.selectAnnouncementByAnnNo(announcement);

@@ -23,19 +23,20 @@
 }
 /* font size : end */
 .card {
+	margin: 20px 20px 50px 100px;
 	border: 5px solid grey;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     text-align: center;
-    float: left;
+/*     float: left; */
     background-color: white;
 }
 
 
 .profile {
-	position:relative;
+/* 	position:relative; */
 	top: 50px;
-	width: 1200px;
+	width: 900px;
 	height: 650px;
 	float: left;
 	overflow: hidden;

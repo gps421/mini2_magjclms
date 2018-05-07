@@ -58,7 +58,7 @@
 			html += '<div class="announcement message">';
 			
 			for(var i = 0; i<result.length; i++) {
-				html += '<div class="message"><button onclick="annDetail(' + result[i].professorNo + ',' +result[i].annNo ')">' + result[i].title + '</button></div>';
+				html += '<div class="message"><button onclick="annDetail(' + result[i].professorNo +   ',' + result[i].annNo +')">' + result[i].title + '</button></div>';
 			}
 				
 			if (result.length == 0) {
@@ -88,8 +88,6 @@
 				data: {"professorNo" : professorNo, "annNo" : annNo},
 				dataType: "json",
 				success: function (result) {
-// 					prof = result;
-// 					console.log(prof);
 					makeAnnDetail(result);
 				} 
 				});
@@ -106,8 +104,8 @@
 			html += "<hr>"
 // 			html += "<button onclick='annUpdateForm(" + result.professorNo + "," + result.annNo ")'> 수정 </button>";
 // 			html += "<button onclick='annDeleteAjax(" + result.professorNo + "," + result.annNo ")'> 삭제 </button>";
-			html += "<button onclick='annUpdateForm()'> 수정 </button>";
-			html += "<button onclick='annDeleteAjax()'> 삭제 </button>";
+			html += "<button onclick='annUpdateForm(" + result.professorNo +   "," + result.annNo +")'> 수정 </button>";
+			html += "<button onclick='annDeleteAjax(" + result.professorNo +   "," + result.annNo +")'> 삭제 </button>";
 			html += "<button onclick='annList()'>목록</button>";
 			
 			$("#annListAjax").html(html);
@@ -124,14 +122,14 @@
 				})
 		};
 		
-		alert('${user.professorNo}');
+// 		alert('${user.professorNo}');
 		
 		function makeAnnForm(result) {
 			var html='';
 			html += '<div id="form-main">';
 			html += '<div id="form-div">';
 			html += '<form class="form" id="form1" method="post" action="">';
-			html += '<input style="display:block;" type="hidden" name="profNo" value="${' + ${user.profNo} + '}';
+			html += '<input style="display:block;" type="hidden" name="profNo" value="${' + result.profNo + '}';
 			html += '<input style="display:block;" type="hidden" name="courseNo" value="${' + result.courseNo + '}';
 			html += '<p class="title">';
 			html += '<input style="display:block;" id="title" name="title" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Title" />';
@@ -153,26 +151,22 @@
 			
 			$("#form1").submit(function(event) {
 				event.preventDefault();
-				console.log($(this).serialize())	
+// 				console.log($(this).serialize())	
 				$.ajax({
 					url: "annRegistAjax",
 					type: "post",
 					data: $(this).serialize(),
 					dataType: "json",
 					success: function(result) {
-						console.dir(result);
 						makeAnnList(result)
-						
 					}
 				});
-				
 			});
 		}
 
 // ------------------------------------------------------------------------------------------------
 		// 공지 수정
-// 		function annUpdateForm(professorNo, annNo) {
-		function annUpdateForm() {
+		function annUpdateForm(professorNo, annNo) {
 			$.ajax({
 				url: "annUpdateFormAjax",
 				data: {"professorNo" : professorNo, "annNo" : annNo},
@@ -186,9 +180,9 @@
 			html += '<form action="" method="post">';
 			html += '<input type="hidden" name="annNo" value="${' + result.annNo + '}" />';
 			html += '<input type="hidden" name="professorNo" value="${' + result.professorNo + '}" />';
-			html += '제목 : <input type="text" name="title" value="${' + result.title + '}" /><br>';
+			html += '제목 : <input style="display:block;" type="text" name="title" value="${' + result.title + '}" /><br>';
 			html += '내용 : <br>';
-			html += '<textarea name="content" rows="5" cols="70">${' + result.content + '}"</textarea><br>';
+			html += '<textarea name="content" rows="5" cols="70">${' + result.content + '}</textarea><br>';
 			html += '<button type="submit">수정</button>';
 			html += '</form>';
 			html += '<button onclick="annList()">목록</button>';
@@ -205,7 +199,6 @@
 				data: {"professorNo" : professorNo, "annNo" : annNo },
 				dataType: "json",
 				success: function(result) {
-// 					console.dir(result);
 					makeAnnList(result)
 				}
 				});
