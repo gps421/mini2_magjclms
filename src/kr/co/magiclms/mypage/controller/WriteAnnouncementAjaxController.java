@@ -25,22 +25,22 @@ public class WriteAnnouncementAjaxController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=utf-8"); 
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-//		HttpSession session = request.getSession();
-//		Login login = (Login)session.getAttribute("user");
-//		int profNo = login.getProfessorNo();
+		HttpSession session = request.getSession();
+		Login login = (Login)session.getAttribute("user");
+		int profNo = login.getProfessorNo();
 		
 		Announcement announcement = new Announcement();
-//		announcement.setProfessorNo(profNo);
-		announcement.setProfessorNo(20185000);
-//		announcement.setCourseNo(Integer.parseInt(request.getParameter("courseNo")));
-		announcement.setCourseNo(1);
+		announcement.setProfessorNo(profNo);
+//		announcement.setProfessorNo(20185000);
+		announcement.setCourseNo(Integer.parseInt(request.getParameter("courseNo")));
+//		announcement.setCourseNo(1);
 		announcement.setTitle(request.getParameter("title"));
 		announcement.setContent(request.getParameter("content"));
 		
 		mapper.insertAnnouncement(announcement);
 		
-//		List<Announcement> annList = mapper.selectAnnouncement(profNo); // (session에서 교수번호 가져오기)
-		List<Announcement> annList = mapper.selectAnnouncement(20185000); // (session에서 교수번호 가져오기)
+		List<Announcement> annList = mapper.selectAnnouncement(profNo); // (session에서 교수번호 가져오기)
+//		List<Announcement> annList = mapper.selectAnnouncement(20185000); // (session에서 교수번호 가져오기)
 		response.setContentType("application/json; charset=utf-8"); 
 		PrintWriter out = response.getWriter();
 		out.println(new Gson().toJson(annList));

@@ -17,7 +17,7 @@ import kr.co.magiclms.domain.QnA;
 import kr.co.magiclms.mapper.QnAMapper;
 
 @WebServlet("/mypage/qnaListAjax")
-public class QnAListAjaxController extends HttpServlet{
+public class ListQnAAjaxController extends HttpServlet{
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

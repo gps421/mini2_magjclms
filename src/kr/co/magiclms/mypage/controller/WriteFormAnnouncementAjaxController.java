@@ -25,14 +25,13 @@ public class WriteFormAnnouncementAjaxController extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=utf-8"); 
 		PrintWriter out = response.getWriter();
-		
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-//		HttpSession session = request.getSession();
-//		Login login = (Login)session.getAttribute("user");
-//		int profNo = login.getProfessorNo();
+		HttpSession session = request.getSession();
+		Login login = (Login)session.getAttribute("user");
+		int profNo = login.getProfessorNo();
 		
-//		List<Announcement> announcement = mapper.selectAnnouncement(profNo);
-		List<Announcement> announcement = mapper.selectAnnouncement(20185000);
+		List<Announcement> announcement = mapper.selectAnnouncement(profNo);
+//		List<Announcement> announcement = mapper.selectAnnouncement(20185000);
 		out.println(new Gson().toJson(announcement));
 		out.close();
 	}

@@ -24,13 +24,13 @@ public class DeleteAnnouncementAjaxController extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnnouncementMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AnnouncementMapper.class);
-//		HttpSession session = request.getSession();
-//		Login login = (Login)session.getAttribute("user");
-//		int profNo = login.getProfessorNo();
+		HttpSession session = request.getSession();
+		Login login = (Login)session.getAttribute("user");
+		int profNo = login.getProfessorNo();
 		
 		Announcement announcement = new Announcement();
-//		announcement.setProfessorNo(profNo);
-		announcement.setProfessorNo(20185000);
+		announcement.setProfessorNo(profNo);
+//		announcement.setProfessorNo(20185000);
 		announcement.setAnnNo(Integer.parseInt(request.getParameter("annNo")));
 		mapper.updateAnnouncementViewCnt(announcement);
 		

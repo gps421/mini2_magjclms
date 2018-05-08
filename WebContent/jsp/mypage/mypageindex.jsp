@@ -43,18 +43,18 @@
 			</section>
 
 			<section id="content2" class="tab-content">
-				<h3>강의 자료</h3>
-		      	<p id="contentListAjax">222</p>
+<!-- 				<h3>강의 자료</h3> -->
+		      	<p id="contentListAjax"></p>
 			</section>
 
 			<section id="content3" class="tab-content">
-				<h3>강의 과제</h3>
-		      	<p id="assignmentListAjax">333</p>
+<!-- 				<h3>강의 과제</h3> -->
+		      	<p id="assignmentListAjax"></p>
 			</section>
 
 			<section id="content4" class="tab-content">
-				<h3>Q&A</h3>
-		      	<p id="qnaListAjax">444</p>
+<!-- 				<h3>Q&A</h3> -->
+		      	<p id="qnaListAjax"></p>
 			</section>
 		</div>
 		
