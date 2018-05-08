@@ -9,11 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Cart;
 import kr.co.magiclms.domain.CartItem;
 import kr.co.magiclms.domain.Goods;
+import kr.co.magiclms.domain.Member;
 import kr.co.magiclms.mapper.CartItemMapper;
 import kr.co.magiclms.mapper.CartMapper;
 import kr.co.magiclms.mapper.GoodsMapper;
@@ -27,31 +29,30 @@ public class CartListController extends HttpServlet {
 		CartMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CartMapper.class);
 		CartItemMapper cmapper = MyAppSqlConfig.getSqlSession().getMapper(CartItemMapper.class);
 		GoodsMapper gmapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
+
+		HttpSession session = request.getSession();
+		Member login = (Member)session.getAttribute("user"); // edit here
 		
-		String memberId = "moonmio"; // edit here after login 
+//		String memberId = "moonmi"; // dell del &  edit here after login 
+		String memberId = ""; // dell check 
+
+//		memberId = request.getParameter("memberId");
+//		if(memberId=="") {
+//			System.out.println("*cart memberId == Null Null ");	
+//		}
+
 		Cart cart = null;
-		cart = mapper.selectCartByName(memberId);	
 		// to get cartNo by selectCartByName		   
 		// To make cart data 
 		int cartNo = 0; 	
-		if (cart == null){	
-			System.out.println("*cart writer** Null Null ");	
-			cart = new Cart();
-			//cart.setCartNo(1); // del
-			//cart.setCartNo(request.getParameter("writer"));
-			cart.setMemberId(memberId);
-			
-			mapper.insertCart(cart);
-			cart = mapper.selectCartByName(memberId);				
-			cartNo = cart.getCartNo();
-		}
-		else {
-			
-		}
-		
 		// to get cartNo from request
 		cartNo = Integer.parseInt(request.getParameter("cartNo")); 
 		cart = mapper.selectCartByNo(cartNo);				
+		if (cart == null){	
+			System.out.println("*There is no cart ** Null ** ");
+			return;
+			// throw Exception. edit			
+		}
 		memberId = cart.getMemberId();
 		 
 		request.setAttribute("cartNo", cartNo);

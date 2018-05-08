@@ -13,15 +13,15 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Cart;
-import kr.co.magiclms.mapper.CartMapper;
 import kr.co.magiclms.domain.CartItem;
-import kr.co.magiclms.mapper.CartItemMapper;
 import kr.co.magiclms.domain.Goods;
 import kr.co.magiclms.domain.Member;
+import kr.co.magiclms.mapper.CartItemMapper;
+import kr.co.magiclms.mapper.CartMapper;
 import kr.co.magiclms.mapper.GoodsMapper;
 
-@WebServlet("/shop/cartwrite")
-public class CartWriteController extends HttpServlet {
+@WebServlet("/shop/cartlist2")
+public class CartList2Controller extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -29,20 +29,12 @@ public class CartWriteController extends HttpServlet {
 		CartMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CartMapper.class);
 		CartItemMapper cmapper = MyAppSqlConfig.getSqlSession().getMapper(CartItemMapper.class);
 		GoodsMapper gmapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
-		
+
 		HttpSession session = request.getSession();
 		Member login = (Member)session.getAttribute("user");
-		
-//		String memberId = "moonmi"; // dell del &  edit here after login 
-		String memberId = ""; // dell check 
-
-		memberId = request.getParameter("memberId");
-		if(memberId=="") {
-			System.out.println("*cart memberId == Null Null ");	
-			// return; // end  
-		}
-		request.setAttribute("memberId", memberId);
-
+				
+		String memberId = ""; // dell del and edit here after login 
+		memberId = request.getParameter("memberId"); 
 		Cart cart = null;
 		cart = mapper.selectCartByName(memberId);	
 		// to get cartNo by selectCartByName		   
@@ -55,37 +47,20 @@ public class CartWriteController extends HttpServlet {
 			//cart.setCartNo(request.getParameter("writer"));
 			cart.setMemberId(memberId);
 			
-			mapper.insertCart(cart); 
+			mapper.insertCart(cart);
+			cart = mapper.selectCartByName(memberId);				
 		}
-		
-		// to get cartNo by selectCartByName
 		cartNo = cart.getCartNo();
-		request.setAttribute("cartNo", cart.getCartNo());
-		System.out.println("*cart writer 111** cart info, cartNo = "+cart.getCartNo());	
+				 
+		request.setAttribute("cartNo", cartNo);
+		request.setAttribute("memberId", memberId);
+
+		System.out.println("*cart writer** cart info, cartNo = "+cart.getCartNo());	
 		System.out.println("*cart writer** cart info, memberId = "+cart.getMemberId());	
 		System.out.println("*cart writer** cart toString = "+cart.toString());	
 		System.out.println("******* 222222 memberId= "+ memberId);
 		
-		// To get goods data 
-		int goodsNo ;
-		goodsNo = Integer.parseInt(request.getParameter("no"));
-		Goods goods = gmapper.selectGoodsDetailByNo(goodsNo);
-		
-		System.out.println("**selectGoodsDetailByNo*** goodsNO = "+goodsNo+ ", *** Goods info = " + goods);
-
-
-		CartItem item = new CartItem(); 
-		//item.setCartNo(goods.getGoodsNo());
-		item.setCartNo(cartNo);  
-		item.setGoodsNo(goods.getGoodsNo());
-		item.setGoodsName(goods.getName());
-		item.setGoodsCount(Integer.parseInt(request.getParameter("count")));
-		item.setGoodsSum( goods.getPrice() * Integer.parseInt(request.getParameter("count")) );
-		item.setShippingCost(goods.getShippingCost());
-
-		cmapper.insertCartItem(item);
-		System.out.println("** after insert cartItem = " + item);
-			
+		// To get cart data 
 		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
 		int totalShippingCost = 0; 
 		List<CartItem> cartItemList = cmapper.selectCartItemByNo(cartNo);
@@ -93,11 +68,10 @@ public class CartWriteController extends HttpServlet {
 		for(CartItem el: cartItemList){
 			totalPrice += el.getGoodsSum();
 			totalShippingCost += el.getShippingCost();
-			System.out.println("*loop** el.getCartItemNo = " + el.getCartItemNo());
+//			System.out.println("*loop** el.getCartItemNo = " + el.getCartItemNo());
 		}
 		dicountPrice = (int) (totalPrice * 0.05);
 		lastPrice = totalPrice - dicountPrice + totalShippingCost;
-		
 		System.out.println("*Result loop** totalPrice, totalShippingCost = " 
 		+ totalPrice + ", "+ totalShippingCost+ ", dicountPrice = "+ dicountPrice);
 		request.setAttribute("totalPrice", totalPrice);
@@ -118,4 +92,3 @@ public class CartWriteController extends HttpServlet {
 
 	}
 }
-

@@ -10,37 +10,54 @@
   <title>상품</title>
 </head>
 <body>
-	
-  <h2>상품목록</h2>
-    전체 ${fn:length(list)}개<br>
-  <hr>
-  <table width='80%' border='1'> 
-  <tr>
-    <th>상품번호</th>
-    <th>상품명</th>
-    <th>가격</th>
-    <th>카테고리</th>
-    <th>설명문</th>
-  </tr>
 
-    <c:forEach var="goods" items="${list}"> 
-    <tr>
-      <td>${goods.goodsNo}</td>
-	  <td><a href='detail?no=${goods.goodsNo}'>${goods.name}</a></td>
-      <td>${goods.price}</td>
-      <td>${goods.category}</td>
-      <td>${goods.description}</td>
-      
-	</tr>
-    </c:forEach>
- 
-  	<c:if test="${empty list}">
-      <tr>
-	    <td colspan='5'>등록된 상품이 없습니다.</td>
-	  </tr>
-	</c:if>
-	</table>
-	<a href="writeForm">상품등록</a>
+  <div class="containerCartMenu"> 
+    <ul class="mainLnb">
+        <li><a href='list?name=snack'>스낵</a>
+            <ul>
+            </ul>
+        </li>
+        <li><a href='list?name=snack'>문구</a>
+            <ul>
+            </ul>
+        </li>
+        <li><a href='list?name=snack'>서적</a>
+            <ul>
+            </ul>
+        </li>
+        <li><a href='list?name=toy'>매직</a>
+            <ul>
+            </ul>
+        </li>
+        <li><a href='cartlist?memberId=${memberId}'>장바구니</a>
+            <ul>
+            </ul>
+        </li>
+        <li><a href='orderlist?memberId=${memberId}'>구매조회</a>
+        </li>
+    </ul>
+  </div>  	
+  <div style="height:15px; margin:0 auto;"><a></a></div>
+  <hr>
+
+
+
+  <div style="height:45px; margin:0 auto;"><a></a></div>
+  	
+  	<table class="shop_goods_outer1" style="padding:10px 0 0 0px; text-align:left; width:860px; margin:0 auto;">
+  		<tr>
+  			<td><div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/shoppic.jpg' width=430 height=400/></a></div>
+  			</td>
+  			<td><div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/freeship.jpg' width=430 height=400/></a></div>
+  			</td>
+  		</tr>
+  	</table>
+	<br>
+	<br>
+	
+	<h2 style="text-align: center; text-decoration: line-height; text-shadow:green ;">즐거운 쇼핑되세요!!</h2>
+	
+	<hr>	
 
 
 </body>

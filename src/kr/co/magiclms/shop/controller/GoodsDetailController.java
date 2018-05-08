@@ -23,8 +23,13 @@ public class GoodsDetailController extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Member login = (Member)session.getAttribute("user");  
-		String memberId = "moonmi"; // dell del 
+		Member login = (Member)session.getAttribute("user");
+		
+//		String memberId = "moonmi"; // dell del 
+		String memberId = "goops"; // dell del 
+//		String memberId = ""; // dell del and edit here after login 
+//		memberId = request.getParameter("memberId"); 
+
 		request.setAttribute("memberId", memberId);
 //		if(login == null){
 //			response.sendRedirect(request.getContextPath()+"/login/login");

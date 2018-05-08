@@ -22,8 +22,8 @@ import kr.co.magiclms.mapper.GoodsMapper;
 import kr.co.magiclms.mapper.OrderItemMapper;
 import kr.co.magiclms.mapper.OrderMapper;
 
-@WebServlet("/shop/orderwrite")
-public class OrderWriteController extends HttpServlet {
+@WebServlet("/shop/orderwriteone")
+public class OrderWriteOneController extends HttpServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,23 +35,29 @@ public class OrderWriteController extends HttpServlet {
 		OrderMapper omapper = MyAppSqlConfig.getSqlSession().getMapper(OrderMapper.class);
 		OrderItemMapper oimapper = MyAppSqlConfig.getSqlSession().getMapper(OrderItemMapper.class);
 		
-		int cartNo = 1; //dell
-		// to get cartNo, You can use also MemberId
-		cartNo = Integer.parseInt(request.getParameter("cartNo"));
-		System.out.println("**order write** cartNo = "+cartNo);
-		
-		String paymentId = "1"; //dell
-		paymentId = request.getParameter("paymentId");
-		
+		// location.href='cartwriteone?memberId=${memberId}&goodsNo=${goods.goodsNo}&paymentId='+paymentId ;
 		String memberId = ""; 
-		Cart cart = mapper.selectCartByNo(cartNo);
-        memberId = cart.getMemberId();
-		request.setAttribute("memberId", memberId);
-        
+		int goodsNo = 1; //dell
+		String paymentId = "1"; //dell
+		int count = 1, cartNo = 1; //dell
+		
+		// to get cartNo, You can use also MemberId
+		memberId = request.getParameter("memberId");
+		goodsNo = Integer.parseInt(request.getParameter("goodsNo"));
+		count = Integer.parseInt(request.getParameter("count"));
+		paymentId = request.getParameter("paymentId");
+		System.out.println("**order 111111 write** goodsNo = "+goodsNo);
+
 		Order order = null;
 		order = omapper.selectOrderByName(memberId); 
 		// orderId is needed 
-		System.out.println("**order** ????? cart info = "+order);
+		System.out.println("** 222 order ?info = "+order);
+		
+//		Cart cart = mapper.selectCartByNo(cartNo);
+//		memberId = cart.getMemberId();
+
+		request.setAttribute("memberId", memberId);
+		
 		
 		if (order == null){	
 			System.out.println("** Error 주문 전 order 정보가 없습니다. memberId= "+ memberId);
@@ -60,9 +66,9 @@ public class OrderWriteController extends HttpServlet {
 			//cart.setCartNo(request.getParameter("writer"));
 			order.setMemberId(memberId);
 			order.setDeliveryAddr("서울시 강남구 삼성동 10");   
-			order.setShippingCost(1000);   
+			order.setShippingCost(2000);   
 			
-			System.out.println("**order** 3456 memberId="+ memberId +",id "+order.getMemberId());
+			System.out.println("**order 1111 ** 3456 memberId="+ memberId +",id "+order.getMemberId());
 			omapper.insertOrder(order);
 		}
 		
@@ -71,30 +77,19 @@ public class OrderWriteController extends HttpServlet {
 		int orderId = order.getOrderId();
 		request.setAttribute("orderId", order.getOrderId());
 		
-		System.out.println("**order** 222222 memberId= "+ memberId);		
-
-		// To make cart data 
-		System.out.println("*order write*** cartNo = "+cartNo+ ", *** cartNo = " + cartNo);
-
-		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
-		int totalShippingCost = 0; 
-		List<CartItem> cartItemList = cmapper.selectCartItemByNo(cartNo);
+		System.out.println("**order 1111 ** 222222 orderId= "+ orderId);		
 		
-		request.setAttribute("cartItemList", cartItemList);
+		Goods goods = gmapper.selectGoodsDetailByNo(goodsNo);
 		
-		System.out.println("*orderDetail*** cartItemList= "+cartItemList+ ", *** cartItemList size= " + cartItemList.size());
-		
-		for(CartItem el: cartItemList){
 			OrderItem oi = new OrderItem();
 			
 			oi.setOrderId(order.getOrderId());
-			oi.setGoodsNo(el.getGoodsNo());
-			oi.setGoodsName(el.getGoodsName());
-			oi.setGoodsCount(el.getGoodsCount());
-			oi.setGoodsSum(el.getGoodsSum());
+			oi.setGoodsNo(goods.getGoodsNo());
+			oi.setGoodsName(goods.getName());
+			oi.setGoodsCount(count);
+			oi.setGoodsSum(goods.getPrice() * count);
 			oi.setOrderState("배송완료");
-			oi.setShippingCost(el.getShippingCost()); 
-			oi.setOrderPayment("cash"); // temp
+			oi.setShippingCost(goods.getShippingCost()); 
 			switch (paymentId) {
 			case "1":
 				paymentId = "현금결제"; 
@@ -113,23 +108,8 @@ public class OrderWriteController extends HttpServlet {
 				break;
 			}
 			oi.setOrderPayment(paymentId);
-		
-			oimapper.insertOrderItem(oi);
-		
-			totalPrice += el.getGoodsSum();
-			totalShippingCost += el.getShippingCost();
-			System.out.println("*loop*orderItem write*** el.getCartItemNo = " + el.getCartItemNo());
-		}
-		
-		dicountPrice = (int) (totalPrice * 0.05);
-		lastPrice = totalPrice - dicountPrice + totalShippingCost;
-		System.out.println("*Result loop** totalPrice, totalShippingCost = " 
-		+ totalPrice + ", "+ totalShippingCost+ ", dicountPrice = "+ dicountPrice);
-		request.setAttribute("totalPrice", totalPrice);
-		request.setAttribute("dicountPrice", dicountPrice);
-		request.setAttribute("lastPrice", lastPrice);
-		request.setAttribute("totalShippingCost", totalShippingCost);
 
+			oimapper.insertOrderItem(oi);		
 		// to set content of Order Table, OrderItemTable
 		
 		// delete cart Items of cartNo

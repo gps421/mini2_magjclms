@@ -9,11 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.mapper.Mapper;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Goods;
+import kr.co.magiclms.domain.Member;
 import kr.co.magiclms.mapper.GoodsMapper;
 
 @WebServlet("/shop/list")
@@ -24,6 +26,15 @@ public class GoodsMainListViewController extends HttpServlet {
 
 		GoodsMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
 		System.out.println("test 2222 ********** 11");
+
+		HttpSession session = request.getSession();
+		Member login = (Member)session.getAttribute("user");
+		
+		// get memberId and setAttr memberId 
+		// get memberId from session info
+		String memberId = "goops"; // dell dell  
+		request.setAttribute("memberId", memberId);
+
 		
 		String category = request.getParameter("name"); 
 		request.setAttribute("category", category);
@@ -48,25 +59,6 @@ public class GoodsMainListViewController extends HttpServlet {
 		}
 		rd.forward(request, response);
 		
-		/*
-		Board board = new Board();
-		board.setNo(Integer.parseInt(request.getParameter("no")));
-		// board.setWriter(request.getParameter("writer"));
-		board.setTitle(request.getParameter("title"));
-		board.setContent(request.getParameter("content"));
-		mapper.updateBoard(board);
-		
-		response.sendRedirect("list"); 
-		*/
-		
-		
 	}
-	
-	public void service1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		GoodsMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
-		List<Goods> list = mapper.selectGoods();
-		request.setAttribute("list", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/list.jsp");
-		rd.forward(request, response);
-	}
+
 }

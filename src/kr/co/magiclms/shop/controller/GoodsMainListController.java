@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GoodsMainListController extends HttpServlet {
    @Override
    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	   // use shop.list 
       RequestDispatcher rd = request.getRequestDispatcher("/jsp/main/main.jsp");
       rd.forward(request, response);   
    }

@@ -27,15 +27,15 @@
             <ul>
             </ul>
         </li>
-        <li><a href='list?name=toy'>여행</a>
+        <li><a href='list?name=toy'>매직</a>
             <ul>
             </ul>
         </li>
-        <li><a href='cartlist?cartNo=${cartNo}'>장바구니</a>
+        <li><a href='cartlist2?memberId=${memberId}'>장바구니</a>
             <ul>
             </ul>
         </li>
-        <li><a href='orderlist?memberId=${memberId}'>구매조회</a>
+        <li><a href='orderlist2?memberId=${memberId}'>구매조회</a>
         </li>
     </ul>
   </div>
@@ -102,8 +102,8 @@
 				<tr><td height=20></td></tr>
 
 				<tr style="border: 2px solid red; ">
-					<td style="font-size:2em;">결제 예정액 : </td>
-					<td style="font-size:2em;">${lastPrice}원</td>
+					<td style="font-size:1.8em;">결제 예정액 : </td>
+					<td style="font-size:1.8em;">${lastPrice}원</td>
 				</tr>
 				<tr><td height=20></td></tr>
 				<tr><td style="width=50%; height=10px;"></td></tr>
@@ -121,16 +121,16 @@
 		
 		<div class="footer"></div>
  
-	<a href="writeForm">상품등록</a>
+	<a href="list">메인화면</a>
 
 		
 		
     </div>
   </div>
 <script>
-$("button").click(function(){
-	location.href='cartdelete?cartNo=${cartNo}&cartItemNo=${cartItem.cartItemNo}';
-})
+// $("button").click(function(){
+// 	location.href='cartdelete?cartNo=${cartNo}&cartItemNo=${cartItem.cartItemNo}';
+// })
 </script>
 </body>
 </html>

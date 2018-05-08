@@ -60,12 +60,6 @@
 		margin: 5px;
 		float: left;
 	}
-	.footerOrderDetail {
-		width: 730px;
-		border: 1px solid tomato;
-		margin: 5px;
-	}
-	.footerOrderDetail { clear: both; }
 	
 	table.headerOrderDetail {
 		width: 80%; 
@@ -95,8 +89,8 @@
 		<h3>1-1 주문상품정보</h3>
 
 <!-- 		<table  class="headerOrderDetail" style="margin-right:120px; border:2px">  -->
-		<table  class="headerOrderDetail" style="margin: 0 auto; border:10px; padding-bottom: 30px;"> 
-		  <tr><td  colspan='6' height='10px'>  구매예정 목록  ${fn:length(cartItemList)}개</td></tr>
+		<table  class="headerOrderDetail" style="margin: 0 auto; border:10px"> 
+		  <tr><td  colspan='6' height='10px'>  구매예정 목록  1개</td></tr>
 		  <tr>
 		    <th>상품명</th>
 		    <th>수량</th>
@@ -104,31 +98,21 @@
 		    <th>배송비정보</th>
 		    <th>상품상세정보</th>
 		  </tr>
-		
-		  <c:forEach var="cartItem" items="${cartItemList}"> 
-		  <tr>
-		      <td>${cartItem.goodsName}</td>
-		      <td>${cartItem.goodsCount}</td>
-		      <td>${cartItem.goodsSum}</td>
-		      <td>${cartItem.shippingCost}</td>
-			  <td><a href='detail?no=${cartItem.goodsNo}'>${cartItem.goodsName}</a></td>		      
-		  </tr>
-		  </c:forEach>
 		 
-		  <c:if test="${empty cartItemList}">
-		      <tr>
-			    <td colspan='6'>장바구니 내 넣은 상품이 없습니다.</td>
-			  </tr>
-		  </c:if>
+		  <tr>
+		      <td>${goods.name}</td>
+		      <td>${count}</td>
+		      <td>${goods.price}</td>
+		      <td>${goods.shippingCost}</td>
+			  <td><a href='detail?no=${goods.goodsNo}'>${goods.name}</a></td>		      
+		  </tr>		 
 		</table>	
-
-
 		</div>
-		
-    <div class="containerOrderDetailOne">	
-		<div class="header2OrderDetailOne" style=" width: 48%;  	
+
+    <div class="containerOrderDetailOne">		
+		<div class="header2OrderDetailOne" style=" width: 50%;  	
 					border: 5px solid #000080; 
-					margin-right: 20px; 
+					margin-right: 30px; 
 					margin-top: 50px; 
 					margin-bottom: 30px; 
 					float: right;">
@@ -150,8 +134,8 @@
 				<tr><td height=20></td></tr>
 
 				<tr>
-					<td style="font-size:1.7em; color: red; ">결제 예정액 : </td>
-					<td style="font-size:1.7em; color: red; ">${lastPrice}원</td>
+					<td style="font-size:2em;">결제 예정액</td>
+					<td style="font-size:2em;">${lastPrice}원</td>
 				</tr>
 				<tr><td height=20></td></tr>
 				<tr><td style="width=50%; height=10px;"></td></tr>
@@ -159,51 +143,22 @@
 					<td colspan="2" >
 						<form name="buy1" method="post" action=" ">
 							<!-- <input type="text" name="id" /><br /> --> 
-							<input type="button" value="구매하기" onclick="functionOrderWriteOne()"   
+							<input type="button" class="orderBtnOne" value="구매하기" onclick="functionOrderWriteOne()"   
 							style="background:rgb(35, 227, 237); font-size:2.5em; color:rgb(11, 1, 71); margin: 0 auto; width=100%;"/>
-<%-- 							<input type="button" value="구매하기" onclick="location.href='orderwrite?cartNo=${cartNo}'"    --%>
+<%-- 							<input type="button" class="orderBtnOne" value="구매하기" onclick="location.href='orderwrite?cartNo=${cartNo}'"    --%>
 <!-- 							style="background:rgb(35, 227, 237); font-size:2.5em; color:rgb(11, 1, 71); margin: 0 auto; width=100%;"/> -->
-							
 						</form>
 					</td>
 				</tr>
 			</table>
 		</div>
 		
-<!-- 		<div class="contentOrderDetail"> -->
-<!-- 			<h3>2-1 배송지 주소</h3> -->
-
-<!-- 			<table> -->
-<!-- 				<tr> -->
-<!-- 					<td height=20><h4>배송지 입력</h4></td> -->
-<!-- 				</tr> -->
-					
-<!-- 				<tr> -->
-<!-- 					<td height=20> -->
-<!-- 					<form method='post' action='write'> -->
-<!-- 						이름 : <input type='text' name='writer' size='30' /><br><br>  -->
-<!-- 						주소 : -->
-<!-- 						<input type='text' name='title' size='70' /><br><br>  -->
-<!-- 						요청사항 : -->
-<!-- 						<textarea name='content' rows='7' cols='60'></textarea><br> -->
-<!-- 						<br> -->
-<!-- 						<button type='submit' -->
-<!-- 							style="background: rgb(35, 227, 237); font-size: 1em; color: rgb(11, 1, 71); margin: 0 auto;">주소등록</button> -->
-<!-- 					</form> -->
-<!-- 					</td> -->
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<td height=20></td> -->
-<!-- 				</tr> -->
-
-<!-- 			</table> -->
-<!-- 		</div> -->
 		
-		<div class="sideOrderDetailOne" style=" 
-					width: 35%;
+		<div class="sideOrderDetailOne" style="width: 30%; 
+					width: 30%;
 					height: 300px;
 					border: 5px solid tomato;
-					margin-right: 30px; 
+					margin-right: 50px; 
 					margin-top: 50px; 
 					margin-bottom: 30px; 
 					margin-left: 20px;
@@ -230,22 +185,20 @@
 					</td>
 				</tr>
 			</table>
-		</div>
+		</div>	
 	</div>
-
-
+		
+		
     </div>
-   	<script>
+	<script>
 		function functionOrderWriteOne() {
-			alert("* ${memberId}님 장바구니의 상품이 구매 완료 되었습니다. 감사합니다.*");
-			console.log("누구 님: ${memberId}");
+			alert("* ${memberId}님 ${goods.name} 상품이 구매 완료 되었습니다. 감사합니다.*");
+			console.log("마우스..");
 			var paymentId = $('#paymentId').val();
 			console.log("sel paymentId = "+paymentId);
-			var targetPath = "orderwrite?memberId=${memberId}&no=${goods.goodsNo}&count=${count}&paymentId="+paymentId ;
+			var targetPath = "orderwriteone?memberId=${memberId}&no=${goods.goodsNo}&count=${count}&paymentId="+paymentId ;
 			console.log("경로 = "+ targetPath);
-			location.href='orderwrite?cartNo=${cartNo}&paymentId='+paymentId ;
-			// location.href='orderwrit?memberId=${memberId}&goodsNo=${goods.goodsNo}&count=${count}&paymentId='+paymentId ;
-			// onclick="location.href='orderwrite?cartNo=${cartNo}'" 
+			location.href='orderwriteone?memberId=${memberId}&goodsNo=${goods.goodsNo}&count=${count}&paymentId='+paymentId ;
 		}		
 		
 // 		$("button#cartbtn").click(function(){
@@ -259,5 +212,6 @@
 // 		})				
 
 	</script>
+	   
 </body>
 </html>
