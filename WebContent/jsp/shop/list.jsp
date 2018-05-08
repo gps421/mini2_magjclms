@@ -143,124 +143,17 @@
 	</c:if>
 	</table>
 	
-	<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	<hr>
-	<a href="writeForm">상품등록del</a>
-
+	
   <!-- 상품 리스트 -->
 
 <table cellpadding="2" cellspacing="5" class="t1" style="margin:50px auto;">
-<tr><td height=50></td></tr>
-<tr>
-<!-- 
-	<td  valign=top>
-	<div style="text-align:center;"><a href="../goods/goods_view"><img src='./images/cr1.png' width=230 /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-		<div class="jnn_goods_name"><span><img src='../data/my_icon_14.gif'></span><a href="../goods/015">요거트 비스켓 100g</a></div>	
-		<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info">
-			<div class="jnn_title">판매가</div>
-			<div class="jnn_price"><a href="../goods/goods_view.php?goodsno=1283&category=015">2,700</a></div>
-		</div>
-		<div class="jnn_goods_info">
-			<div class="jnn_title">적립금</div>
-			<div class="jnn_reserve">20원</div>
-		</div>    
-	</td>
- -->
-	
-	<td  valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/cr0.jpg' width=230 height=150/></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">요거트 비스켓 400g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px;margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div>
-		<div class="jnn_price"><a href="../goods/goods_view.php?goodsno=1280&category=015">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    
-	</td>
-	
-	
-	<td width=30></td>
-		
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/danish_butter_cookies1.jpg' width=230 height=150/></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">허니 비스킷 400g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div>
-		<div class="jnn_price"><a href="../goods/goods_view.php?goodsno=1280&category=015">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    
-	</td>
-	
-	<td width=30></td>
-		
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/cr1.png' width=230  height=150 class=""  /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">토스트 비스킷 320g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div>
-		<div class="jnn_price"><a href="">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    
-	</td>
-	
-	<td width=30></td>
-		
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/choco_bar5.jpg' width=230  height=150 /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">초코 크로와상 290g</a></div>	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div><div class="jnn_price"><a href="">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    
-	</td>
-</tr>
-	
-<tr><td height=60></td></tr>
-	
-<tr>	
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/cr3.jpg' width=230  height=150 class="" /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">살구잼 크로와상 290g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-	<div class="jnn_goods_info"><div class="jnn_title">판매가</div><div class="jnn_price"><a href="">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    
-	</td>
-
-	<td width=30></td>	
-
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/cr5.jpg'' width=230  height=150 class="" /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">통밀 도너츠 290g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div><div class="jnn_price"><a href="">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    </td>
-	<td width=30></td>	
-
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/oreo1.jpg' width=230  height=150 class="" /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"><span><img src=''></span> <a href="">소이아 크래커 400g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div><div class="jnn_price"><a href="">5,300</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">50원</div></div>    </td>
-	<td width=30></td>	
-
-	<td align=left valign=top>
-	<div style="text-align:center;"><a href=""><img src='/mini2_magiclms/jsp/shop/images/dan1.jpg' width=230  height=150 class="" /></a></div>
-	<div style="padding:10px 0 0 0px; text-align:left; width:230px; margin:0 auto;">
-	<div class="jnn_goods_name"> <a href="">메르바 화이트&크랜베리 쿠키 200g</a></div>	
-	<div style="clear:both; height:5px; padding:0; margin:0; border-bottom:1px solid #dddddd; width:230px; margin:0px auto 10px;"></div>
-		<div class="jnn_goods_info"><div class="jnn_title">판매가</div><div class="jnn_price"><a href="">4,600</a></div></div>
-	<div class="jnn_goods_info"><div class="jnn_title">적립금</div><div class="jnn_reserve">40원</div></div>    </td>	
-</tr>
-
-<tr><td height=60></td></tr>
-
-<tr><td height=60></td></tr>
-
-<tr><td height=60></td></tr>
 
 </table>
 

@@ -30,7 +30,11 @@ public class GoodsMainListViewController extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Login login = (Login)session.getAttribute("user");
-		
+		if(login == null){
+			response.sendRedirect("/mini2_magiclms/jsp/main/main.jsp");
+			return;
+		}
+	
 		String memberId = login.getMemberID(); // dell dell  
 		request.setAttribute("memberId", memberId);
 		System.out.println(" 111 ***** memberID = "+ memberId);

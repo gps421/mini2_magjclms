@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <div class="row">
-<div id="banner">안녕</div>
+<div id="banner"></div>
   <nav id="psnav">
       <ul id="psmenu">
           <li><a href="${pageContext.request.contextPath}/introduce">학교소개</a></li>

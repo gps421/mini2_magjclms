@@ -132,7 +132,7 @@
             <ul>
             </ul>
         </li>
-        <li><a href='list?name=toy'>여행</a>
+        <li><a href='list?name=toy'>매직</a>
             <ul>
             </ul>
         </li>
