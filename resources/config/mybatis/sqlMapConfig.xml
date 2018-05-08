@@ -22,6 +22,7 @@
 		<typeAlias alias="professor" type="kr.co.magiclms.domain.Professor" />
 		<typeAlias alias="student" type="kr.co.magiclms.domain.Student" />
 		<typeAlias alias="courseList" type="kr.co.magiclms.domain.CourseList" />
+		<typeAlias alias="notice" type="kr.co.magiclms.domain.Notice" />
 		<typeAlias alias="content" type="kr.co.magiclms.domain.Content" />
 		<typeAlias alias="qna" type="kr.co.magiclms.domain.QnA" />
 		<typeAlias alias="mycourse" type="kr.co.magiclms.domain.MyCourse" />
@@ -53,6 +54,7 @@
 		<mapper resource="config/sqlmap/oracle/orderitem.xml"/>
 		<mapper resource="config/sqlmap/oracle/assignment.xml"/>
 		<mapper resource="config/sqlmap/oracle/announcement.xml"/>
+		<mapper resource="config/sqlmap/oracle/notice.xml"/>
 		<mapper resource="config/sqlmap/oracle/professor.xml"/>
 		<mapper resource="config/sqlmap/oracle/student.xml"/>
 		<mapper resource="config/sqlmap/oracle/courselist.xml"/>

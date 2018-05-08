@@ -3,16 +3,15 @@ package kr.co.magiclms.domain;
 import java.util.Date;
 
 public class Notice {
-	private int noticeNo;
+	private int no;
 	private String title;
 	private String content;
-	private int viewCnt;
 	private Date regDate;
-	public int getNoticeNo() {
-		return noticeNo;
+	public int getNo() {
+		return no;
 	}
-	public void setNoticeNo(int noticeNo) {
-		this.noticeNo = noticeNo;
+	public void setNo(int No) {
+		this.no = No;
 	}
 	public String getTitle() {
 		return title;
@@ -25,12 +24,6 @@ public class Notice {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public int getViewCnt() {
-		return viewCnt;
-	}
-	public void setViewCnt(int viewCnt) {
-		this.viewCnt = viewCnt;
 	}
 	public Date getRegDate() {
 		return regDate;

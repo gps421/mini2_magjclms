@@ -60,12 +60,12 @@
 		<result column="reg_date" property="regDate" />
 	</resultMap>
 	
-<!-- 	<select id="selectCommentByNo" parameterType="int"  -->
-<!-- 	        resultMap="commentMap"> -->
-<!-- 	    select * -->
-<!-- 	      from tb_comment -->
-<!-- 	     where no = #{no}       -->
-<!-- 	</select> -->
+	<select id="selectCommentByNo" parameterType="int" 
+	        resultMap="commentMap">
+	    select *
+	      from tb_comment
+	     where no = #{no}      
+	</select>
     
 	<insert id="insertComment" parameterType="comment">
 		insert into tb_comment(
@@ -75,17 +75,17 @@
 		)
 	</insert>
 	
-<!-- 	<delete id="deleteComment" parameterType="int"> -->
-<!-- 	    delete  -->
-<!-- 	      from tb_comment -->
-<!-- 	     where comment_no = #{commentNo} -->
-<!-- 	</delete> -->
+	<delete id="deleteComment" parameterType="int">
+	    delete 
+	      from tb_comment
+	     where comment_no = #{commentNo}
+	</delete>
 	
-<!-- 	<update id="updateComment" parameterType="comment"> -->
-<!-- 	    update tb_comment -->
-<!-- 	       set content = #{content} -->
-<!-- 	     where comment_no = #{commentNo} -->
-<!-- 	</update>  -->
+	<update id="updateComment" parameterType="comment">
+	    update tb_comment
+	       set content = #{content}
+	     where comment_no = #{commentNo}
+	</update> 
 </mapper>
 
 

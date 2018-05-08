@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+@font-face{
+font-family: 'NanumGothic';
+src: url('font/NanumGothic.eot');
+src: url('font/NanumGothic.eot?#iefix') format('embedded-opentype'),
+	 url('font/NanumGothic.woff') format('woff')
+	 url('font/NanumGothic.ttf') format('truetype'),
+	 url('font/NanumGothic.svg#NanumGothic') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+/* reset */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,blockquote{padding:0;margin:0;font:normal 14px NanumGothic;color:#555}
+ul,ol,dl{list-style:none}
+a:link,a:hover,a:visited,a:active{text-decoration:none; color:#555}
+hr, .off{display:none}
+img{border:0}
+a{display:block}
+button{border:0;background:#fff}
+strong{font-weight:bold}
+body{background:#eee}
+
+
+
+
+/* **********left menu********** */
+
+
+#wapper .dim{position:fixed; top:0; left:0; width:100%; min-height:100%;background:#000; opacity:0.5;display:none}
+#left_menu{position:fixed; top:0; left:-300px; width:280px; min-height:100%;background:#fff; box-shadow:3px 0 15px #333;}
+#left_menu ul.login{display:-webkit-box; background:#1fbc02; border-bottom:1px solid #1a9f02;padding:7px}
+#left_menu ul.login li{width:42px;}
+#left_menu ul.login li:first-child{-webkit-box-flex:1; padding-left:10px;}
+#left_menu ul.login li a{display:-webkit-box; -webkit-box-align:center; -webkit-box-pack:start; color:#fff; font-size:18px}
+#left_menu ul.login li a.login{color:#fff; font-size:13px; text-align:center;}
+#left_menu ul.login li a span.login{display:inline-block;background:url(../images/maver/left_menu.png) no-repeat; width:40px; height:40px; font-size:0; vertical-align:middle; margin-right:5px; } 
+#left_menu ul.login li a.alarm{background:url(../images/maver/left_menu.png) no-repeat -46px -4px;width:40px; height:28px;font-size:0; margin-top:4px; border-right:1px solid #1ba202 }
+#left_menu ul.login li a.menu_close{background:url(../images/maver/left_menu.png) no-repeat -79px -4px; width:30px; height:30px; font-size:0; margin-top:4px;}
+
+#left_menu .menu{background:#efefef; overflow:hidden;}/* 첫번째 부모한테 overflow:hidden먹임 */
+
+#left_menu .menu li{float:left; width:25%}
+#left_menu .menu li a{border:1px solid #d7d7d7; border-width:0 0 1px 1px; text-align:center; font:bold 12px NaNumGothic; height:47px; padding-top:8px}
+#left_menu .menu li:first-child a{border-width: 0 0 1px 0}
+#left_menu .menu li a span{; display:block; width:24px; height:22px; margin:0 auto 2px}
+#left_menu .menu li a span.me{width:44px; background:url(../images/maver/left_menu.png) no-repeat 0px -44px;}
+#left_menu .menu li a span.mail{background:url(../images/maver/left_menu.png) no-repeat -46px -44px;}
+#left_menu .menu li a span.cafe{background:url(../images/maver/left_menu.png) no-repeat -86px -44px;}
+#left_menu .menu li a span.mark{background:url(../images/maver/left_menu.png) no-repeat -121px -44px;}
+#left_menu .menu li a span.cash{width:18px; background:url(../images/maver/left_menu.png) no-repeat -155px -44px;}
+#left_menu .menu li a span.out{width:18px; background:url(../images/maver/left_menu.png) no-repeat -175px -44px;}
+#left_menu .menu li:nth-child(5){width:55%}
+#left_menu .menu li:nth-child(6){width:45%}
+
+#left_menu .menu li:nth-child(5) a span,#left_menu .menu li:nth-child(6) a span{display:inline-block; vertical-align:middle; margin-right:5px}
+#left_menu .menu li:nth-child(5) a,#left_menu .menu li:nth-child(6) a{height:32px; border:1px solid #c6c6c6; border-width:0 0 1px 0 }
+
+
+#left_menu .menu_list{overflow:hidden;}
+#left_menu .menu_list li{float:left; width:25%}
+#left_menu .menu_list li a{font-size:12px;margin-bottom:20px; text-align:center}
+#left_menu .menu_list li a span{margin:0 12px;display:block; width:40px; height:40px; }
+#left_menu .menu_list li a span.blog{ background:url(../images/maver/mobile_icon.png) no-repeat -40px -40px;}
+#left_menu .menu_list li a span.know{ background:url(../images/maver/mobile_icon.png) no-repeat -200px -40px;}
+#left_menu .menu_list li a span.message{ background:url(../images/maver/mobile_icon.png) no-repeat 0px -40px;}
+#left_menu .menu_list li a span.drive{ background:url(../images/maver/mobile_icon.png) no-repeat -200px -80px;}
+#left_menu .menu_list li a span.sport{ background:url(../images/maver/mobile_icon.png) no-repeat -120px 0;}
+#left_menu .menu_list li a span.stock{ background:url(../images/maver/mobile_icon.png) no-repeat -200px 0;}
+#left_menu .menu_list li a span.house{ background:url(../images/maver/mobile_icon.png) no-repeat -40px -120px;}
+#left_menu .menu_list li a span.weather{ background:url(../images/maver/mobile_icon.png) no-repeat -160px -40px;}
+#left_menu .menu_list li a span.webtoon{ background:url(../images/maver/mobile_icon.png) no-repeat -120px -40px;}
+#left_menu .menu_list li a span.dictionary{ background:url(../images/maver/mobile_icon.png) no-repeat -80px -120px;}
+#left_menu .menu_list li a span.map{ background:url(../images/maver/mobile_icon.png) no-repeat -120px -120px;}
+#left_menu .menu_list li a span.music{ background:url(../images/maver/mobile_icon.png) no-repeat 0 -80px;}
+
+#left_menu a.all_menu{text-align:center; margin:13px;border:1px solid #ddd; padding:10px;font:bold 17px NaNumGothic;}
+h2{text-align:right;margin:20px 18px 10px 0;font-size:13px}
+
+
+*/
+
+
+알람 width height: 값다시 정하기
+
+/*white space 처리는 부모한테  line-height:0 font-size:0 
+display:-webkit-box 부모한테 먹여야한다.
+float:left 해제{부모한테 overflow:hidden주던가 밑에 올 태그에 clear:both}
+html에 <div style="clear:both"></div>세번째랑 비슷
+wwww.dbcut.com
+www.gdweb.co.kr
+http://www.gavick.com/joomla-templates.html
+
+http://colouredlines.com.au/ 선택함
+
+http://wallbase.cc/ 배경화면
+선택1.http://library.navercorp.com/main.nhn
+*/

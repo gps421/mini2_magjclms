@@ -23,14 +23,17 @@ public class CommentRegistController extends HttpServlet {
 			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 		
-		int no = Integer.parseInt(request.getParameter("communityNo"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		System.out.println(no);
 		System.out.println("타니?");
 		
 		// 게시판과 파일 테이블에 저장할 글번호를 조회
 		Comment comment = new Comment();
 		comment.setNo(no);
+		comment.setWriter(request.getParameter("writer"));
 		comment.setContent(request.getParameter("content"));
+		System.out.println(request.getParameter("writer"));
+		System.out.println(request.getParameter("content"));
 		
 		// 게시물 저장 처리 부탁..
 		mapper.insertComment(comment);

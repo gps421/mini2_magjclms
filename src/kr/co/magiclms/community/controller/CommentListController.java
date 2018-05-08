@@ -23,8 +23,8 @@ public class CommentListController extends HttpServlet {
 		
 		CommunityMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CommunityMapper.class);
 		
-		int no = Integer.parseInt(request.getParameter("no"));
-		System.out.println(no);
+		int no = Integer.parseInt(request.getParameter("communityNo"));
+		System.out.println("기영아" + no);
 		response.setContentType("application/json; charset=utf-8"); 
 		PrintWriter out = response.getWriter();
 		

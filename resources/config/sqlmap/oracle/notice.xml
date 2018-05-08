@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.repository.mapper.NoticeMapper">
+<mapper namespace="kr.co.magiclms.mapper.NoticeMapper">
 	<resultMap type="notice" id="noticeMap">
-		<result column="notice_no" property="no"/>
+		<result column="no" property="no"/>
 		<result column="title" property="title"/>
 		<result column="content" property="content"/>
-		<result column="view_cnt" property="viewCnt"/>
 		<result column="reg_date" property="regDate"/>
 	</resultMap>
 	<select id="selectNotice" resultMap="noticeMap">
@@ -22,9 +21,9 @@
 	
 	<insert id="insertNotice" parameterType="notice">
 		insert into tb_notice(
-			no, title, content, view_cnt, reg_date
+			no, title, content
 		) values (
-			s_notice_no.val, #{title}, #{content}, #{viewCnt}, #{regDate}
+			s_notiec_no.nextval, #{title}, #{content}
 		)
 	</insert>
 	
