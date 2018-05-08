@@ -29,11 +29,11 @@
             <ul>
             </ul>
         </li>
-        <li><a href='cartlist?memberId=${memberId}'>장바구니</a>
+        <li><a href='cartlist2?memberId=${memberId}'>장바구니</a>
             <ul>
             </ul>
         </li>
-        <li><a href='orderlist?memberId=${memberId}'>구매조회</a>
+        <li><a href='orderlist2?memberId=${memberId}'>구매조회</a>
         </li>
     </ul>
   </div>  	

@@ -23,7 +23,7 @@ public class CartDeleteController extends HttpServlet {
 		int cartNo = Integer.parseInt(request.getParameter("cartNo"));
 		int cartItemNo = Integer.parseInt(request.getParameter("cartItemNo"));
 		
-		System.out.println("**delete*** cartNo = "+cartNo+ ", *** cartItemNo info = " + cartItemNo);
+		System.out.println("[CartDeleteController] cartNo = "+cartNo+ ", *** cartItemNo info = " + cartItemNo);
 		mapper.deleteCartItemByNo(cartItemNo);
 		
 		response.sendRedirect("cartlist?cartNo=" + cartNo);

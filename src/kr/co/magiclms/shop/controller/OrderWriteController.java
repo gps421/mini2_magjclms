@@ -34,11 +34,12 @@ public class OrderWriteController extends HttpServlet {
 		GoodsMapper gmapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
 		OrderMapper omapper = MyAppSqlConfig.getSqlSession().getMapper(OrderMapper.class);
 		OrderItemMapper oimapper = MyAppSqlConfig.getSqlSession().getMapper(OrderItemMapper.class);
+
 		
 		int cartNo = 1; //dell
 		// to get cartNo, You can use also MemberId
 		cartNo = Integer.parseInt(request.getParameter("cartNo"));
-		System.out.println("**order write** cartNo = "+cartNo);
+		System.out.println("[OrderWriteController] **order write** cartNo = "+cartNo);
 		
 		String paymentId = "1"; //dell
 		paymentId = request.getParameter("paymentId");
@@ -51,7 +52,7 @@ public class OrderWriteController extends HttpServlet {
 		Order order = null;
 		order = omapper.selectOrderByName(memberId); 
 		// orderId is needed 
-		System.out.println("**order** ????? cart info = "+order);
+		System.out.println("[OrderWriteController] **order info = "+order);
 		
 		if (order == null){	
 			System.out.println("** Error 주문 전 order 정보가 없습니다. memberId= "+ memberId);
@@ -134,7 +135,7 @@ public class OrderWriteController extends HttpServlet {
 		
 		// delete cart Items of cartNo
 		cmapper.deleteCartItemByCartNo(cartNo);  
-		System.out.println("**BBBBB End of Cart Item delete ****** ");
+		System.out.println("[OrderWriteController] End of OrderWriteController ****** ");
 		
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/order.jsp");
 		//rd.forward(request, response);

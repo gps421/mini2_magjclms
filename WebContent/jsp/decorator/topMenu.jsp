@@ -8,7 +8,7 @@
           <li><a href="${pageContext.request.contextPath}/notice">공지사항</a></li>
           <li><a href="${pageContext.request.contextPath}/lecture">수강</a></li>
           <li><a href="${pageContext.request.contextPath}/mypage">마이페이지</a></li>
-          <li><a href="#">쇼핑몰</a></li>
+          <li><a href="${pageContext.request.contextPath}/shop/list">쇼핑몰</a></li>
           <li><a href="${pageContext.request.contextPath}/community">대학내일</a></li>
       </ul>
   </nav>

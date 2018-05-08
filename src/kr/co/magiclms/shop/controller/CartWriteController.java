@@ -17,6 +17,7 @@ import kr.co.magiclms.mapper.CartMapper;
 import kr.co.magiclms.domain.CartItem;
 import kr.co.magiclms.mapper.CartItemMapper;
 import kr.co.magiclms.domain.Goods;
+import kr.co.magiclms.domain.Login;
 import kr.co.magiclms.domain.Member;
 import kr.co.magiclms.mapper.GoodsMapper;
 
@@ -31,7 +32,7 @@ public class CartWriteController extends HttpServlet {
 		GoodsMapper gmapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
 		
 		HttpSession session = request.getSession();
-		Member login = (Member)session.getAttribute("user");
+		Login login = (Login)session.getAttribute("user");
 		
 //		String memberId = "moonmi"; // dell del &  edit here after login 
 		String memberId = ""; // dell check 
@@ -58,13 +59,14 @@ public class CartWriteController extends HttpServlet {
 			mapper.insertCart(cart); 
 		}
 		
+		cart = mapper.selectCartByName(memberId);
 		// to get cartNo by selectCartByName
 		cartNo = cart.getCartNo();
 		request.setAttribute("cartNo", cart.getCartNo());
-		System.out.println("*cart writer 111** cart info, cartNo = "+cart.getCartNo());	
-		System.out.println("*cart writer** cart info, memberId = "+cart.getMemberId());	
-		System.out.println("*cart writer** cart toString = "+cart.toString());	
-		System.out.println("******* 222222 memberId= "+ memberId);
+		System.out.println("[CartWriteController] ** cart info, cartNo = "+cart.getCartNo());	
+		System.out.println("[CartWriteController] memberId = "+cart.getMemberId());	
+		System.out.println("[CartWriteController] cart toString = "+cart.toString());	
+		System.out.println("[CartWriteController] memberId= "+ memberId);
 		
 		// To get goods data 
 		int goodsNo ;
@@ -108,7 +110,7 @@ public class CartWriteController extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/cart.jsp");
 		rd.forward(request, response);
 
-		System.out.println("** End of CartItem Insert ");
+		System.out.println("** End of CartWriteController ");
 
 //		List<Goods> list = mapper.selectGoods(); 
 //		request.setAttribute("list", list);

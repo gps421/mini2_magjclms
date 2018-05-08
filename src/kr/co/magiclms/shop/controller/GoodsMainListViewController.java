@@ -15,6 +15,7 @@ import org.apache.catalina.mapper.Mapper;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Goods;
+import kr.co.magiclms.domain.Login;
 import kr.co.magiclms.domain.Member;
 import kr.co.magiclms.mapper.GoodsMapper;
 
@@ -25,15 +26,17 @@ public class GoodsMainListViewController extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
 		GoodsMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
-		System.out.println("test 2222 ********** 11");
+		System.out.println("[GoodsMainListViewController] ********** 11");
 
 		HttpSession session = request.getSession();
-		Member login = (Member)session.getAttribute("user");
+		Login login = (Login)session.getAttribute("user");
 		
+		String memberId = login.getMemberID(); // dell dell  
+		request.setAttribute("memberId", memberId);
+		System.out.println(" 111 ***** memberID = "+ memberId);
 		// get memberId and setAttr memberId 
 		// get memberId from session info
-		String memberId = "goops"; // dell dell  
-		request.setAttribute("memberId", memberId);
+		// String memberId = "goops"; // dell dell  
 
 		
 		String category = request.getParameter("name"); 

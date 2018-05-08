@@ -5,10 +5,10 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>자유게시판</title>
+  <title>보드</title>
 </head>
 <body>
-	<h2>자유게시판</h2>
+	<h2>목록</h2>
 	<hr />
 	번호 : ${board.no} <br>
 	제목 : ${board.title} <br>

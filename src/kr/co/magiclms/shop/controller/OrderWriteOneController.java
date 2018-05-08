@@ -46,7 +46,7 @@ public class OrderWriteOneController extends HttpServlet {
 		goodsNo = Integer.parseInt(request.getParameter("goodsNo"));
 		count = Integer.parseInt(request.getParameter("count"));
 		paymentId = request.getParameter("paymentId");
-		System.out.println("**order 111111 write** goodsNo = "+goodsNo);
+		System.out.println("[OrderWriteOneController] write** goodsNo = "+goodsNo);
 
 		Order order = null;
 		order = omapper.selectOrderByName(memberId); 
@@ -77,7 +77,7 @@ public class OrderWriteOneController extends HttpServlet {
 		int orderId = order.getOrderId();
 		request.setAttribute("orderId", order.getOrderId());
 		
-		System.out.println("**order 1111 ** 222222 orderId= "+ orderId);		
+		System.out.println("[OrderWriteOneController] orderId= "+ orderId);		
 		
 		Goods goods = gmapper.selectGoodsDetailByNo(goodsNo);
 		
@@ -114,7 +114,7 @@ public class OrderWriteOneController extends HttpServlet {
 		
 		// delete cart Items of cartNo
 		cmapper.deleteCartItemByCartNo(cartNo);  
-		System.out.println("**BBBBB End of Cart Item delete ****** ");
+		System.out.println("[OrderWriteOneController] End of OrderWriteOneController ****** ");
 		
 		//RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/order.jsp");
 		//rd.forward(request, response);

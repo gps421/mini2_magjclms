@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Goods;
+import kr.co.magiclms.domain.Login;
 //import kr.co.magiclms.domain.Goods;
 //import kr.co.magiclms.domain.Comment;
 import kr.co.magiclms.domain.Member;
@@ -23,14 +24,17 @@ public class GoodsDetailController extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Member login = (Member)session.getAttribute("user");
+		Login login = (Login)session.getAttribute("user");
+		
+		String memberId = login.getMemberID(); // dell dell  
+		request.setAttribute("memberId", memberId);
+		System.out.println(" 111 ***** memberID = "+ memberId);
 		
 //		String memberId = "moonmi"; // dell del 
-		String memberId = "goops"; // dell del 
+//		String memberId = "goops"; // dell del 
 //		String memberId = ""; // dell del and edit here after login 
 //		memberId = request.getParameter("memberId"); 
 
-		request.setAttribute("memberId", memberId);
 //		if(login == null){
 //			response.sendRedirect(request.getContextPath()+"/login/login");
 //			return;
@@ -42,7 +46,7 @@ public class GoodsDetailController extends HttpServlet {
 //		mapper.updateGoodsViewCnt(no);
 		Goods goods = mapper.selectGoodsDetailByNo(no);
 		request.setAttribute("goods", goods);
-		System.out.println("******* Goods info = "+goods);
+		System.out.println("[GoodsDetailController] Goods info = "+goods);
 		
 //		List<Comment> commentList = mapper.selectCommentByNo(no);
 //		request.setAttribute("commentList", commentList);

@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Cart;
 import kr.co.magiclms.domain.CartItem;
+import kr.co.magiclms.domain.Login;
 import kr.co.magiclms.domain.Order;
 import kr.co.magiclms.domain.OrderItem;
 import kr.co.magiclms.mapper.CartItemMapper;
@@ -26,12 +28,6 @@ import kr.co.magiclms.mapper.OrderMapper;
 public class OrderListController extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-//		List<Board> list = mapper.selectBoard(); 
-//		request.setAttribute("list", list);
-//		RequestDispatcher rd = request.getRequestDispatcher("/jsp/board/list.jsp");
-//		rd.forward(request, response);
-//				
 		request.setCharacterEncoding("utf-8");
 		
 		CartMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(CartMapper.class);
@@ -40,16 +36,22 @@ public class OrderListController extends HttpServlet {
 		OrderMapper omapper = MyAppSqlConfig.getSqlSession().getMapper(OrderMapper.class);
 		OrderItemMapper oimapper = MyAppSqlConfig.getSqlSession().getMapper(OrderItemMapper.class);
 		
+		HttpSession session = request.getSession();
+		Login login = (Login)session.getAttribute("user");
+		
+		String memberId = login.getMemberID(); // dell dell  
+		request.setAttribute("memberId", memberId);
+		System.out.println("[OrderListController]** memberID = "+ memberId);
+		
 		int orderId = 1; //dell
 		// to get orderId, You can use also MemberId
 		orderId = Integer.parseInt(request.getParameter("orderId"));
-		System.out.println("**order write** orderId = "+orderId);
+		System.out.println("[OrderListController]** orderId = "+orderId);
 		
-		String memberId = ""; 
 		Order order = omapper.selectOrderByNo(orderId);
         memberId = order.getMemberId();
 		request.setAttribute("memberId", memberId);
-		System.out.println("**order list***** memberId= "+ memberId);		
+		System.out.println("[OrderListController]** memberId= "+ memberId);		
         
 		if(order == null){
 			System.out.println("**order is null ** ?????");
@@ -71,7 +73,7 @@ public class OrderListController extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/orderlist.jsp");
 		rd.forward(request, response);
 //		response.sendRedirect("orderlist?'orderId'=orderId&'memberId'=memberId");
-		System.out.println("** End of OrderItem Insert, After order ");
+		System.out.println("** End of OrderListController, After order ");
 
 //		response.sendRedirect("list");
 	}

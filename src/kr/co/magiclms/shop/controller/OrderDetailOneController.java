@@ -44,7 +44,7 @@ public class OrderDetailOneController extends HttpServlet {
 		request.setAttribute("goodsNo", goodsNo);
 		request.setAttribute("count", count);
 		
-		System.out.println("*orderDetail one*** memberID = "+memberId+ ", *** goodsNo info = " + goodsNo );
+		System.out.println("[OrderDetailOneController] orderDetail one*** memberID = "+memberId+ ", *** goodsNo info = " + goodsNo );
 		
 	
 		//Goods selectGoodsDetailByNo(int no);
@@ -69,7 +69,7 @@ public class OrderDetailOneController extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/orderOne.jsp");
 		rd.forward(request, response);
 
-		System.out.println("** End of drder One 1111111111111 servlet *********** ");
+		System.out.println("** End of drder One [OrderDetailController] servlet *********** ");
 
 //		List<Goods> list = mapper.selectGoods(); 
 //		request.setAttribute("list", list);

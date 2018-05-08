@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Cart;
 import kr.co.magiclms.domain.CartItem;
+import kr.co.magiclms.domain.Login;
 import kr.co.magiclms.domain.Order;
 import kr.co.magiclms.domain.OrderItem;
 import kr.co.magiclms.mapper.CartItemMapper;
@@ -35,8 +37,14 @@ public class OrderList2Controller extends HttpServlet {
 		
 		int orderId = 1; //dell
 		// to get orderId, You can use also MemberId
+		HttpSession session = request.getSession();
+		Login login = (Login)session.getAttribute("user");
 		
-		String memberId = ""; 
+		String memberId = login.getMemberID(); // dell dell  
+		request.setAttribute("memberId", memberId);
+		System.out.println("[OrderList2Controller] ** memberID = "+ memberId);
+		
+		// old code, delete 
 		memberId = request.getParameter("memberId");
 		request.setAttribute("memberId", memberId);
 		
@@ -50,9 +58,7 @@ public class OrderList2Controller extends HttpServlet {
 		orderId = order.getOrderId();
 		request.setAttribute("orderId", order.getOrderId());
 
-		System.out.println("**order list***** memberId= "+ memberId);		
-		System.out.println("**order write** orderId = "+orderId);	
-		
+		System.out.println("[OrderList2Controller] ** orderId = "+orderId);	
 			
 		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
 		int totalShippingCost = 0; 
@@ -61,12 +67,12 @@ public class OrderList2Controller extends HttpServlet {
 		
 		request.setAttribute("orderItemList", orderItemList);
 		
-		System.out.println("*order*** orderItemList= "+orderItemList+ ", *** orderItemList size= " + orderItemList.size());
+		System.out.println("*OrderList2Controller* orderItemList= "+orderItemList+ ", *** orderItemList size= " + orderItemList.size());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/orderlist.jsp");
 		rd.forward(request, response);
 //		response.sendRedirect("orderlist?'orderId'=orderId&'memberId'=memberId");
-		System.out.println("** End of OrderItem Insert, After order ");
+		System.out.println("** End of OrderList2Controller, After order ");
 
 //		response.sendRedirect("list");
 	}

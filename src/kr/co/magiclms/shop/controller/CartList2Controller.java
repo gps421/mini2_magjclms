@@ -15,6 +15,7 @@ import kr.co.magiclms.common.db.MyAppSqlConfig;
 import kr.co.magiclms.domain.Cart;
 import kr.co.magiclms.domain.CartItem;
 import kr.co.magiclms.domain.Goods;
+import kr.co.magiclms.domain.Login;
 import kr.co.magiclms.domain.Member;
 import kr.co.magiclms.mapper.CartItemMapper;
 import kr.co.magiclms.mapper.CartMapper;
@@ -31,7 +32,7 @@ public class CartList2Controller extends HttpServlet {
 		GoodsMapper gmapper = MyAppSqlConfig.getSqlSession().getMapper(GoodsMapper.class);
 
 		HttpSession session = request.getSession();
-		Member login = (Member)session.getAttribute("user");
+		Login login = (Login)session.getAttribute("user");
 				
 		String memberId = ""; // dell del and edit here after login 
 		memberId = request.getParameter("memberId"); 
@@ -55,10 +56,10 @@ public class CartList2Controller extends HttpServlet {
 		request.setAttribute("cartNo", cartNo);
 		request.setAttribute("memberId", memberId);
 
-		System.out.println("*cart writer** cart info, cartNo = "+cart.getCartNo());	
-		System.out.println("*cart writer** cart info, memberId = "+cart.getMemberId());	
+		System.out.println("[CartList2Controller] cart info, cartNo = "+cart.getCartNo());	
+		System.out.println("[CartList2Controller] memberId = "+cart.getMemberId());	
 		System.out.println("*cart writer** cart toString = "+cart.toString());	
-		System.out.println("******* 222222 memberId= "+ memberId);
+		System.out.println("[CartList2Controller] memberId= "+ memberId);
 		
 		// To get cart data 
 		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
@@ -82,7 +83,7 @@ public class CartList2Controller extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/cart.jsp");
 		rd.forward(request, response);
 
-		System.out.println("** End of CartItem Insert ");
+		System.out.println("** End of CartList2Controller");
 
 //		List<Goods> list = mapper.selectGoods(); 
 //		request.setAttribute("list", list);

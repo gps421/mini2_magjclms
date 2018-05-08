@@ -37,7 +37,7 @@ public class OrderDetailController extends HttpServlet {
 		int cartNo = 1; //dell
 
 		if(""== request.getParameter("cartNo")){
-			System.out.println("**no cartNo ****** "); // add treat ******					
+			System.out.println("**no cartNo ****** "); // add treat **					
 		}
 		// to get cartNo, You can use also MemberId
 		cartNo = Integer.parseInt(request.getParameter("cartNo"));
@@ -45,7 +45,7 @@ public class OrderDetailController extends HttpServlet {
 		
 		//request.setAttribute("cartNo", cart.getCartNo());
 		request.setAttribute("cartNo", cartNo);
-		System.out.println("*order detail** cart info, cartNo = "+cartNo);	
+		System.out.println("[OrderDetailController] order detail ** cart info, cartNo = "+cartNo);	
 		
 		int totalPrice = 0, dicountPrice = 0, lastPrice = 0; 
 		int totalShippingCost = 0; 
@@ -53,7 +53,7 @@ public class OrderDetailController extends HttpServlet {
 		
 		request.setAttribute("cartItemList", cartItemList);
 		
-		System.out.println("*orderDetail*** cartItemList= "+cartItemList+ ", *** cartItemList size= " + cartItemList.size());
+		System.out.println("[OrderDetailController] orderDetail*** cartItemList= "+cartItemList+ ", *** cartItemList size= " + cartItemList.size());
 		
 		for(CartItem el: cartItemList){
 			totalPrice += el.getGoodsSum();
@@ -73,7 +73,7 @@ public class OrderDetailController extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/shop/order.jsp");
 		rd.forward(request, response);
 
-		System.out.println("** End of drderDetail servlet *********** ");
+		System.out.println("[OrderDetailController] End of drderDetail servlet *********** ");
 
 //		List<Goods> list = mapper.selectGoods(); 
 //		request.setAttribute("list", list);
