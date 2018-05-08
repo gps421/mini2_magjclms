@@ -85,8 +85,8 @@ ul.mainLnb > li > ul > li > a:hover { background: #444; color: white; }
 		float: left;
 	}
 	.footer {
-		width: 80%;
-		border: 1px solid tomato;
+		width: 99%;
+		border: 1px ;
 		margin: 5px;
 	}
 	.footer { clear: both; }
@@ -173,7 +173,8 @@ ul.mainLnb > li > ul > li > a:hover { background: #444; color: white; }
 		float: left;
 	}
 	.footerOrderDetail {
-		width: 750px;
+		width: 800px;
+/* 		width: 800px; */
 		border: 1px solid tomato;
 		margin: 5px;
 	}
@@ -184,18 +185,52 @@ ul.mainLnb > li > ul > li > a:hover { background: #444; color: white; }
 		margin: 0 auto;
 	}
 	table.headerOrderDetail  th {
-		height: 40px;
+		height: 50px;
 		background: #B3D4F5;
 		color: #444B52;
-		letter-spacing: 2px;
+/* 		letter-spacing: 2px; */
 		border: 1px solid blue;
+		text-align: center;
 	}
 	
 	table.headerOrderDetail  td {
 		padding-left: 2px;
-		height: 60px;
+		height: 50px;
 		text-align: center;
 	}
+	
+    div img:hover {
+		transform: scale(1.1); 
+	}
+
+    div.shop_goods_outer2 img:hover {transform: scale(1.2);}
+    
+    .containerOrderDetailOne{
+		width: 70%; 
+		margin: 0 auto;
+		background: rgb(237, 228, 177);
+	}
+  	.header2OrderDetailOne {
+
+		width: 50%;
+		height: 300px;
+		border: 5px solid #000080;
+		margin-right: 50px;
+		margin-top: 20px;
+		margin-bottom: 20px;		
+		float: right;
+	}	
+	.sideOrderDetailOne {
+
+		width: 20%;
+		height: 300px;
+		border: 5px solid tomato;
+		margin-left: 80px;
+		margin-right: 50px;
+		margin-top: 20px;
+		margin-bottom: 20px;		
+		float: right;
+	}  
 
 
 <style type="text/css"> 	
